@@ -1,0 +1,6 @@
+# travis.yml
+language: ruby
+rvm:
+  - 2.0.0
+before_script:
+  - psql -c 'create database transparenzia_test;' -U postgres
