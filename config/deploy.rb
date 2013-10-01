@@ -1,5 +1,8 @@
 require "bundler/capistrano"
 
+load "config/recipes/base"
+load "config/recipes/nginx"
+
 server "146.185.146.79", :web, :app, :db, primary: true
 
 set :user, "deployer"
