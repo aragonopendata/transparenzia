@@ -4,7 +4,7 @@ require 'importer/inventory'
 
 describe Inventory do
   it "load csv" do
-    csv = CSV.read("data/inmuebles.csv")
+    csv = CSV.read("spec/importer/data/inmuebles.csv")
     previous_size = csv.size
     inventory = Inventory.new(csv)
     previous_size.should eq (inventory.data.size + 1)
@@ -13,7 +13,7 @@ describe Inventory do
   end
 
   it "save to database" do
-    csv = CSV.read("data/inmuebles.csv")
+    csv = CSV.read("spec/importer/data/inmuebles.csv")
     inventory = Inventory.new(csv)
     inventory.save
     inventory.collection.size.should eq inventory.data.size
