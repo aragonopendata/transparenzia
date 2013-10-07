@@ -3,6 +3,8 @@ Transparenzia
 
 Portal de Transparencia del Gobierno de Aragón
 
+[![Build Status](https://travis-ci.org/aragonopendata/transparenzia.png)](https://travis-ci.org/aragonopendata/transparenzia)
+
 Instrucciones para instalar:
 
 - Clonar el repositorio
