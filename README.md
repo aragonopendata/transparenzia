@@ -1,11 +1,8 @@
-Transparenzia
-=============
+# Transparenzia [![Build Status](https://travis-ci.org/aragonopendata/transparenzia.png)](https://travis-ci.org/aragonopendata/transparenzia) [![Code Climate](https://codeclimate.com/github/aragonopendata/transparenzia.png)](https://codeclimate.com/github/aragonopendata/transparenzia)
 
 Portal de Transparencia del Gobierno de Aragón
 
-[![Build Status](https://travis-ci.org/aragonopendata/transparenzia.png)](https://travis-ci.org/aragonopendata/transparenzia)
-
-Instrucciones para instalar:
+## Instalación
 
 - Clonar el repositorio
 - Bundle install
