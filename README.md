@@ -8,3 +8,4 @@ Portal de Transparencia del Gobierno de Aragón
 - Bundle install
 - Configurar el fichero database.yml.example y renombrar a database.yml
 - rake db:create:all
+- Configurar el fichero application.yml.example y renombrar a application.yml

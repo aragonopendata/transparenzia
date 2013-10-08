@@ -1,0 +1,4 @@
+server_root_pass: "insert-your-key"
+server_deployer_pass: "insert-your-key"
+postgresql_production: "insert-your-key"
+new_relic_key: "insert-your-key"
