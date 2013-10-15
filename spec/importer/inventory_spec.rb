@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'importer/inventory_importer'
+require 'importer/inventory'
 
 describe InventoryImporter do
   it "load csv from text" do
