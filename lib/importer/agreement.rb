@@ -22,6 +22,10 @@ class Agreements
     @db.collection("agreement")
   end
 
+  def self.all_by_year(year)
+    self.all.find("Año" => year).to_a
+  end
+
   def self.save(data_by_year)
     collection = self.all
     year = data_by_year.first["Año"]

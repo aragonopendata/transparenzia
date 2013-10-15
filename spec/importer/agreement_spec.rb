@@ -21,7 +21,9 @@ describe AgreementImporter do
   it "saving to the database the data should be stored" do
     @agreement.save
     Agreements.all.size.should eq @agreement.data.size
+    Agreements.all.size.should eq Agreements.all_by_year('1984').size
   end
+
 
   it "saving to the database the same year two times" do
     @agreement.save
