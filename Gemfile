@@ -8,6 +8,7 @@ gem 'pg'
 
 gem 'bson_ext'
 gem 'mongo'
+gem 'iconv'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
