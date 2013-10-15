@@ -13,6 +13,7 @@ describe InventoryImporter do
     text = open("spec/importer/data/inmuebles.csv")
     inventory = InventoryImporter.new(text)
     inventory.save
-    inventory.collection.size.should eq inventory.data.size
+    properties = Properties.all
+    properties.size.should eq inventory.data.size
   end
 end

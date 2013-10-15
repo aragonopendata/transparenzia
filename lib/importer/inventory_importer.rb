@@ -5,7 +5,6 @@ class InventoryImporter
   attr_accessor :keys, :data
 	@keys
   @data
-  @db
   def initialize(text)
     csv = CSV.parse(text)
     @keys = csv.shift
@@ -17,20 +16,25 @@ class InventoryImporter
       } 
       item
     }
-
-    mongo_client = Mongo::MongoClient.new
-    @db = mongo_client.db("transparenzia")
   end
 
   def save
-    collection = @db.collection("inventory")
-    collection.remove
-    @data.each{ |item|
-      collection.insert(item)
-    }
+    Properties.save(@data)
+  end
+end
+
+class Properties
+  def self.all
+    mongo_client = Mongo::MongoClient.new
+    @db = mongo_client.db("transparenzia")
+    @db.collection("inventory")
   end
 
-  def collection
-    collection = @db.collection("inventory")
+  def self.save(new_data)
+    collection = self.all
+    collection.remove
+    new_data.each{ |item|
+      collection.insert(item)
+    }
   end
 end
