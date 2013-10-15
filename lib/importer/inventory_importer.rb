@@ -1,17 +1,19 @@
 require 'mongo'
+require 'csv'
 
-class Inventory
-  attr_accessor :columns, :data
-	@columns
+class InventoryImporter
+  attr_accessor :keys, :data
+	@keys
   @data
   @db
-  def initialize(csv)
-    @columns = csv.shift
+  def initialize(text)
+    csv = CSV.parse(text)
+    @keys = csv.shift
     @data = csv.collect{ |line|
       item = {}
-      @columns.each_index { |column_index|
-        column = @columns[column_index]
-        item[column] = line[column_index]
+      @keys.each_index { |key_index|
+        column = @keys[key_index]
+        item[column] = line[key_index]
       } 
       item
     }
