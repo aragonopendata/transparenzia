@@ -41,6 +41,11 @@ group :test do
   gem "guard-rspec", "~> 3.1.0"
 end
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
