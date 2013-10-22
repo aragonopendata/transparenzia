@@ -1,2 +1,43 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Agrupaciones de datos de personal</h1>
+
+<%if @persons%>
+<h3>Grados/Titulaciones:</h3>
+<ul>
+	<%for titulation in @titulations%>
+	<li><%= titulation %></li>
+	<% end %>
+</ul>
+<h3>Grupos de personal:</h3>
+<ul>
+	<%for group in @groups%>
+	<li><%= group %></li>
+	<% end %>
+</ul>
+<h3>Modalidades:</h3>
+<ul>
+	<%for mode in @modes%>
+	<li><%= mode %></li>
+	<% end %>
+</ul>
+<h3>Áreas de personal:</h3>
+<ul>
+	<%for area in @areas%>
+	<li><%= area %></li>
+	<% end %>
+</ul>
+<h3>División de personal:</h3>
+<ul>
+	<%for division in @divisions%>
+	<li><%= division %></li>
+	<% end %>
+</ul>
+<h3>Subdivisión de personal:</h3>
+<ul>
+	<%for subdivision in @subdivisions%>
+	<li><%= subdivision %></li>
+	<% end %>
+</ul>
+
+
+<%end%>
+
