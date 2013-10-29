@@ -1,6 +1,14 @@
 <h1>Agrupaciones de datos de personal</h1>
+<p><%= @people.size %> empleados públicos</p>
+<p><%= @older['Edad del empleado']%> años tiene el empleado más mayor</p>
+<p><%= @ages_average%> años de media de edad</p> 
+<p><%= @younger['Edad del empleado']%> años tiene el empleado más joven</p> 
 
-<%if @persons%>
+<p><%= @veteran['Trienios_nomina'].to_i * 3%> años en la casa el más antigüo</p>
+<p><%= @triennia_average * 3%> años de media de antigüedad</p> 
+<p><%= @rookie['Trienios_nomina'].to_i * 3%> años en la casa el más reciente</p>
+<p></p>
+<%if @people%>
 <h3>Grados/Titulaciones:</h3>
 <ul>
 	<%for titulation in @titulations%>
