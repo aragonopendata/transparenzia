@@ -18,11 +18,11 @@ class PersonalImporter
   end
 
   def save
-    Persons.save(@data)
+    People.save(@data)
   end
 end
 
-class Persons
+class People
   def self.all
     mongo_client = Mongo::MongoClient.new
     @db = mongo_client.db("transparenzia")

@@ -13,7 +13,7 @@ describe PersonalImporter do
     text = open("spec/importer/data/personal/BLOQUE1.csv").read
     importer = PersonalImporter.new(text)
     importer.save
-    persons = Persons.all
-    persons.size.should eq importer.data.size
+    people = People.all
+    people.size.should eq importer.data.size
   end
 end
