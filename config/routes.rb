@@ -5,13 +5,13 @@ Transparenzia::Application.routes.draw do
   # If you would like to change where this extension is mounted, simply change the :at option to something different.
   #
   # We ask that you don't use the :as option here, as Refinery relies on it being the default of "refinery"
+  get 'personal' => 'personal#index'
   mount Refinery::Core::Engine, :at => '/'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root to: "home#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

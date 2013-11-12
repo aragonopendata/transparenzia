@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class PersonalController < ApplicationController
   def index
     mongo_client = Mongo::MongoClient.new
     db = mongo_client.db("transparenzia")
