@@ -1,12 +1,48 @@
-<h1>Agrupaciones de datos de personal</h1>
-<p><%= @people.size %> empleados públicos</p>
-<p><%= @older['Edad del empleado']%> años tiene el empleado más mayor</p>
-<p><%= @ages_average%> años de media de edad</p> 
-<p><%= @younger['Edad del empleado']%> años tiene el empleado más joven</p> 
-
-<p><%= @veteran['Trienios_nomina'].to_i * 3%> años en la casa el más antigüo</p>
-<p><%= @triennia_average * 3%> años de media de antigüedad</p> 
-<p><%= @rookie['Trienios_nomina'].to_i * 3%> años en la casa el más reciente</p>
+<div style="border: 1px solid #CCC; margin: 20px; padding: 20px; float: left; width: 94%;">
+	<div style="width: 20%; float: left; border-right: 1px solic #ccc;">
+		<p><a href="#">Número de personas</a></p>
+		<p><a href="#">Salarios</a></p>
+		<p><a href="#">Edad</a></p>
+		<p><a href="#">Antigüedad</a></p>
+	</div>
+	<div style="width: 20%; float: left; border-right: 1px solic #ccc;">
+		<p><a href="#">en todo aragón</a></p>
+		<p><a href="#">en todos los departamentos</a></p>
+		<p><a href="#">en todas las modalidades</a></p>
+	</div>
+	<div style="width: 20%; float: left;">
+		<select>
+			<option>seleccione provincia</option>
+		</select>
+		<select>
+			<option>seleccione comarca</option>
+		</select>
+		<input placeholder="nombre de la localidad"></input>
+	</div>
+	<div style="width: 40%; float: right;">
+		<h1 style="font-size: 40px;">Agrupaciones de datos de personal</h1>
+	</div>
+</div>
+<div style="border: 1px solid #CCC; margin: 20px; padding: 20px; float: left; width: 94%;">
+	<div style="width: 26%; float: right;">
+		<h1 style="font-size: 33px;">This is the map handler</h1>
+	</div>
+	<div style="width: 30%; background-color: #ccc; float: left; margin: 0 2% 2% 0;">
+		<p><%= @people.size %> empleados públicos</p>
+		<p><%= @older['Edad del empleado']%> años tiene el empleado más mayor</p>
+	</div>
+	<div style="width: 30%;  background-color: #ccc; float:left; margin: 0 2% 2% 0;">
+		<p><%= @ages_average%> años de media de edad</p> 
+		<p><%= @younger['Edad del empleado']%> años tiene el empleado más joven</p>
+	</div>
+	<div style="width: 30%;  background-color: #ccc; float:left; margin-right: 2%;">
+		<p><%= @veteran['Trienios_nomina'].to_i * 3%> años en la casa el más antigüo</p>
+		<p><%= @triennia_average * 3%> años de media de antigüedad</p>
+	</div>
+	<div style="width: 30%;  background-color: #ccc; float:left; margin-right: 2%;">
+		<p><%= @rookie['Trienios_nomina'].to_i * 3%> años en la casa el más reciente</p>
+	</div>
+</div>
 <p></p>
 <%if @people%>
 <h3>Grados/Titulaciones:</h3>
