@@ -21,7 +21,7 @@ class PersonalController < ApplicationController
     @subdivisions = @people.collect{|person| [person['SubPer'], person['Subdivisión de personal']]}.uniq
     @groups = @people.collect{|person| [person['GrPer'], person['Grupo de personal']]}.uniq
     @areas = @people.collect{|person| [person['ÁPers'], person['Área de personal']]}.uniq
-    
+    mongo_client.close
   end
 
   def average(arr)
