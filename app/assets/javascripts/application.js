@@ -14,3 +14,30 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var geocoder
+$(function() {  
+	geocoder = new google.maps.Geocoder();
+	var map = initialize_map();
+	move_to('La Jacetania, Aragón', map);
+});  
+
+function initialize_map() {
+    var mapOptions = {
+      center: new google.maps.LatLng(41.5976275, -0.9056623),
+      zoom: 7,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    return new google.maps.Map(document.getElementById("map"), mapOptions);
+}
+
+function move_to(place, map){
+	geocoder.geocode( { 'address': place}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      map.setZoom(9)
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}

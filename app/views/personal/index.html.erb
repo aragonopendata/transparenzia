@@ -1,3 +1,16 @@
+<h2>Empleados públicos del Gobierno de Aragón</h2>
+<%= form_tag personal_path, {:method=>'GET'} do %>
+  <%= select_tag(:province, options_for_select(['Huesca', 'Teruel', 'Zaragoza'])) %>
+  <%= submit_tag "Busca" %>
+<% end %>
+
+<style type="text/css">
+ #map{ height: 300px; width:500px; }
+</style>
+
+<div id="map"></div>
+
+
 <h1>Agrupaciones de datos de personal</h1>
 <p><%= @people.size %> empleados públicos</p>
 <p><%= @older['Edad del empleado']%> años tiene el empleado más mayor</p>
@@ -49,3 +62,4 @@
 
 <%end%>
 
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&language=es"></script>
