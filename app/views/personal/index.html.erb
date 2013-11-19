@@ -1,19 +1,20 @@
 <div style="border: 1px solid #CCC; margin: 20px; padding: 20px; float: left; width: 94%;">
-	<div style="width: 20%; float: left; border-right: 1px solic #ccc;">
+	<div style="width: 15%; float: left; border-right: 1px solic #ccc;">
 		<p><a href="#">Número de personas</a></p>
 		<p><a href="#">Salarios</a></p>
 		<p><a href="#">Edad</a></p>
 		<p><a href="#">Antigüedad</a></p>
 	</div>
-	<div style="width: 20%; float: left; border-right: 1px solic #ccc;">
+	<div style="width: 15%; float: left; border-right: 1px solic #ccc;">
 		<p><a href="#">en todo aragón</a></p>
 		<p><a href="#">en todos los departamentos</a></p>
 		<p><a href="#">en todas las modalidades</a></p>
 	</div>
-	<div style="width: 20%; float: left;">
+	<div style="width: 30%; float: left;">
 		<%= form_tag personal_path, {:method=>'GET'} do %>
-		<%= select_tag(:province, options_for_select(provinces)) %>
-		<%= select_tag(:district, options_for_select(districts)) %>
+		<%= select_tag(:province, options_for_select(provinces), prompt: "Seleccione una provincia") %>
+		<%= select_tag(:district, options_for_select(districts), prompt: "Seleccione una comarca") %>
+		<%= select_tag(:modalidad, options_for_select(modalidades), prompt: "Seleccione modalidad") %>		
 		<input placeholder="nombre de la localidad"></input>
 			<%= submit_tag "Busca" %>
 		<% end %>
