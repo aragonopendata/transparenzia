@@ -301,7 +301,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bson_ext
-  capistrano
+  capistrano (~> 2.15.5)
   capybara (~> 2.1.0)
   coffee-rails (~> 4.0.0)
   factory_girl_rails (~> 4.2.1)
