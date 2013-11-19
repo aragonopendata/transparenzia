@@ -45,5 +45,15 @@
 	</div>
 </div>
 
+<div>
+	Hombres: <%= @people.count{|person| person['Sexo']=="1"} %><br>
+	Mujeres: <%= @people.count{|person| person['Sexo']=="2"} %>
+</div>
+<div>
+	<p>Salarios medios por localidad</p>
+	<%for place in @subdivisions%>
+	<%=place[1]%><br>
+	<%end%>
+</div>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&language=es"></script>
