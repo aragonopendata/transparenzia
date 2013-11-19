@@ -6,7 +6,8 @@ namespace :transparenzia do
   desc "Import personal data"
   task :import_personal => :environment do
     text = open("spec/importer/data/personal/BLOQUE1.csv").read
-    importer = PersonalImporter.new(text)
+    payroll_text = open("spec/importer/data/personal/B3_parte1.csv").read
+    importer = PersonalImporter.new(text, payroll_text)
     importer.save
   end
 
