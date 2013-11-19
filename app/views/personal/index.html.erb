@@ -1,8 +1,7 @@
 <h2>Empleados públicos del Gobierno de Aragón</h2>
-<%= form_tag personal_path, {:method=>'GET'} do %>
-  <%= select_tag(:province, options_for_select(['Huesca', 'Teruel', 'Zaragoza'])) %>
-  <%= submit_tag "Busca" %>
-<% end %>
+
+  
+  
 
 <div style="border: 1px solid #CCC; margin: 20px; padding: 20px; float: left; width: 94%;">
 	<div style="width: 20%; float: left; border-right: 1px solic #ccc;">
@@ -17,13 +16,12 @@
 		<p><a href="#">en todas las modalidades</a></p>
 	</div>
 	<div style="width: 20%; float: left;">
-		<select>
-			<option>seleccione provincia</option>
-		</select>
-		<select>
-			<option>seleccione comarca</option>
-		</select>
+		<%= form_tag personal_path, {:method=>'GET'} do %>
+		<%= select_tag(:province, options_for_select(provinces)) %>
+		<%= select_tag(:district, options_for_select(districts)) %>
 		<input placeholder="nombre de la localidad"></input>
+			<%= submit_tag "Busca" %>
+		<% end %>
 	</div>
 	<div style="width: 40%; float: right;">
 		<h1 style="font-size: 40px;">Agrupaciones de datos de personal</h1>
