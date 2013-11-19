@@ -4,6 +4,11 @@ class PersonalController < ApplicationController
     db = mongo_client.db("transparenzia")
     @people = db.collection("personal").find.to_a
     puts @people.first
+    @highest = @people.max_by{|person| person['Bruto perc'].to_i}
+    @lowest = @people.min_by{|person| person['Bruto perc'].to_i}
+    payrolls = @people.collect{|person| person['Bruto perc'].to_i}
+    @payrolls_average = average(payrolls)
+
     @older = @people.max_by{|person| person['Edad del empleado'].to_i}
     @younger = @people.min_by{|person| person['Edad del empleado'].to_i}
     ages = @people.collect{|person| person['Edad del empleado'].to_i}

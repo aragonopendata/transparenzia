@@ -27,17 +27,20 @@
 	</div>
 	<div style="width: 30%; background-color: #ccc; float: left; margin: 0 2% 2% 0;">
 		<p><%= @people.size %> empleados públicos</p>
-		<p><%= @older['Edad del empleado']%> años tiene el empleado más mayor</p>
 	</div>
 	<div style="width: 30%;  background-color: #ccc; float:left; margin: 0 2% 2% 0;">
+		<p><%= @highest['Bruto perc']%> € año es el salario más alto</p>
+		<p><%= @payrolls_average%> € año salario medio de empleados públicos</p> 
+		<p><%= @lowest['Bruto perc']%> € año es el salario más bajo</p>
+	</div>
+	<div style="width: 30%;  background-color: #ccc; float:left; margin-right: 2%;">
+		<p><%= @older['Edad del empleado']%> años tiene el empleado más mayor</p>
 		<p><%= @ages_average%> años de media de edad</p> 
 		<p><%= @younger['Edad del empleado']%> años tiene el empleado más joven</p>
 	</div>
 	<div style="width: 30%;  background-color: #ccc; float:left; margin-right: 2%;">
 		<p><%= @veteran['Trienios_nomina'].to_i * 3%> años en la casa el más antigüo</p>
 		<p><%= @triennia_average * 3%> años de media de antigüedad</p>
-	</div>
-	<div style="width: 30%;  background-color: #ccc; float:left; margin-right: 2%;">
 		<p><%= @rookie['Trienios_nomina'].to_i * 3%> años en la casa el más reciente</p>
 	</div>
 </div>
