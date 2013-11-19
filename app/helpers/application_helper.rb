@@ -1,5 +1,5 @@
 module ApplicationHelper
-  PROVINCES = ["Huesca", "Teruel", "Zaragoza"]
+  PROVINCES = %w(Huesca Teruel Zaragoza)
   DISTRICTS = {
     "Huesca" => [
       "Alto Gállego",
@@ -13,7 +13,7 @@ module ApplicationHelper
       "Sobrarbe",
       "Somontano de Barbastro"
     ],
-    "Teruel" => [
+    "Teruel" => [                   
       "Andorra-Sierra de Arcos",
       "Bajo Aragón",
       "Bajo Martín",
@@ -41,16 +41,44 @@ module ApplicationHelper
       "Valdejalón"
     ]
   }
+
+  MODALIDADES = [ "A disposición del Consejero", 
+                  "Comisión de Servicios dentro de Aragón",
+                  "Desempeño conjunto",
+                  "Desempeño temporal puesto",
+                  "Destino Definitivo",
+                  "Destino Provisional",
+                  "Destino puesto de personal docente ó estatutario",
+                  "Destino Puesto Gestión",
+                  "Destino Sustitucion",
+                  "Docente ó estatutario de la CA que va a un puesto",
+                  "En comisión de servicios",
+                  "En prácticas",
+                  "Fin de periodo ocupacional",
+                  "Fin licencia por estudios",
+                  "Inicio periodo ocupacional",
+                  "Licencia por estudios",
+                  "no $ hasta T.Pos",
+                  "Para otra Admón. Pública",
+                  "Promoción interna temporal",
+                  "Reingreso provisional",
+                  "Retribuciones Fun/Lab",                    
+  ]
+  
   def districts(province=nil)
     if province
       distr = DISTRICTS[province]
     else
       distr = DISTRICTS.collect{|k, v| v}.flatten
     end
-    distr.insert(0, "seleccione una comarca")
+    distr
   end
 
   def provinces
-    PROVINCES.insert(0, "seleccione provincia")
+    PROVINCES
+  end
+
+  def modalidades
+    MODALIDADES
   end
 end
