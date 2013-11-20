@@ -14,7 +14,8 @@
 		<%= form_tag personal_path, {:method=>'GET'} do %>
 		<%= select_tag(:province, options_for_select(provinces), prompt: "Seleccione una provincia") %>
 		<%= select_tag(:district, options_for_select(districts), prompt: "Seleccione una comarca") %>
-		<%= select_tag(:modalidad, options_for_select(modalidades), prompt: "Seleccione modalidad") %>		
+		<%= select_tag(:modality, options_for_select(modalities), prompt: "Seleccione una modalidad") %>	
+		<%= select_tag(:department, options_for_select(@divisions), prompt: "Seleccione un departamento") %>	
 		<input placeholder="nombre de la localidad"></input>
 			<%= submit_tag "Busca" %>
 		<% end %>

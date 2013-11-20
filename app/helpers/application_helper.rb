@@ -42,7 +42,7 @@ module ApplicationHelper
     ]
   }
 
-  MODALIDADES = [ "A disposición del Consejero", 
+  MODALITIES = [ "A disposición del Consejero", 
                   "Comisión de Servicios dentro de Aragón",
                   "Desempeño conjunto",
                   "Desempeño temporal puesto",
@@ -78,7 +78,7 @@ module ApplicationHelper
     PROVINCES
   end
 
-  def modalidades
-    MODALIDADES
+  def modalities
+    MODALITIES
   end
 end
