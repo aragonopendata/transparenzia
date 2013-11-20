@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131112121822) do
+ActiveRecord::Schema.define(version: 20131120170624) do
+
+  create_table "municipalities", force: true do |t|
+    t.string   "name"
+    t.string   "district"
+    t.string   "province"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "refinery_images", force: true do |t|
     t.string   "image_mime_type"
