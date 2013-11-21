@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 20131120170619) do
     t.string   "mutualiadad_administrativa"
     t.string   "gr_cot_conjunto"
     t.integer  "triennia"
+  end
+
+  create_table "municipalities", force: true do |t|
+    t.string   "name"
+    t.string   "district"
+    t.string   "province"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
