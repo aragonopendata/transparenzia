@@ -14,7 +14,7 @@ describe PersonalImporter do
   it "save to database" do
     importer = PersonalImporter.new(@text)
     importer.save
-    people = People.all
+    people = Personal.all
     people.size.should eq importer.data.size
   end
 
@@ -22,7 +22,8 @@ describe PersonalImporter do
     payroll_text = open("spec/importer/data/personal/B3_parte1.csv").read
     importer = PersonalImporter.new(@text, payroll_text)
     importer.save
-    people = People.all
-    people[0]['Bruto perc'].should_not eq nil
+    person = Personal.first
+    puts person.inspect
+    person.payroll.should_not eq nil
   end
 end

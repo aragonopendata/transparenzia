@@ -1,4 +1,3 @@
-require 'mongo'
 require 'csv'
 
 class PersonalImporter
@@ -16,7 +15,7 @@ class PersonalImporter
       }
 
       if @payroll_hash
-        add_payroll(item)
+        item = add_payroll(item)
       else
         item
       end
@@ -24,7 +23,38 @@ class PersonalImporter
   end
 
   def save
-    People.save(@data)
+    Personal.delete_all
+    @data.each do |item|
+      puts item['Nº pers']
+      person = Personal.create(
+          :code => item['Nº pers'],
+          :sex => item['Sexo'],
+          :sex_key => item['Clave de sexo'],
+          :age => item['Edad del empleado'],
+          :titulation => item['GR_Titulac'],
+          :titulation_description => item['Desc_GR_titulac'],
+          :modality => item['Modalidad'],
+          :modality_description => item['Desc Modalidad'],
+          :department => item['DivP'],
+          :department_description => item['División de personal'],
+          :subdivision => item['SubPer'],
+          :subdivision_description => item['Subdivisión de personal'],
+          :group => item['GrPer'],
+          :group_description => item['Grupo de personal'],
+          :area => item['ÁPers'],
+          :area_description => item['Área de personal'],
+          :contrato => item['CC'],
+          :contract_class_description => item['Clase de contrato'],
+          :group_contribution => item['GrCot'],
+          :group_contribution_key => item['Clave del grupo de cotización'],
+          :mutualiadad_administrativa => item['Mutualidad Administrativa'],
+          :GR_COT_Conjunto => item['GR_COT_Conjunto'],
+          :triennia => item['Trienios_nomina'],
+          :payroll => item['Bruto perc']
+        )
+      puts person.code
+    end
+    #Personal.create persons
   end
 
   private 
@@ -38,23 +68,11 @@ class PersonalImporter
     end
     def add_payroll(item)
       payroll = @payroll_hash[item['Nº pers']]
-      item[@payroll_descriptor] = payroll
+      if payroll==nil 
+        item[@payroll_descriptor] = 0 
+      else
+        item[@payroll_descriptor] = payroll
+      end
       item
     end
-end
-
-class People
-  def self.all
-    mongo_client = Mongo::MongoClient.new
-    @db = mongo_client.db("transparenzia")
-    @db.collection("personal")
-  end
-
-  def self.save(new_data)
-    collection = self.all
-    collection.remove
-    new_data.each{ |item|
-      collection.insert(item)
-    }
-  end
 end
