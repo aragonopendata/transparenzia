@@ -25,11 +25,10 @@ class PersonalImporter
   def save
     Personal.delete_all
     @data.each do |item|
-      puts item['Nº pers']
-      person = Personal.create(
+      personal = Personal.new(
           :code => item['Nº pers'],
           :sex => item['Sexo'],
-          :sex_key => item['Clave de sexo'],
+          :sex_description => item['Clave de sexo'],
           :age => item['Edad del empleado'],
           :titulation => item['GR_Titulac'],
           :titulation_description => item['Desc_GR_titulac'],
@@ -43,18 +42,17 @@ class PersonalImporter
           :group_description => item['Grupo de personal'],
           :area => item['ÁPers'],
           :area_description => item['Área de personal'],
-          :contrato => item['CC'],
+          :contract_class => item['CC'],
           :contract_class_description => item['Clase de contrato'],
           :group_contribution => item['GrCot'],
           :group_contribution_key => item['Clave del grupo de cotización'],
           :mutualiadad_administrativa => item['Mutualidad Administrativa'],
-          :GR_COT_Conjunto => item['GR_COT_Conjunto'],
+          :gr_cot_conjunto => item['GR_COT_Conjunto'],
           :triennia => item['Trienios_nomina'],
           :payroll => item['Bruto perc']
         )
-      puts person.code
+      personal.save!
     end
-    #Personal.create persons
   end
 
   private 

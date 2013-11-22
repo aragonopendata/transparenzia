@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20131121194359) do
     t.integer  "triennia"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "payroll"
   end
 
   create_table "refinery_images", force: true do |t|
