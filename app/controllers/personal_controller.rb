@@ -1,22 +1,21 @@
 class PersonalController < ApplicationController
   def index
-    mongo_client = Mongo::MongoClient.new
-    db = mongo_client.db("transparenzia")
-    @people = db.collection("personal").find.to_a
-    puts @people.first
-    @highest = @people.max_by{|person| person['Bruto perc'].to_i}
-    @lowest = @people.min_by{|person| person['Bruto perc'].to_i}
-    payrolls = @people.collect{|person| person['Bruto perc'].to_i}
+    @people = Personal.all.to_a
+    puts @people.first.inspect
+    @highest = @people.max_by{|person| person.payroll.to_i}
+    @lowest = @people.min_by{|person| person.payroll.to_i}
+    payrolls = @people.collect{|person| person.payroll.to_i}
     @payrolls_average = average(payrolls)
 
-    @older = @people.max_by{|person| person['Edad del empleado'].to_i}
-    @younger = @people.min_by{|person| person['Edad del empleado'].to_i}
-    ages = @people.collect{|person| person['Edad del empleado'].to_i}
+    @older = @people.max_by{|person| person.age}
+    @younger = @people.min_by{|person| person.age}
+    ages = @people.collect{|person| person.age}
     @ages_average = average(ages)
 
-    @veteran = @people.max_by{|person| person['Trienios_nomina'].to_i}
-    @rookie = @people.min_by{|person| person['Trienios_nomina'].to_i}
-    triennia = @people.collect{|person| person['Trienios_nomina'].to_i}
+    @veteran = @people.max_by{|person| person.triennia}
+    @rookie = @people.min_by{|person| person.triennia}
+    puts @rookie
+    triennia = @people.collect{|person| person.triennia}
     @triennia_average = average(triennia)
     
 
@@ -26,7 +25,6 @@ class PersonalController < ApplicationController
     @subdivisions = @people.collect{|person| [person['SubPer'], person['Subdivisión de personal']]}.uniq
     @groups = @people.collect{|person| [person['GrPer'], person['Grupo de personal']]}.uniq
     @areas = @people.collect{|person| [person['ÁPers'], person['Área de personal']]}.uniq
-    mongo_client.close
   end
 
   def average(arr)
