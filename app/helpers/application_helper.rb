@@ -55,10 +55,6 @@ module ApplicationHelper
     PROVINCES
   end
 
-  def divisions
-    Personal.all.to_a.collect{|person| person.subdivision_description}.uniq
-  end
-
   def average(arr)
     if arr.size == 0
       0
