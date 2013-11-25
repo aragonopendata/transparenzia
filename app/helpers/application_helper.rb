@@ -81,4 +81,16 @@ module ApplicationHelper
   def modalities
     MODALITIES
   end
+
+  def divisions
+    Personal.all.to_a.collect{|person| person.subdivision_description}.uniq
+  end
+
+  def average(arr)
+    if arr.size == 0
+      0
+    else
+      arr.inject{ |sum, el| sum + el }.to_i / arr.size
+    end
+  end
 end
