@@ -12,9 +12,9 @@
 	</div>
 	<div style="width: 30%; float: left;">
 		<%= form_tag personal_path, {:method=>'GET'} do %>
-		<%= select_tag(:province, options_for_select(provinces), prompt: "Seleccione una provincia") %>
-		<%= select_tag(:modality, options_for_select(modalities), prompt: "Seleccione una modalidad") %>	
-		<%= select_tag(:department, options_for_select(divisions), prompt: "Seleccione un departamento") %>	
+		<%= select_tag(:province, options_for_select(provinces), prompt: "Seleccione una provincia") %><br />
+		<%= select_tag(:modality, options_for_select(modalities), prompt: "Seleccione una modalidad", onchange: 'form.submit()') %><br />
+		<%= select_tag(:department, options_for_select(divisions), prompt: "Seleccione un departamento") %><br />	
 		<input placeholder="nombre de la localidad"></input>
 			<%= submit_tag "Busca" %>
 		<% end %>

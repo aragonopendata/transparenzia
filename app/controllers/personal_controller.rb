@@ -1,6 +1,10 @@
 class PersonalController < ApplicationController
   def index
-    @people = Personal.all.to_a
+    if params[:modality]
+      @people = Personal.where(modality_description: params[:modality])
+    else
+      @people = Personal.all.to_a
+    end
   end
 
 end
