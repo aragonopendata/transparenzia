@@ -33,7 +33,7 @@ module PersonalHelper
     people.min_by{|person| person.payroll}.payroll
   end
   def payroll_average(people)
-    payrolls = @people.collect{|person| person.payroll}
+    payrolls = people.collect{|person| person.payroll}
     average(payrolls)
   end
   def older_age(people)
