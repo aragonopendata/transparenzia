@@ -1,12 +1,12 @@
 module PersonalHelper
   def highest_payroll(people)
-    people.max_by{|person| person.payroll.to_i}.payroll
+    people.max_by{|person| person.payroll}.payroll
   end
   def lowest_payroll(people)
-    people.min_by{|person| person.payroll.to_i}.payroll
+    people.min_by{|person| person.payroll}.payroll
   end
   def payroll_average(people)
-    payrolls = @people.collect{|person| person.payroll.to_i}
+    payrolls = @people.collect{|person| person.payroll}
     average(payrolls)
   end
   def older_age(people)
