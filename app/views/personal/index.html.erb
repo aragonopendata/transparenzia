@@ -50,9 +50,27 @@
 	Hombres: <%= number_of_men(@people) %><br>
 	Mujeres: <%= number_of_women(@people) %>
 </div>
+<br>
 <div>
-	<p>Salarios medios por localidad</p>
-	
+	Salarios medios por localidad<br>
+	<%for personal in Personal.payroll_average_by_place %>
+	<%=personal.subdivision_description%> -  <%=personal.total_payroll%><br>
+	<%end%>
+</div>
+<br>
+<div>
+	Salarios medios por departamentos y centros<br>
+	<%for personal in Personal.payroll_average_by_department %>
+	<%=personal.department_description%> -  <%=personal.total_payroll%><br>
+	<%end%>
+</div>
+<br>
+<div>
+	Salarios medios por tipología de personal<br>
+	<%for personal in Personal.payroll_average_by_titulation %>
+	<%=personal.titulation_description%> -  <%=personal.total_payroll%><br>
+	<%end%>
 </div>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&language=es"></script>
+<br><br>
