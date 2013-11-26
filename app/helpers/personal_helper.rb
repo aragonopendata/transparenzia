@@ -1,6 +1,6 @@
 module PersonalHelper
   def divisions
-    Personal.all.to_a.collect{|person| person.subdivision_description}.uniq
+    Personal.all.to_a.collect{|person| person.department_description}.uniq
   end
   def modalities
     Personal.all.to_a.collect{|person| person.modality_description}.uniq
