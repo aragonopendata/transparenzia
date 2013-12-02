@@ -36,10 +36,10 @@ module PersonalHelper
     average(triennia * 3)
   end
   def number_of_men(people)
-    people.count{|person| person.sex==1}
+    people.to_a.count{|person| person.sex==1}
   end
   def number_of_women(people)
-    people.count{|person| person.sex==2}
+    people.to_a.count{|person| person.sex==2}
   end
   def payroll_average_by_place
     filter_people_results(Personal.payroll_average_by_place)
