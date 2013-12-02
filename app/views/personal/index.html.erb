@@ -13,10 +13,10 @@
 	<div style="width: 30%; float: left;">
 		<%= form_tag personal_path, {:method=>'GET'} do %>
 		<%= select_tag(:province, options_for_select(provinces), prompt: "Seleccione una provincia") %><br />
-		<%= select_tag(:modality, options_for_select(modalities), prompt: "Seleccione una modalidad", onchange: 'form.submit()') %><br />
+		<%= select_tag(:modality, options_for_select(modalities), prompt: "Seleccione una modalidad") %><br />
 		<%= select_tag(:department, options_for_select(divisions), prompt: "Seleccione un departamento") %><br />	
 		<input placeholder="nombre de la localidad"></input>
-			<%= submit_tag "Busca" %>
+			<%= submit_tag "Busca", onclick: 'form.submit()' %>
 		<% end %>
 	</div>
 	<div style="width: 40%; float: right;">
@@ -26,6 +26,7 @@
 <div style="border: 1px solid #CCC; margin: 20px; padding: 20px; float: left; width: 94%;">
 	<div style="width: 26%; float: right; height: 200px;" id="map">
 	</div>
+<% unless @people.empty? %>
 	<div style="width: 30%; background-color: #ccc; float: left; margin: 0 2% 2% 0;">
 		<p><%= @people.size %> empleados públicos</p>
 	</div>
@@ -71,6 +72,11 @@
 	<%=personal.titulation_description%> -  <%=personal.total_payroll%><br>
 	<%end%>
 </div>
+<% else %>
+	<div>
+		<h3>No hay datos disponibles</h3>
+	</div>
+<% end %>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&language=es"></script>
 <br><br>
