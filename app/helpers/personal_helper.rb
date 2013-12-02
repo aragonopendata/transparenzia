@@ -41,4 +41,19 @@ module PersonalHelper
   def number_of_women(people)
     people.count{|person| person.sex==2}
   end
+  def payroll_average_by_place
+    filter_people_results(Personal.payroll_average_by_place)
+  end
+  def payroll_average_by_department
+    filter_people_results(Personal.payroll_average_by_department)
+  end
+  def payroll_average_by_titulation
+    filter_people_results(Personal.payroll_average_by_titulation)
+  end
+
+  def filter_people_results(people)
+    people = people.by_modality(params[:modality])  if params[:modality].present?
+    people = people.by_department(params[:department]) if params[:department].present?
+    people
+  end
 end

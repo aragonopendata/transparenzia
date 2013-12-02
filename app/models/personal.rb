@@ -5,6 +5,9 @@ class Personal < ActiveRecord::Base
     :group_contribution, :group_contribution_key, :mutualiadad_administrativa, :GR_COT_Conjunto,
     :triennia, :payroll
 
+    scope :by_modality, -> (modality) { where(modality_description: modality)}
+    scope :by_department, -> (department) { where(department_description: department) }
+
     def self.payroll_average_by_place
       select("avg(payroll) as total_payroll, subdivision_description").group("subdivision_description")
     end
