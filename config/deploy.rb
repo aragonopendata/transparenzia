@@ -6,6 +6,7 @@ load "config/recipes/unicorn"
 load "config/recipes/postgresql"
 load "config/recipes/nodejs"
 load "config/recipes/rbenv"
+load "config/recipes/sake"
 load "config/recipes/check"
 
 server "146.185.146.79", :web, :app, :db, primary: true
