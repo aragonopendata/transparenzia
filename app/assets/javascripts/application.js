@@ -22,7 +22,43 @@ var geocoder
 $(function() {  
 	geocoder = new google.maps.Geocoder();
 	var map = initialize_map();
-	move_to('La Jacetania, Aragón', map);
+	//move_to('La Jacetania, Aragón', map);
+
+  var genre_percentage = [
+    {
+      key: "Hombres",
+      y: $('#number_of_men').text()
+    },
+    {
+      key: "Mujeres",
+      y: $('#number_of_women').text()
+    }
+  ];
+
+
+nv.addGraph(function() {
+    var width = 200,
+        height = 200;
+
+    var chart = nv.models.pieChart()
+        .x(function(d) { return d.key })
+        .y(function(d) { return d.y })
+        .color(d3.scale.category10().range())
+        .width(width)
+        .height(height);
+
+      d3.select("#genre_percentage")
+          .datum(genre_percentage)
+        .transition().duration(3000)
+          .attr('width', width)
+          .attr('height', height)
+          .call(chart);
+
+    chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
+
+    return chart;
+});
+
 });  
 
 function initialize_map() {

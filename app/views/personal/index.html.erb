@@ -1,3 +1,5 @@
+
+
 <div style="border: 1px solid #CCC; margin: 20px; padding: 20px; float: left; width: 94%;">
 	<div style="width: 15%; float: left; border-right: 1px solic #ccc;">
 		<p><a href="#">Número de personas</a></p>
@@ -48,8 +50,10 @@
 </div>
 
 <div>
-	Hombres: <%= number_of_men(@people) %><br>
-	Mujeres: <%= number_of_women(@people) %>
+	<svg id="genre_percentage"></svg>
+	<br>
+	Hombres: <span id="number_of_men"><%= number_of_men(@people) %></span>/
+	Mujeres: <span id="number_of_women"><%= number_of_women(@people) %></span>
 </div>
 <br>
 <div>
