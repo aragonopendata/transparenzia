@@ -24,42 +24,94 @@ $(function() {
 	var map = initialize_map();
 	//move_to('La Jacetania, Aragón', map);
 
-  var genre_percentage = [
-    {
-      key: "Hombres",
-      y: $('#number_of_men').text()
-    },
-    {
-      key: "Mujeres",
-      y: $('#number_of_women').text()
-    }
-  ];
-
-
-nv.addGraph(function() {
-    var width = 200,
-        height = 200;
-
-    var chart = nv.models.pieChart()
-        .x(function(d) { return d.key })
-        .y(function(d) { return d.y })
-        .color(d3.scale.category10().range())
-        .width(width)
-        .height(height);
-
-      d3.select("#genre_percentage")
-          .datum(genre_percentage)
-        .transition().duration(3000)
-          .attr('width', width)
-          .attr('height', height)
-          .call(chart);
-
-    chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
-
-    return chart;
+  genre_pie();
+  bar_graphs();
 });
 
-});  
+function bar_graphs(){
+  var values = []
+  $('#by_place li').each(function(index) {
+    var label = $(this).find('.label').text();
+    var value = $(this).find('.value').text()
+    values.push({"label" : label , "value" : value});
+  });
+  var barHeight = 40;
+var barInterval = 20;
+var chartHeight = (barHeight + barInterval) * values.length;
+var chartWidth = 400;
+
+ var chart = d3.select("#by_place svg")
+     .attr("class", "chart")
+     .attr("height", chartHeight+20)
+     .attr("width", chartWidth)
+     .append("g")
+     .attr("transform", "translate(20,20)");
+
+  var max = values.length * 10;
+  var maxValue = 60000;
+
+ var y = d3.scale.linear()
+     .domain([0, max])
+     .range([0, chartHeight]);
+
+var x = d3.scale.ordinal()
+     .domain([0, maxValue])
+     .range([0, chartWidth]);
+
+ 
+
+  chart.selectAll("rect")
+      .data(values)
+      .enter()
+      .append("rect")
+      .attr("y",function(d, i){return (barHeight + barInterval) *i; })
+      .attr("x", -20)
+      .attr("height", barHeight)
+      .attr("width", function(d){return d.value/100; });
+
+  var texts = chart.selectAll("text")
+      .data(values)
+      .enter()
+      
+      texts.append("text")
+      .attr("y",function(d, i){return (barHeight + barInterval) * i - barInterval -5; })
+      .attr("dy","20px")
+      .attr("x", -20)
+      .attr("dx","20px")
+      .text(function(d){ return d.label});
+
+      texts.append("text")
+      .attr("y",function(d, i){return (barHeight + barInterval) * i; })
+      .attr("dy","20px")
+      .attr("x", function(d){return d.value/100 - 20; })
+      .attr("dx","5px")
+      .text(function(d){ return d.value});
+}
+
+function genre_pie(){
+  var genre_percentage = [
+    {key: "Hombres", y: $('#number_of_men').text()},
+    {key: "Mujeres", y: $('#number_of_women').text()}
+  ];
+  nv.addGraph(function() {
+    var width = 200, height = 200;
+    var chart = nv.models.pieChart()
+      .x(function(d) { return d.key })
+      .y(function(d) { return d.y })
+      .color(d3.scale.category10().range())
+      .width(width)
+      .height(height);
+    d3.select("#genre_percentage")
+      .datum(genre_percentage)
+      .transition().duration(3000)
+      .attr('width', width)
+      .attr('height', height)
+      .call(chart);
+
+    chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
+    return chart;
+  });
+} 
 
 function initialize_map() {
     var mapOptions = {
