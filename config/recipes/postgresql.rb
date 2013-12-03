@@ -44,4 +44,10 @@ namespace :postgresql do
       break if stream == :err
     end
   end
+
+  desc "Upload databases to server"
+  task :upload_databases, :roles => :web do
+    find_servers_for_current_task(current_task).each do |server|
+    run_locally "rsync -vr spec/importer/data #{user}@#{server.host}:#{shared_path}/"
+  end
 end
