@@ -25,22 +25,26 @@ $(function() {
 	//move_to('La Jacetania, Aragón', map);
 
   genre_pie();
-  bar_graphs();
+  by_place_graph();
 });
 
-function bar_graphs(){
+function by_place_graph(){
   var values = []
   $('#by_place li').each(function(index) {
     var label = $(this).find('.label').text();
     var value = $(this).find('.value').text()
     values.push({"label" : label , "value" : value});
   });
-  var barHeight = 40;
-var barInterval = 20;
-var chartHeight = (barHeight + barInterval) * values.length;
-var chartWidth = 400;
+  bar_graphs(values, "#by_place svg");
+}
 
- var chart = d3.select("#by_place svg")
+function bar_graphs (values, svg_element) {
+  var barHeight = 40;
+  var barInterval = 20;
+  var chartHeight = (barHeight + barInterval) * values.length;
+  var chartWidth = 400;
+
+  var chart = d3.select(svg_element)
      .attr("class", "chart")
      .attr("height", chartHeight+20)
      .attr("width", chartWidth)
@@ -50,11 +54,11 @@ var chartWidth = 400;
   var max = values.length * 10;
   var maxValue = 60000;
 
- var y = d3.scale.linear()
+  var y = d3.scale.linear()
      .domain([0, max])
      .range([0, chartHeight]);
 
-var x = d3.scale.ordinal()
+  var x = d3.scale.ordinal()
      .domain([0, maxValue])
      .range([0, chartWidth]);
 
