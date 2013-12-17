@@ -1,41 +1,39 @@
 require 'json'
-require 'mongo'
+require 'iconv'
 
 class AgreementImporter
   attr_accessor :keys, :data
   @keys
   @data
   def initialize(doc)
+    i = Iconv.new('UTF-8','LATIN1')
+    doc = i.iconv(doc)
+    doc = doc.sub('`','')
     @data = JSON.parse(doc)
     @keys = @data.first.keys
   end
 
   def save
-    Agreements.save(@data)
-  end
-end
-
-class Agreements
-  def self.all
-    mongo_client = Mongo::MongoClient.new
-    @db = mongo_client.db("transparenzia")
-    @db.collection("agreement")
-  end
-
-  def self.all_by_year(year)
-    self.all.find("Año" => year).to_a
-  end
-
-  def self.save(data_by_year)
-    collection = self.all
-    year = data_by_year.first["Año"]
-    collection.remove("Año" => year)
-    data_by_year.each{ |item|
-      collection.insert(item)
-    }
-  end
-
-  def self.remove_all
-    self.all.remove
+    Agreement.destroy_all(:year => @data.first['Año'])
+    @data.each do |item|
+      agreement = Agreement.new(
+          :code => item['Número'],
+          :year => item['Año'], 
+          :section => item['Sección'], 
+          :title => item['Título'], 
+          :agreement_date => item['FechaAcuerdo'],
+          :signature_date => item['FechaFirma'],
+          :validity_date => item['FechaVigencia'], 
+          :signatories => item['Firmantes'], 
+          :dga_contribution => item['AportacionDGA'], 
+          :another_contributions => item['OtrasAportaciones'],
+          :amount => item['Cuantia'],
+          :addendums => item['Addendas'],
+          :observations => item['Observaciones'],
+          :notes => item['Notasmarginales'],
+          :pdf_url => item['UrlPdf']
+        )
+      agreement.save!
+    end
   end
 end
