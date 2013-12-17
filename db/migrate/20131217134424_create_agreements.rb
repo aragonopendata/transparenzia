@@ -8,14 +8,14 @@ class CreateAgreements < ActiveRecord::Migration
       t.date :agreement_date
       t.date :signature_date
       t.date :validity_date
-      t.string :signatories
-      t.string :dga_contribution
-      t.string :another_contributions
-      t.string :amount
-      t.string :addendums
+      t.text :signatories
+      t.text :dga_contribution
+      t.text :another_contributions
+      t.text :amount
+      t.text :addendums
       t.text :observations
       t.text :notes
-      t.string :pdf_url
+      t.text :pdf_url
 
       t.timestamps
     end
