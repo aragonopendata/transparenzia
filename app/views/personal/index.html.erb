@@ -7,7 +7,7 @@
 }
 
 .bar {
-  fill: steelblue;
+  fill: #f49d81;
 }
 
 .x.axis path {
@@ -73,9 +73,8 @@
 </div>
 <br>
 <div id="by_place">
-    <svg style="border:1px solid black"></svg>
- 	
  	<h3>Salarios medios por localidad</h3>
+ 	<svg style="border:1px solid black"></svg>
 	<ul>
 	<%for personal in payroll_average_by_place %>
 		<li><span class="label"><%=personal.subdivision_description%></span> -  <span class="value"><%=personal.total_payroll%></span></li>
@@ -83,20 +82,22 @@
 	</ul>
 </div>
 <br>
-<div>
-	Salarios medios por departamentos y centros<br>
+<div id="by_department">
+	<h3>Salarios medios por departamentos y centros</h3>
+	<svg style="border:1px solid black"></svg>
 	<ul>
 	<%for personal in payroll_average_by_department %>
-		<li><%=personal.department_description%> -  <%=personal.total_payroll%></li>
+		<li><span class="label"><%=personal.department_description%></span> -  <span class="value"><%=personal.total_payroll%></span></li>
 	<%end%>
 	</ul>
 </div>
 <br>
-<div>
-	Salarios medios por tipología de personal<br>
+<div id="by_tipology">
+	<h3>Salarios medios por tipología de personal</h3>
+	<svg style="border:1px solid black"></svg>
 	<ul>
 	<%for personal in payroll_average_by_titulation %>
-		<li><%=personal.titulation_description%> -  <%=personal.total_payroll%></li>
+		<li><span class="label"><%=personal.titulation_description%></span> -  <span class="value"><%=personal.total_payroll%></span></li>
 	<%end%>
 	</ul>
 </div>

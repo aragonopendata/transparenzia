@@ -26,6 +26,8 @@ $(function() {
 
   genre_pie();
   by_place_graph();
+  by_department_graph();
+  by_tipology_graph();
 });
 
 function by_place_graph(){
@@ -37,15 +39,32 @@ function by_place_graph(){
   });
   bar_graphs(values, "#by_place svg");
 }
+function by_department_graph(){
+  var values = []
+  $('#by_department li').each(function(index) {
+    var label = $(this).find('.label').text();
+    var value = $(this).find('.value').text()
+    values.push({"label" : label , "value" : value});
+  });
+  bar_graphs(values, "#by_department svg");
+}
+function by_tipology_graph(){
+  var values = []
+  $('#by_tipology li').each(function(index) {
+    var label = $(this).find('.label').text();
+    var value = $(this).find('.value').text()
+    values.push({"label" : label , "value" : value});
+  });
+  bar_graphs(values, "#by_tipology svg");
+}
 
 function bar_graphs (values, svg_element) {
   var barHeight = 40;
   var barInterval = 20;
   var chartHeight = (barHeight + barInterval) * values.length;
-  var chartWidth = 400;
+  var chartWidth = 800;
 
   var chart = d3.select(svg_element)
-     .attr("class", "chart")
      .attr("height", chartHeight+20)
      .attr("width", chartWidth)
      .append("g")
@@ -68,8 +87,9 @@ function bar_graphs (values, svg_element) {
       .data(values)
       .enter()
       .append("rect")
+      .attr("class", "bar")
       .attr("y",function(d, i){return (barHeight + barInterval) *i; })
-      .attr("x", -20)
+      .attr("x", 100)
       .attr("height", barHeight)
       .attr("width", function(d){return d.value/100; });
 
@@ -78,7 +98,7 @@ function bar_graphs (values, svg_element) {
       .enter()
       
       texts.append("text")
-      .attr("y",function(d, i){return (barHeight + barInterval) * i - barInterval -5; })
+      .attr("y",function(d, i){return (barHeight + barInterval) * i; })
       .attr("dy","20px")
       .attr("x", -20)
       .attr("dx","20px")
@@ -87,7 +107,7 @@ function bar_graphs (values, svg_element) {
       texts.append("text")
       .attr("y",function(d, i){return (barHeight + barInterval) * i; })
       .attr("dy","20px")
-      .attr("x", function(d){return d.value/100 - 20; })
+      .attr("x", function(d){return d.value/100 - 20 + 120; })
       .attr("dx","5px")
       .text(function(d){ return d.value});
 }
