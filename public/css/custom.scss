@@ -6,18 +6,18 @@ $roboto: "Roboto";
 $montserrat: "Montserrat";
 
 @font-face {
-  font-family: 'icomoon';
-  src:url('fonts/icomoon.eot');
-  src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf') format('truetype'),
-    url('fonts/icomoon.woff') format('woff'),
-    url('fonts/icomoon.svg#icomoon') format('svg');
+  font-family: 'icon-aragon';
+  src:url('fonts/icon-aragon.eot');
+  src:url('fonts/icon-aragon.eot?#iefix') format('embedded-opentype'),
+    url('fonts/icon-aragon.ttf') format('truetype'),
+    url('fonts/icon-aragon.woff') format('woff'),
+    url('fonts/icon-aragon.svg#icon-aragon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-  font-family: 'icomoon';
+  font-family: 'icon-aragon';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -32,6 +32,12 @@ $montserrat: "Montserrat";
 
 .icon-arrow-right:before {
   content: "\3e";
+}
+.icon-female:before {
+  content: "\46";
+}
+.icon-male:before {
+  content: "\4d";
 }
 
 // colores
@@ -137,6 +143,13 @@ div.outer-4 {right:1em; }
 [data-body] .todas {font-family:$montserrat; font-size:0.8em; font-weight: 700;}
 [data-body] .mask {display: block; overflow: hidden; height: 290px; width: 290px; position: relative; text-align: center; margin: 0 auto 1em auto; -webkit-border-radius: 180px; -moz-border-radius: 180px; border-radius: 180px;}
 [data-body] .mask img {position: relative; left:-1.5em;}
+[data-body] .wiki {margin:1.5em 0;}
+[data-body] .wiki h4 {width:33%; margin-bottom: 1.5em;}
+[data-body] .wiki > .linea {padding:0.8em 0 0.2em 0; width:33%; float: left;}
+[data-body] .wiki-list {margin-bottom: 1.5em; margin-right:1%;  width:48%; float: left;}
+[data-body] .wiki-list:nth-child(even) {margin-right:0; margin-left:1%; }
+[data-body] .wiki-list span {position:relative; left:-0.5em; top:0.2em; font-size: 0.8em; background: $dark; color:white; width:auto; display: inline-block; float:left; min-height: inherit; padding:0 0.3em 0 0.5em; margin-right: 0.2em; font-family: $montserrat; font-weight: 400;}
+[data-body] .wiki-list p {float: left; font-size: 0.9em; font-family: $roboto; background: none;}
 
 [data-profile] {font-family:$montserrat;}
 [data-profile] h5 {text-align: center; font-size: 0.95em; border-bottom:1px solid darken($grey, 10); margin:0; padding:0.8em 0;}
@@ -155,7 +168,7 @@ div.outer-4 {right:1em; }
 [data-ariadna] p {font-size: 0.7em; font-weight: bold; padding:0.6em 0 0 0; float: left; color:$dark; }
 [data-ariadna] ul {position: relative; left:0.2em; top:0.1em; float: left; padding:0; margin:0;  }
 [data-ariadna] li {display: inline-block; font-size: 0.8em; margin:0 0.2em; position: relative;}
-[data-ariadna] li:after {content:'\3e'; font-family: "icomoon"; position: absolute; right:-0.8em; color:darken($grey, 15); top:0.1em; font-size: 1.3em;}
+[data-ariadna] li:after {content:'\3e'; font-family: "icon-aragon"; position: absolute; right:-0.8em; color:darken($grey, 15); top:0.1em; font-size: 1.3em;}
 [data-ariadna] li:last-child a {color:darken($grey, 25); cursor: default;}
 [data-ariadna] li:last-child:after {content:'';}
 [data-ariadna] li a {padding:0.3em; display: block; color:$dark; }
@@ -169,14 +182,14 @@ div.outer-4 {right:1em; }
 
 // filtros
 [data-filtros] .row {padding:1em 0;}
-[data-filtros] .hollow {background: none; @include round(3px); padding:0.3em 0.5em; margin:0.2em 0; border:1px solid transparentize(white, 0.3); width:100%; text-align: left; font-family:$roboto; font-weight: 300; color:transparentize(white, 0.1);}
+[data-filtros] .hollow {background: none; @include round(3px); padding:0.4em 0.5em 0.5em 0.7em; margin:0.2em 0; border:1px solid transparentize(white, 0.3); width:100%; text-align: left; font-family:$roboto; font-weight: 300; color:transparentize(white, 0.1);}
 [data-filtros] .hollow:hover {background: darken($orange, 7);}
-[data-filtros] .hollow:hover:after {content:'\3e'; font-family: "icomoon"; position: absolute; top:0.25em; font-size: 1.3em; color:transparentize(white, 0.5);}
+[data-filtros] .hollow:hover:after {content:'\3e'; font-family: "icon-aragon"; position: absolute; top:0.4em; font-size: 1.3em; color:transparentize(white, 0.5);}
 
 [data-filtros] .row > .columns:nth-child(1) {border-right:1px dotted white;}
 [data-filtros] .row > .columns:nth-child(3) {border-left:1px dotted white;}
 [data-filtros] .active {border:1px solid transparentize(white, 0); position: relative; color:transparentize(white, 0); cursor:inherit;}
-[data-filtros] .active:after {content:'\3e'; font-family: "icomoon"; position: absolute; top:0.25em; font-size: 1.3em; color:transparentize(white, 0.5);}
+[data-filtros] .active:after {content:'\3e'; font-family: "icon-aragon"; position: absolute; top:0.4em; font-size: 1.3em; color:transparentize(white, 0.5);}
 [data-filtros] .active:hover {background: none;}
 [data-filtros] select {width:80%; background: none; color:white; font-size: 0.97em; line-height: 1.25em; position: relative;}
 
@@ -186,10 +199,29 @@ div.outer-4 {right:1em; }
 .submit-deco:before {content:''; position: absolute; width: 0; height: 0; left:47%; bottom:-10px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $pink;}
 
 // Estadisticas
-[data-stats] {padding:1em 0; }
+[data-stats] {padding-top:1em; padding-bottom:1em;}
 [data-stats] h3 {font-size:2.2em; line-height: 1em; font-family: $roboto; font-weight: 300;}
 [data-stats] h4 {font-size:1.25em; margin-bottom: 1.2em;}
 [data-stats] sub {font-family: $roboto; font-weight: 300;}
+[data-grid] .square {background: $orange; color:white; margin:0.6em; padding:1em; width:46%; max-height: 200px; float: left;}
+[data-grid] .square p, [data-grid] .square p:last-child {min-height: 25px; margin-bottom: 0.8em; font-size: 0.78em; position: relative; font-family: $roboto; font-weight: 400;}
+[data-grid] .square p > sub { position: relative; left:0.2em; top:1.4em; min-height: 15px; display: block; font-size: 0.35em; font-weight: 400; line-height: 0; margin-bottom: 2em;}
+[data-grid] .square .boxed-text {background: $dark; width:auto; display: inline-block; min-height: inherit; margin-bottom: 1.5em; padding:0 0.3em; font-family: $montserrat; font-weight: 700;}
+[data-grid] .square .main-text {font-size: 3.75em; line-height: 0.4em; text-indent: -5px; font-weight: 400; letter-spacing: -1px;}
+[data-map] > .row {text-align: right;}
+[data-map] .map-wrap {padding:0.6em 0.6em 0.6em 0;}
+[data-graph] hr {border-color:$orange; margin:2.6em 0 0 0; }
+[data-graph] hr.less-margin {margin:0 !important; border-color: lighten($dark, 40);}
+[data-graph] h4 {font-family: $montserrat; font-weight: 700; font-size: 0.95em; color:$dark; }
+[data-graph] .subtitle {font-size: 1em; font-weight: 300; font-family: $roboto; margin-top: 1em;}
+[data-graph] .subtitle span {font-size: 2.7em; padding-right: 0.2em; }
+[data-graph] ul {margin:0;}
+[data-graph] ul li {list-style: none; float: left; display: inline-block; padding:0 0.2em; font-size: 3em;}
+[data-graph] ul li span {display: inline-block;}
+[data-graph] ul li span.icon-male, [data-graph] .subtitle span.icon-male {width:35px; color:$orange;}
+[data-graph] ul li span.icon-female, [data-graph] .subtitle span.icon-female {color:lighten($orange, 15);}
+[data-graph] img.dummy {margin-bottom: 1em;}
+[data-graph] a.todas {font-size: 0.8em; font-weight: 700; padding-bottom: 1.5em; display: block;}
 
 .soft-divider {position: relative;}
 .soft-divider:before {content:''; position: absolute; width: 0; height: 0; left:49%; bottom:-8px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $light-grey; z-index: 999;}

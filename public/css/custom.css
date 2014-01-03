@@ -1,13 +1,13 @@
 @import url("//fonts.googleapis.com/css?family=Roboto:400,300|Montserrat:400,700");
 @font-face {
-  font-family: 'icomoon';
-  src: url("fonts/icomoon.eot");
-  src: url("fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf") format("truetype"), url("fonts/icomoon.woff") format("woff"), url("fonts/icomoon.svg#icomoon") format("svg");
+  font-family: 'icon-aragon';
+  src: url("fonts/icon-aragon.eot");
+  src: url("fonts/icon-aragon.eot?#iefix") format("embedded-opentype"), url("fonts/icon-aragon.ttf") format("truetype"), url("fonts/icon-aragon.woff") format("woff"), url("fonts/icon-aragon.svg#icon-aragon") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 [class^="icon-"], [class*=" icon-"] {
-  font-family: 'icomoon';
+  font-family: 'icon-aragon';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -20,6 +20,12 @@
 
 .icon-arrow-right:before {
   content: "\3e"; }
+
+.icon-female:before {
+  content: "\46"; }
+
+.icon-male:before {
+  content: "\4d"; }
 
 .no-scale {
   width: auto !important; }
@@ -345,6 +351,50 @@ div.outer-4 {
   position: relative;
   left: -1.5em; }
 
+[data-body] .wiki {
+  margin: 1.5em 0; }
+
+[data-body] .wiki h4 {
+  width: 33%;
+  margin-bottom: 1.5em; }
+
+[data-body] .wiki > .linea {
+  padding: 0.8em 0 0.2em 0;
+  width: 33%;
+  float: left; }
+
+[data-body] .wiki-list {
+  margin-bottom: 1.5em;
+  margin-right: 1%;
+  width: 48%;
+  float: left; }
+
+[data-body] .wiki-list:nth-child(even) {
+  margin-right: 0;
+  margin-left: 1%; }
+
+[data-body] .wiki-list span {
+  position: relative;
+  left: -0.5em;
+  top: 0.2em;
+  font-size: 0.8em;
+  background: #6f6f6f;
+  color: white;
+  width: auto;
+  display: inline-block;
+  float: left;
+  min-height: inherit;
+  padding: 0 0.3em 0 0.5em;
+  margin-right: 0.2em;
+  font-family: "Montserrat";
+  font-weight: 400; }
+
+[data-body] .wiki-list p {
+  float: left;
+  font-size: 0.9em;
+  font-family: "Roboto";
+  background: none; }
+
 [data-profile] {
   font-family: "Montserrat"; }
 
@@ -411,7 +461,7 @@ div.outer-4 {
 
 [data-ariadna] li:after {
   content: '\3e';
-  font-family: "icomoon";
+  font-family: "icon-aragon";
   position: absolute;
   right: -0.8em;
   color: #c7c1c1;
@@ -455,7 +505,7 @@ div.outer-4 {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  padding: 0.3em 0.5em;
+  padding: 0.4em 0.5em 0.5em 0.7em;
   margin: 0.2em 0;
   border: 1px solid rgba(255, 255, 255, 0.7);
   width: 100%;
@@ -469,9 +519,9 @@ div.outer-4 {
 
 [data-filtros] .hollow:hover:after {
   content: '\3e';
-  font-family: "icomoon";
+  font-family: "icon-aragon";
   position: absolute;
-  top: 0.25em;
+  top: 0.4em;
   font-size: 1.3em;
   color: rgba(255, 255, 255, 0.5); }
 
@@ -489,9 +539,9 @@ div.outer-4 {
 
 [data-filtros] .active:after {
   content: '\3e';
-  font-family: "icomoon";
+  font-family: "icon-aragon";
   position: absolute;
-  top: 0.25em;
+  top: 0.4em;
   font-size: 1.3em;
   color: rgba(255, 255, 255, 0.5); }
 
@@ -546,7 +596,8 @@ div.outer-4 {
   border-top: 10px solid #e5b9a6; }
 
 [data-stats] {
-  padding: 1em 0; }
+  padding-top: 1em;
+  padding-bottom: 1em; }
 
 [data-stats] h3 {
   font-size: 2.2em;
@@ -561,6 +612,110 @@ div.outer-4 {
 [data-stats] sub {
   font-family: "Roboto";
   font-weight: 300; }
+
+[data-grid] .square {
+  background: #c34415;
+  color: white;
+  margin: 0.6em;
+  padding: 1em;
+  width: 46%;
+  max-height: 200px;
+  float: left; }
+
+[data-grid] .square p, [data-grid] .square p:last-child {
+  min-height: 25px;
+  margin-bottom: 0.8em;
+  font-size: 0.78em;
+  position: relative;
+  font-family: "Roboto";
+  font-weight: 400; }
+
+[data-grid] .square p > sub {
+  position: relative;
+  left: 0.2em;
+  top: 1.4em;
+  min-height: 15px;
+  display: block;
+  font-size: 0.35em;
+  font-weight: 400;
+  line-height: 0;
+  margin-bottom: 2em; }
+
+[data-grid] .square .boxed-text {
+  background: #6f6f6f;
+  width: auto;
+  display: inline-block;
+  min-height: inherit;
+  margin-bottom: 1.5em;
+  padding: 0 0.3em;
+  font-family: "Montserrat";
+  font-weight: 700; }
+
+[data-grid] .square .main-text {
+  font-size: 3.75em;
+  line-height: 0.4em;
+  text-indent: -5px;
+  font-weight: 400;
+  letter-spacing: -1px; }
+
+[data-map] > .row {
+  text-align: right; }
+
+[data-map] .map-wrap {
+  padding: 0.6em 0.6em 0.6em 0; }
+
+[data-graph] hr {
+  border-color: #c34415;
+  margin: 2.6em 0 0 0; }
+
+[data-graph] hr.less-margin {
+  margin: 0 !important;
+  border-color: #d5d5d5; }
+
+[data-graph] h4 {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 0.95em;
+  color: #6f6f6f; }
+
+[data-graph] .subtitle {
+  font-size: 1em;
+  font-weight: 300;
+  font-family: "Roboto";
+  margin-top: 1em; }
+
+[data-graph] .subtitle span {
+  font-size: 2.7em;
+  padding-right: 0.2em; }
+
+[data-graph] ul {
+  margin: 0; }
+
+[data-graph] ul li {
+  list-style: none;
+  float: left;
+  display: inline-block;
+  padding: 0 0.2em;
+  font-size: 3em; }
+
+[data-graph] ul li span {
+  display: inline-block; }
+
+[data-graph] ul li span.icon-male, [data-graph] .subtitle span.icon-male {
+  width: 35px;
+  color: #c34415; }
+
+[data-graph] ul li span.icon-female, [data-graph] .subtitle span.icon-female {
+  color: #ea6a3b; }
+
+[data-graph] img.dummy {
+  margin-bottom: 1em; }
+
+[data-graph] a.todas {
+  font-size: 0.8em;
+  font-weight: 700;
+  padding-bottom: 1.5em;
+  display: block; }
 
 .soft-divider {
   position: relative; }
