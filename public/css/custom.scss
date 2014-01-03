@@ -34,7 +34,7 @@ $montserrat: "Montserrat";
   content: "\3e";
 }
 .icon-female:before {
-  content: "\46";
+  content: "\4e";
 }
 .icon-male:before {
   content: "\4d";
@@ -213,13 +213,16 @@ div.outer-4 {right:1em; }
 [data-graph] hr {border-color:$orange; margin:2.6em 0 0 0; }
 [data-graph] hr.less-margin {margin:0 !important; border-color: lighten($dark, 40);}
 [data-graph] h4 {font-family: $montserrat; font-weight: 700; font-size: 0.95em; color:$dark; }
+
 [data-graph] .subtitle {font-size: 1em; font-weight: 300; font-family: $roboto; margin-top: 1em;}
-[data-graph] .subtitle span {font-size: 2.7em; padding-right: 0.2em; }
+[data-graph] .subtitle span {font-size: 2.7em; padding-right: 0.2em; position: relative; top:0.1em;}
+[data-graph] .subtitle span.icon-female {color:lighten($orange, 15);}
 [data-graph] ul {margin:0;}
-[data-graph] ul li {list-style: none; float: left; display: inline-block; padding:0 0.2em; font-size: 3em;}
+[data-graph] ul li {list-style: none; float: left; display: inline-block; padding:0 0.05em; font-size: 4.3em; position: relative; left:0em; line-height:1em !important; }
 [data-graph] ul li span {display: inline-block;}
-[data-graph] ul li span.icon-male, [data-graph] .subtitle span.icon-male {width:35px; color:$orange;}
+[data-graph] ul li span.icon-male, [data-graph] .subtitle span.icon-male {color:$orange;}
 [data-graph] ul li span.icon-female, [data-graph] .subtitle span.icon-female {color:lighten($orange, 15);}
+
 [data-graph] img.dummy {margin-bottom: 1em;}
 [data-graph] a.todas {font-size: 0.8em; font-weight: 700; padding-bottom: 1.5em; display: block;}
 
