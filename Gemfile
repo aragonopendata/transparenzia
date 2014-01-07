@@ -13,6 +13,7 @@ gem 'pg'
 gem 'bson_ext'
 gem 'mongo'
 gem 'iconv'
+gem 'activerecord-import', '>= 0.4.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -37,6 +38,7 @@ gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-mocks'
 end
 
 group :test do

@@ -24,6 +24,9 @@ class PersonalImporter
 
   def save
     Personal.delete_all
+    batch = []
+    batch_size = 1000
+
     @data.each do |item|
       personal = Personal.new(
           :code => item['Nº pers'],
@@ -51,8 +54,13 @@ class PersonalImporter
           :triennia => item['Trienios_nomina'],
           :payroll => item['Bruto perc']
         )
-      personal.save!
+      batch << personal
+      if batch_size < batch.size 
+        Personal.import batch
+        batch = []
+      end
     end
+    Personal.import batch
   end
 
   private 
