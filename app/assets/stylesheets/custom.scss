@@ -1,0 +1,247 @@
+@charset "UTF-8";
+
+// fonts
+@import url("//fonts.googleapis.com/css?family=Roboto:400,300|Montserrat:400,700");
+$roboto: "Roboto";
+$montserrat: "Montserrat";
+
+@font-face {
+  font-family: 'icon-aragon';
+  src:url('fonts/icon-aragon.eot');
+  src:url('fonts/icon-aragon.eot?#iefix') format('embedded-opentype'),
+    url('fonts/icon-aragon.ttf') format('truetype'),
+    url('fonts/icon-aragon.woff') format('woff'),
+    url('fonts/icon-aragon.svg#icon-aragon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icon-aragon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-right:before {
+  content: "\3e";
+}
+.icon-female:before {
+  content: "\4e";
+}
+.icon-male:before {
+  content: "\4d";
+}
+
+// colores
+$dark: #6f6f6f;
+$black: #535353;
+$orange: #c34415;
+$blue: #73a0b7;
+$green: #6f9919;
+$light-grey: #f5f4f4;
+$grey: #ebe9e9;
+$pink: #e5b9a6;
+
+// clases comunes
+.no-scale {width:auto !important;}
+.img-no-scale {width:auto !important; max-width: inherit !important;}
+.no-gap {padding-left: 0; padding-right: 0;}
+@mixin round($rad) {-webkit-border-radius: $rad; -moz-border-radius: $rad; border-radius: $rad;}
+
+/* Foundation overrides evita que colapse */
+@media only screen and (max-width: 60em) {
+  .row {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 60em;
+    *zoom: 1; }
+}
+form {margin:0;}
+/* */
+
+header {background:url('../img/header-bg.png') repeat-x;}
+header .logo {height:33px; overflow: hidden; position: relative;}
+header .logo img {width:inherit !important; position: relative; top:0;}
+header .logo img:hover {top:-2.32em;}
+// comunes menus
+[data-subcat] li a , [data-cat] li a {display: block; text-align: center; }
+// submenu superior
+[data-subcat] {padding-bottom:1.5em; letter-spacing: 0.0025em; font-family: $montserrat, sans-serif; font-weight: 400;}
+[data-subcat] li a {font-size: 0.6em; line-height: 1.2em; padding-bottom: 0.25em; margin-left:1.3em; color:lighten($dark, 40);}
+[data-subcat] li a:hover {color:white;}
+[data-subcat] li:first-child a.active, [data-subcat] li:first-child a:hover {border-bottom:3px solid; border-color: $orange; color:white; cursor:pointer;}
+[data-subcat] li a.active, [data-subcat] li a:hover {border-bottom:3px solid; border-color: $blue; color:white; cursor:pointer;}
+[data-subcat] li:last-child a.active, [data-subcat] li:last-child a:hover {border-bottom:3px solid; border-color: $green; color:white; cursor:pointer;}
+[data-subcat] li {display: inline-block;}
+[data-subcat] li a.active {cursor: inherit !important;}
+
+// menu principal
+[data-cat] {padding:1.55em 0 0 0; font-family: $montserrat, sans-serif; font-weight: 700;}
+[data-cat] li {display: inline-block; padding:0; margin:0; float:left; width:25%; position: relative;}
+[data-cat] li:first-child {border-left:1px solid #ccc;}
+[data-cat] li {border-right:1px solid #ccc; }
+[data-cat] li a {padding:1.8em 0.8em; margin:0 0.8em; font-size: 0.78em; letter-spacing: 0.01em; color:$orange;}
+[data-cat] li a:hover {background: transparentize($orange, 0.1); color:white;}
+
+// menu principal - sub
+.menu-bg {display:none; position: absolute; left:1.3em; width:919px; top:57px; height: 450px; z-index: 1; background: transparentize($orange, 0.1); padding:1em 0.6em;}
+[class|="outer"] {display:none; position: absolute; top:3.6em; left:inherit; width:895px; margin:0 3.25%;}
+div.outer-1 {left:0.8em; }
+div.outer-2 {left:-13.87em;}
+div.outer-3 {left:-28.55em; }
+div.outer-4 {right:1em; }
+[class|="outer"] ul {position: relative; z-index: 999; padding:1em 0.6em; }
+[class|="outer"] ul li, [class|="outer"] ul li:first-child {border:none; margin-left:1em; width:42.2%; padding:0 0 0.5em 1em; position: relative; display: block; }
+[class|="outer"] ul li a:hover {background: darken(transparentize($orange, 0.6), 10);}
+[class|="outer"] ul li a {color:white; display: inline-block; text-align: left; padding:0.6em 1.2em; font-size: 0.9em; letter-spacing: 0.05em;}
+[class|="outer"] ul li a > p {font-size: 1em; text-decoration: none !important; padding:0; margin:0; font-family: $roboto, sans-serif; font-weight: 400; color:white; line-height: 1.25em;}
+[class|="outer"] ul li:hover span {text-decoration: underline;}
+
+[data-cat] nav li:hover > [class|="outer"], [data-cat]:hover > div span.menu-bg {display: block !important;}
+
+//.open {background: darken(transparentize($orange, 0.1), 0); color:white;}
+
+// font spacing and adjust for menu principal on firefox
+@-moz-document url-prefix() { 
+[data-cat] {padding:1.5em 0 0 0;}  
+[data-cat] li a {padding:1.9em 0.8em; margin:0 0.8em; font-size: 0.75em; letter-spacing: 0.005em;}
+}
+
+// index
+.titulo {padding:1em 0;}
+.body-bg {background: $light-grey;}
+
+[data-body] {font-family: $roboto; font-weight: 300; padding-bottom: 4em;}
+[data-body] h2 {font-size: 2.7em; letter-spacing: -1px; padding-bottom: 0.3em; font-family: $roboto;}
+[data-body] h4 {text-align: center; width:22%; float: left; padding-top:0.8em; font-size: 1.3em; color:lighten($dark, 10); font-family: $montserrat, sans-serif !important; font-weight: 400;}
+[data-body] h4.sub-titulo {text-align: inherit; width: auto; font-size: 0.95em; padding-top:1.4em; float: none; letter-spacing: 0.05em;}
+[data-body] h5 {font-family:$montserrat; font-weight: 700; color:$dark; padding-bottom: 0.5em; font-size: 0.9em;}
+[data-body] p {font-family: $roboto; font-weight: 300; color:darken($black, 15); font-size: 1em;}
+[data-body] a, [data-body] a > p {color:$orange;}
+[data-body] a:hover {color:lighten($orange,15);}
+[data-body] .linea {padding:1em 0 0.5em 0; width:39%; float: left;}
+[data-body] .preguntas {padding-bottom: 1.3em;}
+[data-body] .quest {width:300px; float: left; margin:0 0.45em 0 0; padding:0.5em inherit; font-size: 2.5em; border:1px solid $orange; background: none; color:$orange; font-family:$roboto; font-weight: 300 !important;}
+[data-body] .quest:nth-child(3) {margin:0;}
+[data-body] .quest:hover {background: $orange; color:white;}
+[data-body] figure {margin:0 0 1.3em 0; padding:0; text-align: center;}
+[data-body] figcaption {background: white; padding:0.5em; line-height: 1.3em; min-height: 96px; font-size: 1.2em; border-bottom:1px solid lighten($dark, 30); text-align: left;}
+[data-body] figure:hover > figcaption {color:$orange; cursor: pointer;}
+[data-body] figure:active > figcaption {background:none; color:$dark; cursor: pointer;}
+[data-body] .noticias > p:last-child {color:darken($black, 25);}
+[data-body] .todas {font-family:$montserrat; font-size:0.8em; font-weight: 700;}
+[data-body] .mask {display: block; overflow: hidden; height: 290px; width: 290px; position: relative; text-align: center; margin: 0 auto 1em auto; -webkit-border-radius: 180px; -moz-border-radius: 180px; border-radius: 180px;}
+[data-body] .mask img {position: relative; left:-1.5em;}
+[data-body] .wiki {margin:1.5em 0;}
+[data-body] .wiki h4 {width:33%; margin-bottom: 1.5em;}
+[data-body] .wiki > .linea {padding:0.8em 0 0.2em 0; width:33%; float: left;}
+[data-body] .wiki-list {margin-bottom: 1.5em; margin-right:1%;  width:48%; float: left;}
+[data-body] .wiki-list:nth-child(even) {margin-right:0; margin-left:1%; }
+[data-body] .wiki-list span {position:relative; left:-0.5em; top:0.2em; font-size: 0.8em; background: $dark; color:white; width:auto; display: inline-block; float:left; min-height: inherit; padding:0 0.3em 0 0.5em; margin-right: 0.2em; font-family: $montserrat; font-weight: 400;}
+[data-body] .wiki-list p {float: left; font-size: 0.9em; font-family: $roboto; background: none;}
+
+[data-profile] {font-family:$montserrat;}
+[data-profile] h5 {text-align: center; font-size: 0.95em; border-bottom:1px solid darken($grey, 10); margin:0; padding:0.8em 0;}
+[data-profile] ul {margin:0;}
+[data-profile] li { list-style: none; text-align: center; padding:0.6em 0 0.5em 0; border-bottom:1px solid darken($grey, 10); width:100%;}
+[data-profile] li a {font-size: 0.95em; color:$orange;}
+[data-profile] li a:hover {color:lighten($orange, 15);}
+
+// video container
+.video-cont {background: url('../img/bg-video.jpg') repeat-x;}
+.video-inner {padding:1.1em 0; text-align: center;}
+
+// ariadna
+.ariadna-cont {background:$light-grey; border-top:1px solid darken($grey, 15);}
+[data-ariadna] {padding-top:1em; font-family:$roboto; font-weight: 300;} 
+[data-ariadna] p {font-size: 0.7em; font-weight: bold; padding:0.6em 0 0 0; float: left; color:$dark; }
+[data-ariadna] ul {position: relative; left:0.2em; top:0.1em; float: left; padding:0; margin:0;  }
+[data-ariadna] li {display: inline-block; font-size: 0.8em; margin:0 0.2em; position: relative;}
+[data-ariadna] li:after {content:'\3e'; font-family: "icon-aragon"; position: absolute; right:-0.8em; color:darken($grey, 15); top:0.1em; font-size: 1.3em;}
+[data-ariadna] li:last-child a {color:darken($grey, 25); cursor: default;}
+[data-ariadna] li:last-child:after {content:'';}
+[data-ariadna] li a {padding:0.3em; display: block; color:$dark; }
+
+// fichas
+
+.deco-cont {background:$orange;}
+.deco-cont .no-gap {background: url('../img/bg-ficha.jpg') no-repeat center; min-height: 221px; max-height: 222px;}
+.deco-cont .no-gap h3 {font-family: $montserrat; font-weight: 700; color:white; padding:0.5em 1em;}
+[data-cont] h5 {padding-top: 1.8em;}
+
+// filtros
+[data-filtros] .row {padding:1em 0;}
+[data-filtros] .hollow {background: none; @include round(3px); padding:0.4em 0.5em 0.5em 0.7em; margin:0.2em 0; border:1px solid transparentize(white, 0.3); width:100%; text-align: left; font-family:$roboto; font-weight: 300; color:transparentize(white, 0.1);}
+[data-filtros] .hollow:hover {background: darken($orange, 7);}
+[data-filtros] .hollow:hover:after {content:'\3e'; font-family: "icon-aragon"; position: absolute; top:0.4em; font-size: 1.3em; color:transparentize(white, 0.5);}
+
+[data-filtros] .row > .columns:nth-child(1) {border-right:1px dotted white;}
+[data-filtros] .row > .columns:nth-child(3) {border-left:1px dotted white;}
+[data-filtros] .active {border:1px solid transparentize(white, 0); position: relative; color:transparentize(white, 0); cursor:inherit;}
+[data-filtros] .active:after {content:'\3e'; font-family: "icon-aragon"; position: absolute; top:0.4em; font-size: 1.3em; color:transparentize(white, 0.5);}
+[data-filtros] .active:hover {background: none;}
+[data-filtros] select {width:80%; background: none; color:white; font-size: 0.97em; line-height: 1.25em; position: relative;}
+
+.inner-deco {background:$pink; position: relative;}
+.inner-deco input[type="submit"] {position: relative; @include round(3px); margin:1.5em 0; padding:0.9em 0.5em; width:100%; background: $orange; font-family: $montserrat; font-weight: 700; font-size: 0.8em;}
+.submit-deco:after {content:''; position: absolute; width: 0; height: 0; left:47%; top:0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $orange;}
+.submit-deco:before {content:''; position: absolute; width: 0; height: 0; left:47%; bottom:-10px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $pink;}
+
+// Estadisticas
+[data-stats] {padding-top:1em; padding-bottom:1em;}
+[data-stats] h3 {font-size:2.2em; line-height: 1em; font-family: $roboto; font-weight: 300;}
+[data-stats] h4 {font-size:1.25em; margin-bottom: 1.2em;}
+[data-stats] sub {font-family: $roboto; font-weight: 300;}
+[data-grid] .square {background: $orange; color:white; margin:0.6em; padding:1em; width:46%; max-height: 200px; float: left;}
+[data-grid] .square p, [data-grid] .square p:last-child {min-height: 25px; margin-bottom: 0.8em; font-size: 0.78em; position: relative; font-family: $roboto; font-weight: 400;}
+[data-grid] .square p > sub { position: relative; left:0.2em; top:1.4em; min-height: 15px; display: block; font-size: 0.35em; font-weight: 400; line-height: 0; margin-bottom: 2em;}
+[data-grid] .square .boxed-text {background: $dark; width:auto; display: inline-block; min-height: inherit; margin-bottom: 1.5em; padding:0 0.3em; font-family: $montserrat; font-weight: 700;}
+[data-grid] .square .main-text {font-size: 3.75em; line-height: 0.4em; text-indent: -5px; font-weight: 400; letter-spacing: -1px;}
+[data-map] > .row {text-align: right;}
+[data-map] .map-wrap {padding:0.6em 0.6em 0.6em 0;}
+[data-graph] hr {border-color:$orange; margin:2.6em 0 0 0; }
+[data-graph] hr.less-margin {margin:0 !important; border-color: lighten($dark, 40);}
+[data-graph] h4 {font-family: $montserrat; font-weight: 700; font-size: 0.95em; color:$dark; }
+
+[data-graph] .subtitle {font-size: 1em; font-weight: 300; font-family: $roboto; margin-top: 1em;}
+[data-graph] .subtitle span {font-size: 2.7em; padding-right: 0.2em; position: relative; top:0.1em;}
+[data-graph] .subtitle span.icon-female {color:lighten($orange, 15);}
+[data-graph] ul {margin:0;}
+[data-graph] ul li {list-style: none; float: left; display: inline-block; padding:0 0.05em; font-size: 4.3em; position: relative; left:0em; line-height:1em !important; }
+[data-graph] ul li span {display: inline-block;}
+[data-graph] ul li span.icon-male, [data-graph] .subtitle span.icon-male {color:$orange;}
+[data-graph] ul li span.icon-female, [data-graph] .subtitle span.icon-female {color:lighten($orange, 15);}
+
+[data-graph] img.dummy {margin-bottom: 1em;}
+[data-graph] a.todas {font-size: 0.8em; font-weight: 700; padding-bottom: 1.5em; display: block;}
+
+.soft-divider {position: relative;}
+.soft-divider:before {content:''; position: absolute; width: 0; height: 0; left:49%; bottom:-8px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $light-grey; z-index: 999;}
+.soft-divider:after {content:''; position: absolute; width: 0; height: 0; left:49%; bottom:-10px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid darken($grey, 5); z-index:10;}
+
+// footer
+footer {background: $grey; padding:4em 0 0 0; color:lighten($dark, 10); font-family: $roboto; font-weight: 400;}
+footer ul {list-style: none; margin-bottom: 4em; text-indent: -17px;}
+footer li a {color:darken($dark, 10); font-size: 0.8em; padding:1.2em 0; width:80%; }
+footer li a:hover {color:$orange;}
+footer h5 {font-size: 0.8em; margin-bottom: 0.4em; text-align: left; font-family: $montserrat; font-weight: 700; color:darken($dark, 20);}
+footer .logo-ft {padding-top: 0.35em;}
+.sub-footer {background: $black; color:white; padding:1em inherit; font-family: $montserrat; font-weight: 700; border-bottom: 5px solid $orange;}
+.sub-footer h6 {float: left; font-weight: 700; font-size: 0.9em; margin-right: 0.5em; color:$grey; font-family: $montserrat; font-weight: 700;}
+.sub-footer ul {margin-bottom: 0.3em;}
+.sub-footer ul li {display: inline-block; position: relative;}
+.sub-footer ul li a {color:white; font-size: 0.85em; margin:0 0.1em; position: relative; top:0.1em; font-family: $roboto; font-weight: 400;}
+.sub-footer ul li a:hover, .sub-footer p:hover > a {color:$orange;}
+.sub-footer p > a {color:white;}
+.sub-footer p {font-size: 0.85em; font-family: $roboto; font-weight: 400;}

@@ -1,1 +1,24 @@
-<%= Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self).to_html %>
+<header class="clearfix">
+   <div class="row" data-subcat>
+     <div class="large-12 columns">
+      <nav class="right">
+        <li><a href="#" class="active">TRANSPARENCIA</a></li>
+        <li><a href="#" >OPEN DATA</a></li>
+        <li><a href="#" >PARTICIPACIÓN CIUDADANA</a></li>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-5 columns">
+      <%= image_tag("gobaragon-top.png", alt: "Gobierno de Aragón") %>
+    </div>
+    <div class="large-7 columns logo">
+      <%= link_to(image_tag("transparencia-aragon.png", class: "right", alt: Refinery::Core.site_name), root_path, title: Refinery::Core.site_name) %>
+    </div>
+  </div>
+  <div class="row" data-cat>
+    <div class="large-12 columns">
+      <%= render(partial: "refinery/navegation") %>
+    </div>
+  </div>
+</header>
