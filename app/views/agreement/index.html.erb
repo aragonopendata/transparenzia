@@ -1,0 +1,7 @@
+Total convenios firmados <%=@agreements.size%> desde <%= older_year(@agreements)%>
+<br/>
+Entidades involucradas <%= number_of_entities(@agreements)%>
+<br/>
+Total de dinero con convenios con terceros <%= total_of_amount_agreements(@agreements)%>
+<br/><br/>
+<%= link_to "Prueba detalle", agreement_path(@agreements.first.id) %>
