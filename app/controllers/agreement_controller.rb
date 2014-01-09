@@ -1,6 +1,7 @@
 class AgreementController < ApplicationController
   def index
-    @agreements = Agreement.all
+    year = params[:year] ? params[:year] : "2013"
+    @agreements = Agreement.where(:year => year)
   end
 
   def show

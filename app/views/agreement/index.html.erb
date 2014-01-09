@@ -1,7 +1,25 @@
-Total convenios firmados <%=@agreements.size%> desde <%= older_year(@agreements)%>
+<br><br><br>
+
+<%= form_tag agreements_path, {:method=>'GET'} do %>
+		Título del convenio: <%= text_field_tag(:title, params[:title], :placeholder => "escriba el título del convenio") %><br>
+		Firmante: <%= text_field_tag(:signatories, params[:signatories], :placeholder => "escriba el nombre del firmante") %><br>
+		Año: <%= select_tag(:year, options_for_select(2002..2013)) %><br>
+	<%= submit_tag "Filtrar" %>
+<% end %>
+
+Total convenios firmados <%=@agreements.size%> en <%=@agreements.first.year%>
 <br/>
 Entidades involucradas <%= number_of_entities(@agreements)%>
 <br/>
 Total de dinero con convenios con terceros <%= total_of_amount_agreements(@agreements)%>
 <br/><br/>
-<%= link_to "Prueba detalle", agreement_path(@agreements.first.id) %>
+
+<%= agreements_by_moth(@agreements)%>
+
+<br/><br/><br/><br/>
+
+<ul>
+<%for agreement in @agreements %>
+	<li><%= link_to agreement.title, agreement_path(agreement) %>. <%=agreement.validity_date%> <%=agreement.signatories%></li>
+<% end %>
+</ul>
