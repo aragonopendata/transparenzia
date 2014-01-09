@@ -22,7 +22,7 @@ namespace :transparenzia do
   desc "Import agreement data from Aragon Open Data portal"
   task :import_opendata_agreements => :environment do
     
-    (1984..2013).to_a.each do |year|
+    (2002..2013).to_a.each do |year|
       json_text = open("http://www.boa.aragon.es/cgi-bin/RECO/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=RECO&DOCS=1-100000&SEC=OPENDATARECOJSON&SORT=-ANNO%2C-NUME&OPDEF=%26&SEPARADOR=&%40ANNO-GE=#{year}&%40ANNO-LE=#{year}").read
       puts "Imported agreements data from #{year}"
       importer = AgreementImporter.new(json_text)
