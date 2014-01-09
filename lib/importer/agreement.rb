@@ -8,7 +8,7 @@ class AgreementImporter
   def initialize(doc)
     i = Iconv.new('UTF-8','LATIN1')
     doc = i.iconv(doc)
-    doc = doc.sub('`','')
+    doc = doc.gsub('`','')
     @data = JSON.parse(doc)
     @keys = @data.first.keys
   end
