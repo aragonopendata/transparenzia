@@ -46,5 +46,5 @@ Refinery::Pages.configure do |config|
 
   # config.absolute_page_links = false
 
-  # config.show_title_in_body = true
+  config.show_title_in_body = false
 end
