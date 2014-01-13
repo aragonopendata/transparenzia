@@ -14,7 +14,10 @@ Entidades involucradas <%= number_of_entities(@agreements)%>
 Total de dinero con convenios con terceros <%= total_of_amount_agreements(@agreements)%>
 <br/><br/>
 
+<div id="agreements_by_moth">
+<svg style="border:1px solid black"></svg>
 <%= agreements_by_moth(@agreements)%>
+</div>
 
 <br/><br/><br/><br/>
 

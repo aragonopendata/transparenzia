@@ -20,14 +20,16 @@
 
 var geocoder
 $(function() {  
-	geocoder = new google.maps.Geocoder();
-	var map = initialize_map();
-	//move_to('La Jacetania, Aragón', map);
-
   genre_pie();
   by_place_graph();
   by_department_graph();
   by_tipology_graph();
+
+  vertical_graphs();
+
+  geocoder = new google.maps.Geocoder();
+  var map = initialize_map();
+  //move_to('La Jacetania, Aragón', map);
 });
 
 function by_place_graph(){
@@ -109,6 +111,56 @@ function bar_graphs (values, svg_element) {
       .attr("dy","20px")
       .attr("x", function(d){return d.value/100 - 20 + 120; })
       .attr("dx","5px")
+      .text(function(d){ return d.value});
+}
+
+function vertical_graphs() {
+  var svg_element = "#agreements_by_moth svg"
+  var values = []
+  $('#agreements_by_moth li').each(function(index) {
+    var label = $(this).find('.label').text();
+    var value = $(this).find('.value').text()
+    values.push({"label" : label , "value" : value});
+  });
+
+  var barWidth = 5;
+  var barInterval = 30;
+  var chartHeight = 300;
+  var chartWidth = "30%";
+
+  var chart = d3.select(svg_element)
+     .attr("height", chartHeight+20)
+     .attr("width", chartWidth)
+     .append("g")
+     .attr("transform", "translate(20,20)");
+
+  var max = values.length * 10;
+  var maxValue = 60000;
+  var maxHeight 
+
+  chart.selectAll("rect")
+      .data(values)
+      .enter()
+      .append("rect")
+      .attr("y", function(d){return chartHeight-d.value-50; })
+      .attr("x", function(d, i){return (barInterval) *i; })
+      .attr("height", function(d){return d.value; })
+      .attr("width", barWidth);
+
+  var texts = chart.selectAll("text").data(values).enter();
+      
+      texts.append("text")
+      .attr("y", chartHeight - 30)
+      .attr("dy","10px")
+      .attr("x", function(d, i){return (barInterval) * i; })
+      .attr("dx","0px")
+      .text(function(d){ return d.label});
+
+      texts.append("text")
+      .attr("y", function(d){return chartHeight-d.value-100; })
+      .attr("dy","20px")
+      .attr("x", function(d, i){return (barInterval) * i; })
+      .attr("dx","0px")
       .text(function(d){ return d.value});
 }
 
