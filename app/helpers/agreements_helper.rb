@@ -31,33 +31,45 @@ module AgreementsHelper
   end
 
   def total_of_amount_agreements(agreements)
-    size = 0
     total = 0
     agreements.each do |agreement|
-      if agreement.amount and not agreement.amount.empty?
-        amount = clean_number_format(agreement.amount)
-        if is_a_number?(amount)
-          total += amount.to_f
-          size += 1
-        else
-          numbers = get_all_the_numbers_in_string(amount)
-          puts numbers
-          unless numbers.empty?
-            size += 1 
-            numbers.each do |number|
-              number = number.to_f
-              if number > 1000
-                total +=  number
-              end
-            end
-          end
-        end
-      end
+      total += agreement.total_amount
     end
-    total
+    number_with_precision(total, :precision => 2)
   end
 
+  def highest_amount_agreement(agreements)
+    number_with_precision(agreements.max_by{|agreement| agreement.total_amount}.total_amount, :precision => 2)
+  end
 
+  def lowest_amount_agreement(agreements)
+    agreements.delete_if{|agreement| agreement.total_amount <= 0}
+    number_with_precision(agreements.min_by{|agreement| agreement.total_amount}.total_amount, :precision => 2)
+  end
+
+  def dga_contribution_percentage(agreements)
+    agreements = agreements.find_all{|agreement| agreement.dga_contribution_percentage != nil}
+    total_percentage = 0
+    agreements.each do |agreement|
+      total_percentage += agreement.dga_contribution_percentage
+    end
+    if agreements.size > 0
+      percentage = total_percentage / agreements.size * 100
+      number_with_precision(percentage, :precision => 2)
+    end
+  end
+
+  def highest_dga_contribution_percentage(agreements)
+    agreements = agreements.find_all{|agreement| agreement.dga_contribution_percentage != nil}
+    agreement = agreements.max_by{|agreement| agreement.dga_contribution_percentage}
+    number_with_precision(agreement.dga_contribution_percentage*100, :precision=>2) if agreement
+  end
+
+  def lowest_dga_contribution_percentage(agreements)
+    agreements = agreements.find_all{|agreement| agreement.dga_contribution_percentage != nil}
+    agreement = agreements.min_by{|agreement| agreement.dga_contribution_percentage}
+    number_with_precision(agreement.dga_contribution_percentage*100, :precision=>2) if agreement
+  end
 
 private
   def is_a_number?(string)

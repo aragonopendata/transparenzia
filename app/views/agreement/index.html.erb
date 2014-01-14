@@ -10,8 +10,14 @@
 Total convenios firmados <%=@agreements.size%> en <%=@agreements.first.year%>
 <br/>
 Entidades involucradas <%= number_of_entities(@agreements)%>
-<br/>
-Total de dinero con convenios con terceros <%= total_of_amount_agreements(@agreements)%>
+<br/><br/>
+<%= highest_amount_agreement(@agreements)%> € es la mayor aportación<br/>
+Total de dinero con convenios con terceros <%= total_of_amount_agreements(@agreements)%> €<br/>
+<%= lowest_amount_agreement(@agreements)%> € es la menor aportación<br/>
+<br/><br/>
+<%= highest_dga_contribution_percentage(@agreements)%> % es la mayor participación<br/>
+<%=dga_contribution_percentage(@agreements)%> % es la participación enconómica de la DGA<br/>
+<%=lowest_dga_contribution_percentage(@agreements)%> % es la menor participación<br/>
 <br/><br/>
 
 <div id="agreements_by_moth">
