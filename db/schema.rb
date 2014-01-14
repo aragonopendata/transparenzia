@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131217134424) do
+ActiveRecord::Schema.define(version: 20140114123323) do
 
   create_table "agreements", force: true do |t|
     t.string   "code"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20131217134424) do
     t.text     "pdf_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "total_amount"
+    t.decimal  "total_dga_contribution"
+    t.decimal  "dga_contribution_percentage"
   end
 
   create_table "municipalities", force: true do |t|

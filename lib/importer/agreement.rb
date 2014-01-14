@@ -34,6 +34,11 @@ class AgreementImporter
             :notes => item['Notasmarginales'],
             :pdf_url => item['UrlPdf'].gsub("´", "").strip()
           )
+        total_of_amount(agreement)
+        if agreement.year >= 2008 
+          total_dga_contribution(agreement)
+          dga_contribution_percentage(agreement)
+        end
         agreement.save!
       rescue Exception => e
         puts "Error for #{item}"
@@ -41,6 +46,8 @@ class AgreementImporter
       end
     end
   end
+
+private
 
   def convert_text_to_date(text)
     begin
@@ -51,5 +58,54 @@ class AgreementImporter
     if date and date.gregorian?
       date
     end
+  end
+
+  def total_of_amount(agreement)
+    agreement.total_amount = sumatory_of_numbers_in_string(agreement.amount)
+  end
+
+  def total_dga_contribution(agreement)
+    agreement.total_dga_contribution = sumatory_of_numbers_in_string(agreement.dga_contribution)
+  end
+
+  def dga_contribution_percentage(agreement)
+    if agreement.total_amount > 0
+      agreement.dga_contribution_percentage = (agreement.total_dga_contribution / agreement.total_amount)
+    end
+  end
+
+  def sumatory_of_numbers_in_string(string)
+    total = 0
+    if string and not string.empty?
+      string = clean_number_format(string)
+      if is_a_number?(string)
+        total += string.to_f
+      else
+        numbers = get_all_the_numbers_in_string(string)
+        unless numbers.empty?
+          numbers.each do |number|
+            number = number.to_f
+            if number > 1000 #if is less than 1000 euros is desestimated, look like a date year
+              total +=  number
+            end
+          end
+        end
+      end
+    end
+    total
+  end
+
+  def is_a_number?(string)
+    /\A[-+]?[0-9]*\.?[0-9]+\Z/.match(string)
+  end
+
+  def get_all_the_numbers_in_string(string)
+    string.scan /[-+]?[0-9]+\.?[0-9]+/
+  end
+
+  def clean_number_format(string)
+    string.gsub!('.','') #for clean thousands separation in some number formats
+    string.gsub!(',','.') #for change comma decimal separation to dots
+    string.strip
   end
 end
