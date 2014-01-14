@@ -1,7 +1,9 @@
 class AgreementController < ApplicationController
   def index
     year = params[:year] ? params[:year] : "2013"
-    @agreements = Agreement.where(:year => year)
+    title = params[:title]? "%#{params[:title]}%": "%"
+    signatories = params[:signatories]? "%#{params[:signatories]}%": "%"
+    @agreements = Agreement.where(:year => year).where("lower(title) like lower(?)", title).where("lower(signatories) like lower(?)", signatories)
   end
 
   def show
