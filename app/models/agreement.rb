@@ -4,7 +4,6 @@ class Agreement < ActiveRecord::Base
     :addendums, :observations, :notes, :pdf_url
 
   def pdf_urls
-    urls = self.pdf_url.split(",").collect{|url| CGI.escape(url.gsub("´", "").strip())}
-    urls
+    self.pdf_url.split(",").collect{|url| CGI.escape(url)}
   end
 end

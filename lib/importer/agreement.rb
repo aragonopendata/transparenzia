@@ -32,7 +32,7 @@ class AgreementImporter
             :addendums => item['Addendas'],
             :observations => item['Observaciones'],
             :notes => item['Notasmarginales'],
-            :pdf_url => item['UrlPdf']
+            :pdf_url => item['UrlPdf'].gsub("´", "").strip()
           )
         agreement.save!
       rescue Exception => e
