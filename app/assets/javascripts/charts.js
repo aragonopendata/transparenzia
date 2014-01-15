@@ -77,6 +77,21 @@ function line_chart(svg_element, data) {
   var y = d3.scale.linear().domain([0, d3.max(data, function(d) { return parseInt(d.value); } )]).range([height, 0]);
   var x = d3.scale.linear().domain([0, data.length]).range([0, width]);
 
+  function showData(obj, d) {
+    var coord = d3.mouse(obj);
+    var infobox = d3.select(".infobox");
+    // now we just position the infobox roughly where our mouse is
+    infobox.style("left", (coord[0] + 100) + "px" );
+    infobox.style("top", (coord[1] - 175) + "px");
+    $(".infobox").html(d.label + ": " + d.value);
+    console.log(d.label + ": " + d.value);
+    $(".infobox").show();
+  }
+   
+  function hideData() {
+    $(".infobox").hide();
+  }
+
   var yAxisLeft = d3.svg.axis().scale(y).ticks(7).orient("left");
   var xAxis = d3.svg.axis().scale(x).tickSize(-height);
 
@@ -96,7 +111,10 @@ function line_chart(svg_element, data) {
     .attr("fill", "steelblue")
     .attr("r", 5)
     .attr("cx", function(e) { return x(e.key-1)})
-    .attr("cy", function(e) { return y(e.value)});
+    .attr("cy", function(e) { return y(e.value)})
+    .on("mouseover", function(d) { showData(this, d);})
+    .on("mouseout", function(){ hideData();});
+
   graph.append("path").attr("d", line(data));
 
   //adding x and y axis
@@ -137,8 +155,9 @@ function get_values_for_charts(elements_list){
   var values = [];
   elements_list.each(function(index) {
     var label = $(this).find('.label').text();
-    var value = $(this).find('.value').text()
-    values.push({"label" : label ,"key" : label , "value" : value});
+    var value = $(this).find('.value').text();
+    var key = $(this).find('.key').text();
+    values.push({"label" : label ,"key" : key , "value" : value});
   });
   return values;
 }

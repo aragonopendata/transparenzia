@@ -24,7 +24,7 @@ module AgreementsHelper
     
     html = "<ul>"
     group.sort.each do |month, agreements|
-       html << "<li>Mes: <span class='label'>#{month}</span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
+       html << "<li>Mes: <span class='key'>#{month}</span> <span class='label'>#{Date::MONTHNAMES[month]}</span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
     end
     html << "</ul>"
     html.html_safe
