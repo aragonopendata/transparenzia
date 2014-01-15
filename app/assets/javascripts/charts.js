@@ -121,9 +121,6 @@ function line_chart(svg_element, data) {
   graph.append("g")
     .attr("transform", "translate(-25,0)")
     .call(yAxisLeft);
-  graph.append("g")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
 }
 
 function genre_pie(){
