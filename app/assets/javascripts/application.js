@@ -26,7 +26,7 @@ $(function() {
   by_department_graph();
   by_tipology_graph();
 
-  line_charts();
+  number_of_agreements_by_month();
 
   geocoder = new google.maps.Geocoder();
   var map = initialize_map();

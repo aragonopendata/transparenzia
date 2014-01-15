@@ -1,28 +1,13 @@
 function by_place_graph(){
-  var values = []
-  $('#by_place li').each(function(index) {
-    var label = $(this).find('.label').text();
-    var value = $(this).find('.value').text()
-    values.push({"label" : label , "value" : value});
-  });
+  var values = get_values_for_charts($('#by_place li'));
   bar_graphs(values, "#by_place svg");
 }
 function by_department_graph(){
-  var values = []
-  $('#by_department li').each(function(index) {
-    var label = $(this).find('.label').text();
-    var value = $(this).find('.value').text()
-    values.push({"label" : label , "value" : value});
-  });
+  var values = get_values_for_charts($('#by_department li'));
   bar_graphs(values, "#by_department svg");
 }
 function by_tipology_graph(){
-  var values = []
-  $('#by_tipology li').each(function(index) {
-    var label = $(this).find('.label').text();
-    var value = $(this).find('.value').text()
-    values.push({"label" : label , "value" : value});
-  });
+  var values = get_values_for_charts($('#by_tipology li'));
   bar_graphs(values, "#by_tipology svg");
 }
 
@@ -80,18 +65,20 @@ function bar_graphs (values, svg_element) {
       .text(function(d){ return d.value});
 }
 
-function line_charts() {
-  var svg_element = "#agreements_by_moth svg"
-  var data = get_values_for_charts($('#agreements_by_moth li'));
+function number_of_agreements_by_month(){
+  line_chart ("#agreements_by_moth svg", get_values_for_charts($('#agreements_by_moth li')));
+}
 
+function line_chart(svg_element, data) {
   var margins = [20, 30, 20, 60];
   var width = 600 - margins[1] - margins[3];
   var height = 360 - margins[0] - margins[2];
 
+  console.log(d3.max(data, function(d) { return d.value; } ));
   var y = d3.scale.linear().domain([0, d3.max(data, function(d) { return d.value; } )]).range([height, 0]);
   var x = d3.scale.linear().domain([0, data.length]).range([0, width]);
 
-  var yAxisLeft = d3.svg.axis().scale(y).ticks(7).orient("left");
+  var yAxisLeft = d3.svg.axis().scale(y).ticks(10).orient("left");
   var xAxis = d3.svg.axis().scale(x).tickSize(-height);
 
   var line = d3.svg.line()
