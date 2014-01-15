@@ -25,7 +25,7 @@ $(function() {
   by_department_graph();
   by_tipology_graph();
 
-  vertical_graphs();
+  line_charts();
 
   geocoder = new google.maps.Geocoder();
   var map = initialize_map();
@@ -114,54 +114,46 @@ function bar_graphs (values, svg_element) {
       .text(function(d){ return d.value});
 }
 
-function vertical_graphs() {
+function line_charts() {
   var svg_element = "#agreements_by_moth svg"
-  var values = []
-  $('#agreements_by_moth li').each(function(index) {
-    var label = $(this).find('.label').text();
-    var value = $(this).find('.value').text()
-    values.push({"label" : label , "value" : value});
-  });
+  var data = get_values_for_charts($('#agreements_by_moth li'));
 
-  var barWidth = 5;
-  var barInterval = 30;
-  var chartHeight = 300;
-  var chartWidth = "30%";
+  var margins = [20, 30, 20, 60];
+  var width = 600 - margins[1] - margins[3];
+  var height = 360 - margins[0] - margins[2];
 
-  var chart = d3.select(svg_element)
-     .attr("height", chartHeight+20)
-     .attr("width", chartWidth)
+  var y = d3.scale.linear().domain([0, d3.max(data, function(d) { return d.value; } )]).range([height, 0]);
+  var x = d3.scale.linear().domain([0, data.length]).range([0, width]);
+
+  var yAxisLeft = d3.svg.axis().scale(y).ticks(7).orient("left");
+  var xAxis = d3.svg.axis().scale(x).tickSize(-height);
+
+  var line = d3.svg.line()
+    .x(function(d, i) {return x(d.key-1);})
+    .y(function(d) {return y(d.value);});
+
+  var graph = d3.select(svg_element)
+     .attr("height", height + margins[0] + margins[2])
+     .attr("width", width + margins[1] + margins[3])
      .append("g")
-     .attr("transform", "translate(20,20)");
+     .attr("transform", "translate(" + margins[3] + "," + margins[0] + ")");
+  graph
+    .selectAll("circle")
+    .data(data)
+    .enter().append("circle")
+    .attr("fill", "steelblue")
+    .attr("r", 5)
+    .attr("cx", function(e) { return x(e.key-1)})
+    .attr("cy", function(e) { return y(e.value)});
+  graph.append("path").attr("d", line(data));
 
-  var max = values.length * 10;
-  var maxValue = 60000;
-  var maxHeight 
-
-  chart.selectAll("rect")
-      .data(values)
-      .enter()
-      .append("rect")
-      .attr("y", function(d){return chartHeight-d.value-50; })
-      .attr("x", function(d, i){return (barInterval) *i; })
-      .attr("height", function(d){return d.value; })
-      .attr("width", barWidth);
-
-  var texts = chart.selectAll("text").data(values).enter();
-      
-      texts.append("text")
-      .attr("y", chartHeight - 30)
-      .attr("dy","10px")
-      .attr("x", function(d, i){return (barInterval) * i; })
-      .attr("dx","0px")
-      .text(function(d){ return d.label});
-
-      texts.append("text")
-      .attr("y", function(d){return chartHeight-d.value-100; })
-      .attr("dy","20px")
-      .attr("x", function(d, i){return (barInterval) * i; })
-      .attr("dx","0px")
-      .text(function(d){ return d.value});
+  //adding x and y axis
+  graph.append("g")
+    .attr("transform", "translate(-25,0)")
+    .call(yAxisLeft);
+  graph.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
 }
 
 function genre_pie(){
@@ -187,7 +179,17 @@ function genre_pie(){
     chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
     return chart;
   });
-} 
+}
+
+function get_values_for_charts(elements_list){
+  var values = [];
+  elements_list.each(function(index) {
+    var label = $(this).find('.label').text();
+    var value = $(this).find('.value').text()
+    values.push({"label" : label ,"key" : label , "value" : value});
+  });
+  return values;
+}
 
 function initialize_map() {
     var mapOptions = {
