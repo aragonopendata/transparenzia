@@ -74,11 +74,10 @@ function line_chart(svg_element, data) {
   var width = 600 - margins[1] - margins[3];
   var height = 360 - margins[0] - margins[2];
 
-  console.log(d3.max(data, function(d) { return d.value; } ));
-  var y = d3.scale.linear().domain([0, d3.max(data, function(d) { return d.value; } )]).range([height, 0]);
+  var y = d3.scale.linear().domain([0, d3.max(data, function(d) { return parseInt(d.value); } )]).range([height, 0]);
   var x = d3.scale.linear().domain([0, data.length]).range([0, width]);
 
-  var yAxisLeft = d3.svg.axis().scale(y).ticks(10).orient("left");
+  var yAxisLeft = d3.svg.axis().scale(y).ticks(7).orient("left");
   var xAxis = d3.svg.axis().scale(x).tickSize(-height);
 
   var line = d3.svg.line()
