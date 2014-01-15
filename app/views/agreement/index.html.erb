@@ -41,7 +41,13 @@ Total de dinero con convenios con terceros <%= total_of_amount_agreements(@agree
  }
 </style>
 
-<br/><br/><br/><br/>
+<br/><br/>
+<div id="agreements_by_number_of_sinatories">
+<svg style="border:1px solid black;"></svg>
+<%= agreements_by_number_of_signatories(@agreements)%>
+</div>
+<br/><br/>
+
 
 <ul>
 <%for agreement in @agreements %>

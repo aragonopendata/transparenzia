@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114123323) do
+ActiveRecord::Schema.define(version: 20140115163816) do
 
   create_table "agreements", force: true do |t|
     t.string   "code"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140114123323) do
     t.decimal  "total_amount"
     t.decimal  "total_dga_contribution"
     t.decimal  "dga_contribution_percentage"
+    t.integer  "number_of_signatories"
   end
 
   create_table "municipalities", force: true do |t|

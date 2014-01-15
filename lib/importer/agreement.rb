@@ -26,6 +26,7 @@ class AgreementImporter
             :signature_date => convert_text_to_date(item['FechaFirma']),
             :validity_date => convert_text_to_date(item['FechaVigencia']), 
             :signatories => item['Firmantes'], 
+            :number_of_signatories => item['Firmantes'].split("/").size, 
             :dga_contribution => item['AportacionDGA'], 
             :another_contributions => item['OtrasAportaciones'],
             :amount => item['Cuantia'],

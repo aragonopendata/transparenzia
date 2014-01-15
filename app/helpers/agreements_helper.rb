@@ -12,6 +12,18 @@ module AgreementsHelper
     signatories.size
   end
 
+  def agreements_by_number_of_signatories(agreements)
+    group = agreements.group_by do |agreement| 
+      agreement.number_of_signatories
+    end
+    html = "<ul>"
+    group.sort.each do |number_of_signatories, agreements|
+      html << "<li><span class='label'><span class='key'>#{number_of_signatories}</span> firmantes han firmado <span class='value'>#{agreements.size}</span> convenios.</span></li>"
+    end
+    html << "</ul>"
+    html.html_safe
+  end
+
   def agreements_by_moth(agreements)
     #we should move this code...
     group = agreements.group_by do |agreement| 

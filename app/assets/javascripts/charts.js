@@ -123,6 +123,45 @@ function line_chart(svg_element, data) {
     .call(yAxisLeft);
 }
 
+function number_of_agreements_by_signatories(){
+  pie_chart ("#agreements_by_number_of_sinatories svg", get_values_for_charts($('#agreements_by_number_of_sinatories li')));
+}
+
+function pie_chart(svg_element, data){
+  var width = 600;
+  var height = 360;
+
+  var color = d3.scale.ordinal().range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+  var radius = Math.min(width, height) / 2;
+  var arc = d3.svg.arc()
+    .outerRadius(radius - 5)
+    .innerRadius(radius - 100);
+
+  var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.value; });
+
+  var graph = d3.select(svg_element)
+     .attr("height", height)
+     .attr("width", width)
+     .append("g")
+     .attr("transform", "translate(" + width/2 + "," + height/2 + ")");
+
+  var g = graph.selectAll(".arc")
+    .data(pie(data))
+    .enter().append("g");
+  g.append("path")
+    .attr("d", arc)
+    .style("fill", function(d) {return color(d.data.key-1); });
+  g.append("text")
+    .attr("transform", function(d) { console.log(arc.centroid(d));return "translate(" + arc.centroid(d) + ")"; })
+    .attr("dy", ".35em")
+    .style("text-anchor", "middle")
+    .text(function(d) { return d.data.label; });
+
+}
+
 function genre_pie(){
   var genre_percentage = [
     {key: "Hombres", y: $('#number_of_men').text()},
