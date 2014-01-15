@@ -162,31 +162,6 @@ function pie_chart(svg_element, data){
 
 }
 
-function genre_pie(){
-  var genre_percentage = [
-    {key: "Hombres", y: $('#number_of_men').text()},
-    {key: "Mujeres", y: $('#number_of_women').text()}
-  ];
-  nv.addGraph(function() {
-    var width = 200, height = 200;
-    var chart = nv.models.pieChart()
-      .x(function(d) { return d.key })
-      .y(function(d) { return d.y })
-      .color(d3.scale.category10().range())
-      .width(width)
-      .height(height);
-    d3.select("#genre_percentage")
-      .datum(genre_percentage)
-      .transition().duration(3000)
-      .attr('width', width)
-      .attr('height', height)
-      .call(chart);
-
-    chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
-    return chart;
-  });
-}
-
 function get_values_for_charts(elements_list){
   var values = [];
   elements_list.each(function(index) {

@@ -14,14 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require d3.v3
-//= require nv.d3.min
 //= require charts
 //= require_tree .
 
 
 var geocoder
 $(function() {  
-  genre_pie();
   by_place_graph();
   by_department_graph();
   by_tipology_graph();
