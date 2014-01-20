@@ -48,6 +48,11 @@ Total de dinero con convenios con terceros <%= total_of_amount_agreements(@agree
 </div>
 <br/><br/>
 
+<div id="agreements_amount_by_moth">
+<svg style="border:1px solid black; stroke: steelblue;stroke-width: 1;fill: none;"></svg>
+<%=agreements_amount_by_moth(@agreements)%>
+</div>
+<br/><br/>
 
 <ul>
 <%for agreement in @agreements %>

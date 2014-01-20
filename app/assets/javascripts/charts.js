@@ -69,6 +69,10 @@ function number_of_agreements_by_month(){
   line_chart ("#agreements_by_moth svg", get_values_for_charts($('#agreements_by_moth li')));
 }
 
+function agreements_amount_by_month (argument) {
+  line_chart ("#agreements_amount_by_moth svg", get_values_for_charts($('#agreements_amount_by_moth li')));
+}
+
 function line_chart(svg_element, data) {
   var margins = [20, 30, 20, 60];
   var width = 600 - margins[1] - margins[3];
@@ -155,9 +159,9 @@ function pie_chart(svg_element, data){
     .attr("d", arc)
     .style("fill", function(d) {return color(d.data.key-1); });
   g.append("text")
-    .attr("transform", function(d) { console.log(arc.centroid(d));return "translate(" + arc.centroid(d) + ")"; })
-    .attr("dy", ".35em")
+    .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
     .style("text-anchor", "middle")
+    .style("font-size", "12px")
     .text(function(d) { return d.data.label; });
 
 }
