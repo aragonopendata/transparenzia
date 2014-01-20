@@ -22,9 +22,6 @@ class AgreementImporter
             :year => item['Año'], 
             :section => item['Sección'], 
             :title => item['Título'], 
-            :agreement_date => convert_text_to_date(item['FechaAcuerdo']),
-            :signature_date => convert_text_to_date(item['FechaFirma']),
-            :validity_date => convert_text_to_date(item['FechaVigencia']), 
             :signatories => item['Firmantes'], 
             :number_of_signatories => item['Firmantes'].split("/").size, 
             :dga_contribution => item['AportacionDGA'], 
@@ -35,6 +32,7 @@ class AgreementImporter
             :notes => item['Notasmarginales'],
             :pdf_url => item['UrlPdf'].gsub("´", "").strip()
           )
+        populate_dates(agreement, item)
         total_of_amount(agreement)
         if agreement.year >= 2008 
           total_dga_contribution(agreement)
@@ -49,6 +47,25 @@ class AgreementImporter
   end
 
 private
+
+  def populate_dates(agreement, item)
+    agreement_date = convert_text_to_date(item['FechaAcuerdo'])
+    signature_date = convert_text_to_date(item['FechaFirma'])
+    validity_date = convert_text_to_date(item['FechaVigencia'])
+    unless agreement_date
+      agreement_date = signature_date ? signature_date : validity_date
+    end
+    unless signature_date
+      signature_date = agreement_date ? agreement_date : validity_date
+    end
+    unless validity_date
+      validity_date = agreement_date ? agreement_date : signature_date
+    end
+    agreement.agreement_date = agreement_date
+    agreement.signature_date = signature_date
+    agreement.validity_date = validity_date
+    agreement
+  end
 
   def convert_text_to_date(text)
     begin

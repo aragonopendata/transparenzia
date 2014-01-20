@@ -28,38 +28,22 @@ module AgreementsHelper
   end
 
   def agreements_by_moth(agreements)
-    #we should move this code...
-    group = agreements.group_by do |agreement| 
-      if agreement.agreement_date
-        agreement.agreement_date.month
-      else
-        agreement.signature_date.month
-      end
-    end
-    
+    group = group_by_month(agreements)
     html = "<ul>"
-    group.sort.each do |month, agreements|
-       html << "<li>Mes: <span class='key'>#{month}</span> <span class='label'>#{Date::MONTHNAMES[month]}</span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
+    group.sort.each_with_index do |(month, agreements), index|
+       html << "<li>Mes: <span class='key'>#{index}</span> <span class='label'>#{month}</span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
     end
     html << "</ul>"
     html.html_safe
   end
 
   def agreements_amount_by_moth(agreements)
-    #we should move this code...
-    group = agreements.group_by do |agreement| 
-      if agreement.agreement_date
-        agreement.agreement_date.month
-      else
-        agreement.signature_date.month
-      end
-    end
-    
+    group = group_by_month(agreements)
     html = "<ul>"
-    group.sort.each do |month, agreements|
+    group.sort.each_with_index do |(month, agreements), index|
       total_amount = 0
       agreements.collect{|agreement| total_amount =+ agreement.total_amount.round}
-      html << "<li>Mes: <span class='key'>#{month}</span> <span class='label'>#{Date::MONTHNAMES[month]}</span>. Total de aportación: <span class='value'>#{total_amount}</span>.</li>"
+      html << "<li>Mes: <span class='key'>#{index}</span> <span class='label'>#{month}</span>. Total de aportación: <span class='value'>#{total_amount}</span>.</li>"
     end
     html << "</ul>"
     html.html_safe
@@ -107,17 +91,14 @@ module AgreementsHelper
   end
 
 private
-  def is_a_number?(string)
-    /\A[-+]?[0-9]*\.?[0-9]+\Z/.match(string)
-  end
-
-  def get_all_the_numbers_in_string(string)
-    string.scan /[-+]?[0-9]+\.?[0-9]+/
-  end
-
-  def clean_number_format(string)
-    string.gsub!('.','') #for clean thousands separation in some number formats
-    string.gsub!(',','.') #for change comma decimal separation to dots
-    string.strip
+  def group_by_month(agreements)
+    group = agreements.group_by do |agreement| 
+      month = agreement.agreement_date.month
+      if month < 10
+        month = "0#{month}"
+      end
+      "#{agreement.agreement_date.year} - #{month}"
+    end
+    group
   end
 end

@@ -97,10 +97,9 @@ function line_chart(svg_element, data) {
   }
 
   var yAxisLeft = d3.svg.axis().scale(y).ticks(7).orient("left");
-  var xAxis = d3.svg.axis().scale(x).tickSize(-height);
 
   var line = d3.svg.line()
-    .x(function(d, i) {return x(d.key-1);})
+    .x(function(d, i) {return x(d.key);})
     .y(function(d) {return y(d.value);});
 
   var graph = d3.select(svg_element)
@@ -114,16 +113,16 @@ function line_chart(svg_element, data) {
     .enter().append("circle")
     .attr("fill", "steelblue")
     .attr("r", 5)
-    .attr("cx", function(e) { return x(e.key-1)})
+    .attr("cx", function(e) { return x(e.key)})
     .attr("cy", function(e) { return y(e.value)})
     .on("mouseover", function(d) { showData(this, d);})
     .on("mouseout", function(){ hideData();});
 
   graph.append("path").attr("d", line(data));
 
-  //adding x and y axis
+  //adding y axis
   graph.append("g")
-    .attr("transform", "translate(-25,0)")
+    .attr("transform", "translate(0,0)")
     .call(yAxisLeft);
 }
 

@@ -21,7 +21,7 @@ Total de dinero con convenios con terceros <%= total_of_amount_agreements(@agree
 <br/><br/>
 
 <div id="agreements_by_moth">
-<svg style="border:1px solid black; stroke: steelblue;stroke-width: 1;fill: none;"></svg>
+<svg style="border:1px solid black; stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
 <div class='infobox' >Test</div>
 <%= agreements_by_moth(@agreements)%>
 </div>
@@ -49,14 +49,14 @@ Total de dinero con convenios con terceros <%= total_of_amount_agreements(@agree
 <br/><br/>
 
 <div id="agreements_amount_by_moth">
-<svg style="border:1px solid black; stroke: steelblue;stroke-width: 1;fill: none;"></svg>
+<svg style="border:1px solid black; stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
 <%=agreements_amount_by_moth(@agreements)%>
 </div>
 <br/><br/>
 
 <ul>
 <%for agreement in @agreements %>
-	<li><%= link_to agreement.title, agreement_path(agreement) %>. <%=agreement.validity_date%> <%=agreement.signatories%></li>
+	<li><%= link_to agreement.title, agreement_path(agreement) %>. <%=agreement.agreement_date%> <%=agreement.signatories%></li>
 <% end %>
 </ul>
 

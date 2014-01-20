@@ -1,9 +1,23 @@
 class AgreementController < ApplicationController
   def index
-    year = params[:year] ? params[:year] : "2013"
+    if params[:year]
+      years = params[:year].split("-")
+      year_ini = years[0].to_i
+      if years.size > 1
+        year_end = years[1].to_i
+      else
+        year_end = year_ini
+      end
+    else
+      year_ini = 2013
+      year_end = 2013
+    end
+    year_ini = Date.new(year_ini, 1, 1)
+    year_end = Date.new(year_end, 12, 31)
+    
     title = params[:title]? "%#{params[:title]}%": "%"
     signatories = params[:signatories]? "%#{params[:signatories]}%": "%"
-    @agreements = Agreement.where(:year => year).where("lower(title) like lower(?)", title).where("lower(signatories) like lower(?)", signatories)
+    @agreements = Agreement.where(:agreement_date => year_ini..year_end).where("lower(title) like lower(?)", title).where("lower(signatories) like lower(?)", signatories)
   end
 
   def show
