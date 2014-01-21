@@ -5,6 +5,12 @@ class Agreement < ActiveRecord::Base
     :dga_contribution_percentage
 
   def pdf_urls
-    self.pdf_url.split(",").collect{|url| CGI.escape(url)}
+    urls = []
+    self.pdf_url.split("http://").each{ |url|
+      if url.size > 0
+        urls << "http://#{url}"
+      end
+    }
+    urls
   end
 end
