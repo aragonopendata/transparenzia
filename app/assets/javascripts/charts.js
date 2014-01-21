@@ -66,7 +66,7 @@ function bar_graphs (values, svg_element) {
 }
 
 function number_of_agreements_by_month(){
-  line_chart ("#agreements_by_moth", get_values_for_charts($('#agreements_by_moth li')));
+  line_chart ("#agreements_by_month", get_values_for_charts($('#agreements_by_month li')));
 }
 
 function agreements_amount_by_month (argument) {

@@ -54,19 +54,15 @@ private
   def populate_dates(agreement, item)
     agreement_date = convert_text_to_date(item['FechaAcuerdo'])
     signature_date = convert_text_to_date(item['FechaFirma'])
-    validity_date = convert_text_to_date(item['FechaVigencia'])
+    agreement.validity_date = convert_text_to_date(item['FechaVigencia'])
     unless agreement_date
-      agreement_date = signature_date ? signature_date : validity_date
+      agreement_date = signature_date
     end
     unless signature_date
-      signature_date = agreement_date ? agreement_date : validity_date
-    end
-    unless validity_date
-      validity_date = agreement_date ? agreement_date : signature_date
+      signature_date = agreement_date
     end
     agreement.agreement_date = agreement_date
     agreement.signature_date = signature_date
-    agreement.validity_date = validity_date
     agreement
   end
 
