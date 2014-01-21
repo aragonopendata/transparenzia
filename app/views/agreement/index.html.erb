@@ -46,7 +46,7 @@
           <div class="row">
             <div id="agreements_by_moth">
               <svg style="stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
-              <div class='infobox' >Test</div>
+              <div class="infobox" ></div>
               <%= agreements_by_moth(@agreements)%>
               </div>
               <style type="text/css">
@@ -60,8 +60,9 @@
                position:absolute;
                top:0px;
                left:0px;
-               z-index:10500;
+               
                font-weight:bold;
+               
                }
               </style>
           </div>
@@ -88,6 +89,7 @@
 
   <div id="agreements_amount_by_moth">
   <svg style="border:1px solid black; stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
+  <div class="infobox" ></div>
   <%=agreements_amount_by_moth(@agreements)%>
   </div>
   <br/><br/>

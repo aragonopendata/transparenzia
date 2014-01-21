@@ -66,14 +66,16 @@ function bar_graphs (values, svg_element) {
 }
 
 function number_of_agreements_by_month(){
-  line_chart ("#agreements_by_moth svg", get_values_for_charts($('#agreements_by_moth li')));
+  line_chart ("#agreements_by_moth", get_values_for_charts($('#agreements_by_moth li')));
 }
 
 function agreements_amount_by_month (argument) {
-  line_chart ("#agreements_amount_by_moth svg", get_values_for_charts($('#agreements_amount_by_moth li')));
+  line_chart ("#agreements_amount_by_moth", get_values_for_charts($('#agreements_amount_by_moth li')));
 }
 
-function line_chart(svg_element, data) {
+function line_chart(container, data) {
+  var svg_element = container + " svg";
+  var info_element = container + " .infobox";
   var margins = [20, 30, 20, 60];
   var width = 600 - margins[1] - margins[3];
   var height = 360 - margins[0] - margins[2];
@@ -83,17 +85,19 @@ function line_chart(svg_element, data) {
 
   function showData(obj, d) {
     var coord = d3.mouse(obj);
-    var infobox = d3.select(".infobox");
+    var infobox = d3.select(info_element);
+    
     // now we just position the infobox roughly where our mouse is
     infobox.style("left", (coord[0] + 100) + "px" );
     infobox.style("top", (coord[1] - 175) + "px");
-    $(".infobox").html(d.label + ": " + d.value);
+    $(info_element).html(d.label + ": " + d.value);
+    console.log(infobox)
     console.log(d.label + ": " + d.value);
-    $(".infobox").show();
+    $(info_element).show();
   }
    
   function hideData() {
-    $(".infobox").hide();
+    $(info_element).hide();
   }
 
   var yAxisLeft = d3.svg.axis().scale(y).ticks(7).orient("left");
@@ -134,7 +138,7 @@ function pie_chart(svg_element, data){
   var width = 600;
   var height = 360;
 
-  var color = d3.scale.ordinal().range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+  var color = d3.scale.ordinal().range(["#d0643c", "#e2a683", "#777778", "#f8eadf", "#b3b2b3", "#f1d4c0", "#c7c6c7", "#eabea2", "#e9e9e8"]);
 
   var radius = Math.min(width, height) / 2;
   var arc = d3.svg.arc()
