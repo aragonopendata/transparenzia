@@ -47,7 +47,7 @@
             <div id="agreements_by_moth">
               <svg style="stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
               <div class="infobox" ></div>
-              <%= agreements_by_moth(@agreements)%>
+              <%= agreements_chart(@agreements)%>
               </div>
               <style type="text/css">
               .infobox {
@@ -92,11 +92,7 @@
     <h5>CONVENIOS FIRMADOS CON AYUNTAMIENTOS</h5>
     <hr>
     <ul>
-    <%for agreement in @agreements %>
-      <li><%= link_to agreement.title, agreement_path(agreement) %><time datetime="<%=agreement.agreement_date%>"><%=agreement.agreement_date%></time> - <%=agreement.signatories%>
-      </li>
-      <hr>
-    <% end %>
+    
     </ul>
   </div>
   </div>

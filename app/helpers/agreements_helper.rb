@@ -12,15 +12,32 @@ module AgreementsHelper
     signatories.size
   end
 
-  def agreements_by_moth(agreements)
+  def agreements_chart(agreements)
     group = group_by_month(agreements)
     html = "<ul class=\"agreements_by_month_list\">"
+    case params[:type]
+    when "amount"
+      agreements_amount_by_moth group, html
+    else
+      number_of_agreements_by_moth group, html
+    end
+    html << "</ul>"
+    html.html_safe
+  end
+
+  def number_of_agreements_by_moth(group, html)
     group.sort.each_with_index do |(month, agreements), index|
       month = I18n.t("date.month_names")[month]
       html << "<li>Mes: <span class='key'>#{index}</span> <span class='label'>#{month}: #{agreements.size} convenios </span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
     end
-    html << "</ul>"
-    html.html_safe
+  end
+  def agreements_amount_by_moth(group, html)
+    group.sort.each_with_index do |(month, agreements), index|
+      total_amount = 0
+      agreements.collect{|agreement| total_amount =+ agreement.total_amount.round}
+      month = I18n.t("date.month_names")[month]
+      html << "<li>Mes: <span class='key'>#{index}</span> <span class='label'>#{month}: <span class='value'>#{total_amount}</span> € en total</span></li>"
+    end
   end
 
   def agreements_by_number_of_signatories(agreements)
@@ -37,17 +54,7 @@ module AgreementsHelper
     html.html_safe
   end
 
-  def agreements_amount_by_moth(agreements)
-    group = group_by_month(agreements)
-    html = "<ul class=\"agreements_amount_by_month_list\">"
-    group.sort.each_with_index do |(month, agreements), index|
-      total_amount = 0
-      agreements.collect{|agreement| total_amount =+ agreement.total_amount.round}
-      html << "<li>Mes: <span class='key'>#{index}</span> <span class='label'>#{month}</span>. Total de aportación: <span class='value'>#{total_amount}</span>.</li>"
-    end
-    html << "</ul>"
-    html.html_safe
-  end
+  
 
   def total_of_amount_agreements(agreements)
     total = 0
