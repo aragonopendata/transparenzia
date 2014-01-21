@@ -100,23 +100,13 @@
     </ul>
   </div>
   </div>
+
   <div class="paginacion">
     <div class="row">
       <div class="large-9 columns large-centered">
         <div class="large-3 columns"><a href="#" class="right">< ANTERIOR</a></div>
         <div class="large-6 columns no-gap">
-          <ul>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#" class="active">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">8</a></li>
-            <li><a href="#">9</a></li>
-            <li><a href="#">10</a></li>            
-          </ul>
+        <%= will_paginate @agreements, renderer: FoundationPagination::Rails %>
         </div>
         <div class="large-3 columns"><a href="#" class="left">SIGUIENTE ></a></div>
       </div>

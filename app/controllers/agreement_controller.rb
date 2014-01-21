@@ -17,7 +17,7 @@ class AgreementController < ApplicationController
     
     title = params[:title]? "%#{params[:title]}%": "%"
     signatories = params[:signatories]? "%#{params[:signatories]}%": "%"
-    @agreements = Agreement.where(:agreement_date => year_ini..year_end).where("lower(title) like lower(?)", title).where("lower(signatories) like lower(?)", signatories)
+    @agreements = Agreement.where(:agreement_date => year_ini..year_end).where("lower(title) like lower(?)", title).where("lower(signatories) like lower(?)", signatories).paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
