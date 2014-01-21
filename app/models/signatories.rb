@@ -3,7 +3,7 @@ require 'singleton'
 class Signatories
   include Singleton
 
-  FILE_PATH = "tmp/signatories.yml"
+  FILE_PATH = "lib/data/signatories.yml"
   def initialize
     clean
   end
