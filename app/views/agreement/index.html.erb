@@ -10,7 +10,7 @@
           <sub class="left">Última actualización <time datetime="2013-10-25">25/10/2013</time>. Perioricidad actualización 6 meses.</sub>
           <sub class="right">FUENTE: Departamento de personal | CONTACTO: <a href="#">transparencia@aragon.es</a></sub>
           <hr class="soft-divider">
-          <a href="#" class="buscador-avanzado">ACCEDER AL BUSCADOR AVANZADO DE LA BASE DE DATOS DE CONVENIOS DEL GOBIERNO DE ARAGÓN ></a>
+          <a href="#" class="buscador-avanzado">ACCEDER AL BUSCADOR AVANZADO DE LA BASE DE DATOS DE CONVENIOS DEL GOBIERNO DE ARAGÓN &gt;</a>
         </div>
         <div class="large-6 columns" data-grid>
           <div class="row">
@@ -26,7 +26,7 @@
               <p class="main-text"><%= number_of_entities(@agreements)%></p>
               <p></p>
             </div>
-          </div>
+          </div>        
           <div class="row">
             <div class="square">
               <p><%= number_to_human(highest_amount_agreement(@agreements)) %> &euro; es la mayor aportación</p>
@@ -66,97 +66,107 @@
               </style>
           </div>
         </div>
-        <div class="large-12 columns">
-          <br>
-          <hr class="orange less-margin">
+      </div>
+      <div class="row">
+        <hr>
+      </div>
+      <div class="large-12 columns">
+        <br>
+        <br>
+        <div class="row">
+        <%= form_tag agreements_path, {:method=>'GET'} do %>
+            Título del convenio: <%= text_field_tag(:title, params[:title], :placeholder => "escriba el título del convenio") %><br>
+            Firmante: <%= text_field_tag(:signatories, params[:signatories], :placeholder => "escriba el nombre del firmante") %><br>
+            Año: <%= select_tag(:year, options_for_select(2002..2013)) %><br>
+          <%= submit_tag "Filtrar" %>
+        <% end %>
         </div>
       </div>
     </div>
-
-  <%= form_tag agreements_path, {:method=>'GET'} do %>
-  		Título del convenio: <%= text_field_tag(:title, params[:title], :placeholder => "escriba el título del convenio") %><br>
-  		Firmante: <%= text_field_tag(:signatories, params[:signatories], :placeholder => "escriba el nombre del firmante") %><br>
-  		Año: <%= select_tag(:year, options_for_select(2002..2013)) %><br>
-  	<%= submit_tag "Filtrar" %>
-  <% end %>
-
-  <div id="agreements_by_number_of_sinatories">
-  <svg style="border:1px solid black;"></svg>
-  <%= agreements_by_number_of_signatories(@agreements)%>
   </div>
-  <br/><br/>
 
-  <div id="agreements_amount_by_moth">
-  <svg style="border:1px solid black; stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
-  <%=agreements_amount_by_moth(@agreements)%>
+  <div class="row">
+    <div id="agreements_by_number_of_sinatories" class="large-6 columns">
+      <svg style="border:1px solid black;"></svg>
+      <%= agreements_by_number_of_signatories(@agreements)%>
+    </div>
+    <br><br>
+
+    <div id="agreements_amount_by_moth" class="large-6 columns">
+      <svg style="border:1px solid black; stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
+      <%=agreements_amount_by_moth(@agreements)%>
+    </div>
   </div>
-  <br/><br/>
-  <div class="noticias" data-news>
+
+  <div class="row">
+    <div class="noticias" data-news>
     <hr class="orange">
     <h5>CONVENIOS FIRMADOS CON AYUNTAMIENTOS</h5>
     <hr>
     <ul>
     <%for agreement in @agreements %>
-    	<li><%= link_to agreement.title, agreement_path(agreement) %><time datetime="<%=agreement.agreement_date%>"><%=agreement.agreement_date%></time> - <%=agreement.signatories%>
+      <li><%= link_to agreement.title, agreement_path(agreement) %><time datetime="<%=agreement.agreement_date%>"><%=agreement.agreement_date%></time> - <%=agreement.signatories%>
       </li>
       <hr>
     <% end %>
     </ul>
   </div>
-</div>
-<div class="paginacion">
-  <div class="row">
-    <div class="large-9 columns large-centered">
-      <div class="large-3 columns"><a href="#" class="right">< ANTERIOR</a></div>
-      <div class="large-6 columns no-gap">
-        <ul>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#" class="active">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">6</a></li>
-          <li><a href="#">7</a></li>
-          <li><a href="#">8</a></li>
-          <li><a href="#">9</a></li>
-          <li><a href="#">10</a></li>            
-        </ul>
+  </div>
+  <div class="paginacion">
+    <div class="row">
+      <div class="large-9 columns large-centered">
+        <div class="large-3 columns"><a href="#" class="right">< ANTERIOR</a></div>
+        <div class="large-6 columns no-gap">
+          <ul>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#" class="active">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>            
+          </ul>
+        </div>
+        <div class="large-3 columns"><a href="#" class="left">SIGUIENTE ></a></div>
       </div>
-      <div class="large-3 columns"><a href="#" class="left">SIGUIENTE ></a></div>
     </div>
   </div>
-</div>
-<div class="row" data-body>
-  <div class="large-12 columns">
-    <div class="titulo wiki">
-      <div class=" linea"><hr></div>
-      <h4>GLOSARIO DE TÉRMINOS</h4>
-      <div class=" linea"><hr></div> 
-    </div>
+
+  <div class="row" data-body>
     <div class="large-12 columns">
-      <div class="wiki-list">
-        <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
+      <div class="titulo wiki">
+        <div class=" linea"><hr></div>
+        <h4>GLOSARIO DE TÉRMINOS</h4>
+        <div class=" linea"><hr></div> 
       </div>
-      <div class="wiki-list">
-        <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
-      </div>
-      <div class="wiki-list">
-        <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
-      </div>
-      <div class="wiki-list">
-        <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
-      </div>
-      <div class="wiki-list">
-        <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
-      </div>
-      <div class="wiki-list">
-        <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
-      </div>
-      <div class="wiki-list">
-        <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
-      </div>
-      <div class="wiki-list">
-        <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
+      <div class="large-12 columns">
+        <div class="wiki-list">
+          <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
+        </div>
+        <div class="wiki-list">
+          <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
+        </div>
+        <div class="wiki-list">
+          <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
+        </div>
+        <div class="wiki-list">
+          <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
+        </div>
+        <div class="wiki-list">
+          <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
+        </div>
+        <div class="wiki-list">
+          <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
+        </div>
+        <div class="wiki-list">
+          <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
+        </div>
+        <div class="wiki-list">
+          <p><span>LOREM IPSUM</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, architecto explicabo aliquam enim commodi quia veritatis tenetur fugit ipsum est. Hic, repellat dolorem aliquam quae repellendus velit dolore! Aliquid, ducimus.</p>
+        </div>
       </div>
     </div>
   </div>     
