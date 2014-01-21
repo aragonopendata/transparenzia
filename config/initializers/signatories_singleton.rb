@@ -1,0 +1,1 @@
+Signatories.instance.deserialize

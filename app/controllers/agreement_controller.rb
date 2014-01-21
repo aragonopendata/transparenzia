@@ -25,31 +25,6 @@ class AgreementController < ApplicationController
   end
 
   def search
-    params[:term]
-    available_tags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ]
-    render json: available_tags
+    render json: Signatories.instance.find(params[:term])
   end
 end
