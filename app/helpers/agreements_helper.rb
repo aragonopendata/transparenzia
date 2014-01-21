@@ -18,7 +18,7 @@ module AgreementsHelper
     group = agreements.group_by do |agreement| 
       agreement.number_of_signatories
     end
-    html = "<ul>"
+    html = "<ul class=\"agreements_by_signatories_list\">"
     group.sort.each do |number_of_signatories, agreements|
       percentage = (agreements.size.to_f / total_size * 100).round(2)
       html << "<li><span class='label'>#{percentage}%</span><span class='key'>#{number_of_signatories}</span> firmantes han firmado <span class='value'>#{agreements.size}</span> convenios.</li>"
@@ -29,7 +29,7 @@ module AgreementsHelper
 
   def agreements_by_moth(agreements)
     group = group_by_month(agreements)
-    html = "<ul>"
+    html = "<ul class=\"agreements_by_month_list\">"
     group.sort.each_with_index do |(month, agreements), index|
        html << "<li>Mes: <span class='key'>#{index}</span> <span class='label'>#{month}</span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
     end
@@ -39,7 +39,7 @@ module AgreementsHelper
 
   def agreements_amount_by_moth(agreements)
     group = group_by_month(agreements)
-    html = "<ul>"
+    html = "<ul class=\"agreements_amount_by_month_list\">"
     group.sort.each_with_index do |(month, agreements), index|
       total_amount = 0
       agreements.collect{|agreement| total_amount =+ agreement.total_amount.round}
