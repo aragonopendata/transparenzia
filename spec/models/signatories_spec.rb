@@ -21,7 +21,7 @@ describe Signatories do
     it "all the elements that match on any position" do
       @signatories.populate("DGA/Ayto. de San Esteban de Litera")
       @signatories.populate("SALUD/Diputación de Huesca")
-      matches = @signatories.find("SA")
+      matches = @signatories.find("SAL")
       matches.size.should eq 1
       matches[0] = "SALUD"
     end

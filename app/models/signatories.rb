@@ -10,7 +10,8 @@ class Signatories
 
   def populate(signatories)
     signatories.split('/').each do |signator|
-      @all[signator] = signator
+      signator = signator.strip
+      @all[signator.downcase] = signator
     end
   end
 
@@ -23,7 +24,7 @@ class Signatories
   end
 
   def find(term)
-    @all.select{|key, hash| key.match(term) }.keys
+    @all.select{|key, hash| key.match(term.downcase.strip) }.values
   end
 
   def serialize(file = FILE_PATH)

@@ -39,11 +39,14 @@ class AgreementImporter
           dga_contribution_percentage(agreement)
         end
         agreement.save!
+
+        Signatories.instance.populate(agreement.signatories)
       rescue Exception => e
         puts "Error for #{item}"
         raise e
       end
     end
+    Signatories.instance.serialize
   end
 
 private
