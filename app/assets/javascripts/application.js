@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require jquery.ui.autocomplete
 //= require turbolinks
 //= require d3.v3

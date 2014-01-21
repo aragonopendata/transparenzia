@@ -74,7 +74,7 @@ module AgreementsHelper
     end
     if agreements.size > 0
       percentage = total_percentage / agreements.size * 100
-      number_with_precision(percentage, :precision => 2)
+      number_with_precision(percentage, :precision => 1)
     end
   end
 

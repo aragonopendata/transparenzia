@@ -39,6 +39,9 @@ $montserrat: "Montserrat";
 .icon-male:before {
   content: "\4d";
 }
+.icon-in:before {
+  content: "\e600";
+}
 
 // colores
 $dark: #6f6f6f;
@@ -193,6 +196,10 @@ div.outer-4 {right:1em; }
 [data-filtros] .active:hover {background: none;}
 [data-filtros] select {width:80%; background: none; color:white; font-size: 0.97em; line-height: 1.25em; position: relative;}
 
+[data-filtros] .search {@include round(3px); position: relative; top:0.25em; background: $light-grey; color:black;}
+[data-filtros] ::-webkit-input-placeholder, [data-filtros] :-moz-placeholder, [data-filtros] ::-moz-placeholder, [data-filtros] :-ms-input-placeholder, [data-filtros] placeholer  { color: black !important;}
+
+
 .inner-deco {background:$pink; position: relative;}
 .inner-deco input[type="submit"] {position: relative; @include round(3px); margin:1.5em 0; padding:0.9em 0.5em; width:100%; background: $orange; font-family: $montserrat; font-weight: 700; font-size: 0.8em;}
 .submit-deco:after {content:''; position: absolute; width: 0; height: 0; left:47%; top:0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $orange;}
@@ -206,7 +213,8 @@ div.outer-4 {right:1em; }
 [data-grid] .square {background: $orange; color:white; margin:0.6em; padding:1em; width:46%; max-height: 200px; float: left;}
 [data-grid] .square p, [data-grid] .square p:last-child {min-height: 25px; margin-bottom: 0.8em; font-size: 0.78em; position: relative; font-family: $roboto; font-weight: 400;}
 [data-grid] .square p > sub { position: relative; left:0.2em; top:1.4em; min-height: 15px; display: block; font-size: 0.35em; font-weight: 400; line-height: 0; margin-bottom: 2em;}
-[data-grid] .square .boxed-text {background: $dark; width:auto; display: inline-block; min-height: inherit; margin-bottom: 1.5em; padding:0 0.3em; font-family: $montserrat; font-weight: 700;}
+[data-grid] .square .boxed-text {width:auto; display: inline-block; min-height: inherit; margin-bottom: 1.5em; font-family: $montserrat; font-weight: 700;}
+[data-grid] .square .boxed-text span {background: $dark; padding:0 0.3em;}
 [data-grid] .square .main-text {font-size: 3.75em; line-height: 0.4em; text-indent: -5px; font-weight: 400; letter-spacing: -1px;}
 [data-map] > .row {text-align: right;}
 [data-map] .map-wrap {padding:0.6em 0.6em 0.6em 0;}
@@ -229,6 +237,31 @@ div.outer-4 {right:1em; }
 .soft-divider {position: relative;}
 .soft-divider:before {content:''; position: absolute; width: 0; height: 0; left:49%; bottom:-8px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $light-grey; z-index: 999;}
 .soft-divider:after {content:''; position: absolute; width: 0; height: 0; left:49%; bottom:-10px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid darken($grey, 5); z-index:10;}
+
+// Visor convenios
+[data-grid] img {padding:0.6em;}
+[data-visor] p {font-size: 1.2em; font-weight: 300; font-family: $roboto;}
+[data-visor] ul {width:48%; min-height: 130px; float:left; padding:0 0 0 2%; margin:0; border-left:1px dotted $orange;}
+[data-visor] ul li {list-style: none; font-size: 1em; font-weight: 300; font-family: $roboto; color:black;}
+[data-visor] ul li span {padding-right: 0.3em; font-family: $montserrat; font-weight: 700; font-size: 0.9em; color:$dark;}
+[data-visor] ul:last-child li:first-child {font-family: $montserrat; font-weight: 700; font-size: 0.9em; color:$dark;}
+[data-visor] .iframe-cont a {font-family: $montserrat; font-weight: 700; font-size: 0.8em; margin:1em 0.5em 1em 0;}
+[data-visor] .iframe-cont a span {font-weight: 400; margin:0 1em 0 0.2em;}
+[data-visor] iframe {background: darken($grey, 15); margin:1.5em 0 0 0; min-height: 400px; width:100%; padding:1em; color:black; text-align: center;}
+[data-news] h5 {font-family: $montserrat; font-weight: 700; font-size: 0.95em; color:$dark;}
+[data-news]  a {line-height: 1.5em ; display: block; margin-bottom: 0.8em; font-weight: 300;}
+
+hr.less-margin {margin:1em 0 0 0 !important;}
+a.buscador-avanzado {font-size: 0.8em; font-weight: bold; margin-bottom: 0.85em; display: block;}
+hr.orange {border-color: $orange !important;}
+
+.paginacion a:first-child, .paginacion a:last-child {font-size: 0.8em;}
+.paginacion a {font-size:0.85em; padding:0.02em 0.8em; font-family: $montserrat; }
+.paginacion ul {text-align: center; margin: 0; position: relative; top:-0.45em;}
+.paginacion ul li {list-style: none; display: inline-block; }
+.paginacion ul li a {display: block; border:1px solid transparent; @include round(3px);}
+.paginacion ul li a:hover {border:1px solid $orange;}
+.paginacion ul li a.active {background:$orange; color:white;}
 
 // footer
 footer {background: $grey; padding:4em 0 0 0; color:lighten($dark, 10); font-family: $roboto; font-weight: 400;}

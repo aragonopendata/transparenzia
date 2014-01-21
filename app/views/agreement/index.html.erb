@@ -1,62 +1,100 @@
-<br><br><br>
+<%= render 'shared/ariadna' %>
+<%= render 'filter' %>
+<div class="body-bg">
+  <div class="row">
+          <div class="large-12 columns" data-stats>
+        <h3 class="text-center">Convenios del gobierno de Aragón en materia de aguas</h3>
+        <br>
+        <div class="row">
+          <div class="large-12 columns">
+            <sub class="left">Última actualización <time datetime="2013-10-25">25/10/2013</time>. Perioricidad actualización 6 meses.</sub>
+            <sub class="right">FUENTE: Departamento de personal | CONTACTO: <a href="#">transparencia@aragon.es</a></sub>
+            <hr class="soft-divider">
+            <a href="#" class="buscador-avanzado">ACCEDER AL BUSCADOR AVANZADO DE LA BASE DE DATOS DE CONVENIOS DEL GOBIERNO DE ARAGÓN ></a>
+          </div>
+          <div class="large-6 columns" data-grid>
+            <div class="row">
+              <div class="square">
+                <p></p>
+                <p class="boxed-text"><span>CONVENIOS FIRMADOS EN <%=@agreements.first.year%>:</span></p>
+                <p class="main-text"><%=@agreements.size%><br><sub></sub></p>
+                <p></p>
+              </div>
+              <div class="square">
+                <p></p>
+                <p class="boxed-text"><span>NÚMERO DE ENTIDADES INVOLUCRADAS:</span></p>
+                <p class="main-text"><%= number_of_entities(@agreements)%></p>
+                <p></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="square">
+                <p><%= number_to_human(highest_amount_agreement(@agreements)) %> &euro; es la mayor aportación</p>
+                <p class="boxed-text"><span>CONVENIOS CON TERCEROS</span></p>
+                <p class="main-text"><%= number_to_human(total_of_amount_agreements(@agreements)) %><br><sub>euros</sub></p>                
+                <p><%= lowest_amount_agreement(@agreements)%> &euro; es la menor aportación</p>
+              </div>
+              <div class="square">
+                <p><%= highest_dga_contribution_percentage(@agreements)%> % es la mayor participación</p>
+                <p class="boxed-text"><span>PARTICIPACIÓN MEDIA:</span></p>
+                <p class="main-text"><%=dga_contribution_percentage(@agreements)%> %<br><sub>participación DGA</sub></p>
+                <p><%=lowest_dga_contribution_percentage(@agreements)%> % es la menor participación</p>
+              </div>
+            </div>            
+          </div>
+          <div class="large-6 columns" data-grid>
+            <div class="row">
+              <div id="agreements_by_moth">
+                <svg style="stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
+                <div class='infobox' >Test</div>
+                <%= agreements_by_moth(@agreements)%>
+                </div>
+                <style type="text/css">
+                .infobox {
+                 border:2px solid steelblue;
+                 border-radius:4px;
+                 box-shadow:#333333 0px 0px 10px;
+                 margin:200px auto;
+                 padding:5px 10px;
+                 background:rgba(255, 255, 255, 0.8);
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 z-index:10500;
+                 font-weight:bold;
+                 }
+                </style>
+            </div>
+          </div>
+          <div class="large-12 columns">
+            <br>
+            <hr class="orange less-margin">
+          </div>
+        </div>
+      </div>
 
-<%= form_tag agreements_path, {:method=>'GET'} do %>
-		Título del convenio: <%= text_field_tag(:title, params[:title], :placeholder => "escriba el título del convenio") %><br>
-		Firmante: <%= text_field_tag(:signatories, params[:signatories], :placeholder => "escriba el nombre del firmante") %><br>
-		Año: <%= select_tag(:year, options_for_select(2002..2013)) %><br>
-	<%= submit_tag "Filtrar" %>
-<% end %>
+  <!--<%= form_tag agreements_path, {:method=>'GET'} do %>
+  		Título del convenio: <%= text_field_tag(:title, params[:title], :placeholder => "escriba el título del convenio") %><br>
+  		Firmante: <%= text_field_tag(:signatories, params[:signatories], :placeholder => "escriba el nombre del firmante") %><br>
+  		Año: <%= select_tag(:year, options_for_select(2002..2013)) %><br>
+  	<%= submit_tag "Filtrar" %>
+  <% end %>-->
 
-Total convenios firmados <%=@agreements.size%> en <%=@agreements.first.year%>
-<br/>
-Entidades involucradas <%= number_of_entities(@agreements)%>
-<br/><br/>
-<%= highest_amount_agreement(@agreements)%> € es la mayor aportación<br/>
-Total de dinero con convenios con terceros <%= total_of_amount_agreements(@agreements)%> €<br/>
-<%= lowest_amount_agreement(@agreements)%> € es la menor aportación<br/>
-<br/><br/>
-<%= highest_dga_contribution_percentage(@agreements)%> % es la mayor participación<br/>
-<%=dga_contribution_percentage(@agreements)%> % es la participación enconómica de la DGA<br/>
-<%=lowest_dga_contribution_percentage(@agreements)%> % es la menor participación<br/>
-<br/><br/>
+  <div id="agreements_by_number_of_sinatories">
+  <svg style="border:1px solid black;"></svg>
+  <%= agreements_by_number_of_signatories(@agreements)%>
+  </div>
+  <br/><br/>
 
-<div id="agreements_by_moth">
-<svg style="border:1px solid black; stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
-<div class='infobox' >Test</div>
-<%= agreements_by_moth(@agreements)%>
+  <div id="agreements_amount_by_moth">
+  <svg style="border:1px solid black; stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
+  <%=agreements_amount_by_moth(@agreements)%>
+  </div>
+  <br/><br/>
+
+  <ul>
+  <%for agreement in @agreements %>
+  	<li><%= link_to agreement.title, agreement_path(agreement) %>. <%=agreement.agreement_date%> <%=agreement.signatories%></li>
+  <% end %>
+  </ul>
 </div>
-<style type="text/css">
-.infobox {
- border:2px solid steelblue;
- border-radius:4px;
- box-shadow:#333333 0px 0px 10px;
- margin:200px auto;
- padding:5px 10px;
- background:rgba(255, 255, 255, 0.8);
- position:absolute;
- top:0px;
- left:0px;
- z-index:10500;
- font-weight:bold;
- }
-</style>
-
-<br/><br/>
-<div id="agreements_by_number_of_sinatories">
-<svg style="border:1px solid black;"></svg>
-<%= agreements_by_number_of_signatories(@agreements)%>
-</div>
-<br/><br/>
-
-<div id="agreements_amount_by_moth">
-<svg style="border:1px solid black; stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
-<%=agreements_amount_by_moth(@agreements)%>
-</div>
-<br/><br/>
-
-<ul>
-<%for agreement in @agreements %>
-	<li><%= link_to agreement.title, agreement_path(agreement) %>. <%=agreement.agreement_date%> <%=agreement.signatories%></li>
-<% end %>
-</ul>
-
