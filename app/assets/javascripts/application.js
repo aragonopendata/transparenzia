@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.autocomplete
 //= require turbolinks
 //= require d3.v3
 //= require charts
@@ -27,6 +28,34 @@ $(function() {
   number_of_agreements_by_month();
   agreements_amount_by_month();
   number_of_agreements_by_signatories();
+
+  var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $("#title").autocomplete({
+      source: availableTags
+    });
 
 
   geocoder = new google.maps.Geocoder();

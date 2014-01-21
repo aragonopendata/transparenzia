@@ -11,5 +11,6 @@
  *= require refinery/formatting
  *= require refinery/theme
  *= require_self
+ *= require jquery.ui.autocomplete
  *= require_tree .
  */
