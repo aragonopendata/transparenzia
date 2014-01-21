@@ -44,7 +44,7 @@
         </div>
         <div class="large-6 columns" data-grid>
           <div class="row">
-            <div id="agreements_by_moth">
+            <div id="agreements_by_month">
               <svg style="stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
               <div class="infobox" ></div>
               <%= agreements_chart(@agreements)%>
@@ -92,27 +92,22 @@
     <h5>CONVENIOS FIRMADOS CON AYUNTAMIENTOS</h5>
     <hr>
     <ul>
-    
+     <ul>
+    <%for agreement in @paginated_agreements %>
+      <li><%= link_to agreement.title, agreement_path(agreement) %><time datetime="<%=agreement.agreement_date%>"><%=agreement.agreement_date%></time> - <%=agreement.signatories%>
+      </li>
+      <hr>
+    <% end %>
     </ul>
   </div>
   </div>
+
   <div class="paginacion">
     <div class="row">
       <div class="large-9 columns large-centered">
         <div class="large-3 columns"><a href="#" class="right">< ANTERIOR</a></div>
         <div class="large-6 columns no-gap">
-          <ul>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#" class="active">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">8</a></li>
-            <li><a href="#">9</a></li>
-            <li><a href="#">10</a></li>            
-          </ul>
+        <%= will_paginate @paginated_agreements, renderer: FoundationPagination::Rails %>
         </div>
         <div class="large-3 columns"><a href="#" class="left">SIGUIENTE ></a></div>
       </div>
