@@ -240,6 +240,11 @@ div.outer-4 {right:1em; }
 
 // Visor convenios
 [data-grid] img {padding:0.6em;}
+[data-grid] svg {max-width: 100%; height:419px; stroke: $orange; stroke-width: 1; fill: none; font-size:0.7em; display: inline-block;}
+[data-grid] .graph-cont {position: relative;}
+[data-grid] .graph-item {background: transparentize($orange, 0.8); margin-top: 0.89em;}
+[data-grid] .graph-item circle {fill: $orange;}
+[data-grid] .infobox {font-size:0.8em; font-weight:700; color:$dark; margin:200px auto; border:2px solid $orange; @include round(5px); box-shadow:$dark 0px 0px 10px; padding:0.4em 0.5em; background:transparentize(white, 0.6); position:absolute; left:0; top:0; display: none;}
 [data-visor] p {font-size: 1.2em; font-weight: 300; font-family: $roboto;}
 [data-visor] ul {width:48%; min-height: 130px; float:left; padding:0 0 0 2%; margin:0; border-left:1px dotted $orange;}
 [data-visor] ul li {list-style: none; font-size: 1em; font-weight: 300; font-family: $roboto; color:black;}
@@ -264,7 +269,7 @@ hr.orange {border-color: $orange !important;}
 .paginacion ul li {list-style: none; display: inline-block; }
 .paginacion ul li a {display: block; border:1px solid transparent; @include round(3px);}
 .paginacion ul li a:hover {border:1px solid $orange;}
-.paginacion ul li a.active {background:$orange; color:white;}
+.paginacion ul li.current a {background:$orange !important; color:white;}
 
 // footer
 footer {background: $grey; padding:4em 0 0 0; color:lighten($dark, 10); font-family: $roboto; font-weight: 400;}

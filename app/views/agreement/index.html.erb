@@ -45,26 +45,12 @@
         <div class="large-6 columns" data-grid>
           <div class="row">
             <div id="agreements_by_month">
-              <svg style="stroke: steelblue;stroke-width: 1;fill: none; font-size:10px"></svg>
-              <div class="infobox" ></div>
+            <div class="graph-cont">
+              <svg class="graph-item"></svg>
+              <div class="infobox"></div>
               <%= agreements_chart(@agreements)%>
               </div>
-              <style type="text/css">
-              .infobox {
-               border:2px solid steelblue;
-               border-radius:4px;
-               box-shadow:#333333 0px 0px 10px;
-               margin:200px auto;
-               padding:5px 10px;
-               background:rgba(255, 255, 255, 0.8);
-               position:absolute;
-               top:0px;
-               left:0px;
-               display: none;
-               font-weight:bold;
-               
-               }
-              </style>
+            </div>
           </div>
         </div>
       </div>
