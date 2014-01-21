@@ -18,26 +18,15 @@ module AgreementsHelper
     case params[:type]
     when "amount"
       agreements_amount_by_moth group, html
+    when "entities"
+      number_of_entities_participating_by_moth group, html
+    when "percentage"
+        percentage_of_dga_participation_by_moth  group, html
     else
       number_of_agreements_by_moth group, html
     end
     html << "</ul>"
     html.html_safe
-  end
-
-  def number_of_agreements_by_moth(group, html)
-    group.sort.each_with_index do |(month, agreements), index|
-      month = I18n.t("date.month_names")[month]
-      html << "<li>Mes: <span class='key'>#{index}</span> <span class='label'>#{month}: #{agreements.size} convenios </span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
-    end
-  end
-  def agreements_amount_by_moth(group, html)
-    group.sort.each_with_index do |(month, agreements), index|
-      total_amount = 0
-      agreements.collect{|agreement| total_amount =+ agreement.total_amount.round}
-      month = I18n.t("date.month_names")[month]
-      html << "<li>Mes: <span class='key'>#{index}</span> <span class='label'>#{month}: <span class='value'>#{total_amount}</span> € en total</span></li>"
-    end
   end
 
   def agreements_by_number_of_signatories(agreements)
@@ -113,5 +102,42 @@ private
       agreement.agreement_date.year
     end
     group
+  end
+
+  def number_of_agreements_by_moth(group, html)
+    group.sort.each_with_index do |(month, agreements), index|
+      month = I18n.t("date.month_names")[month]
+      html << "<li><span class='key'>#{index}</span> <span class='label'>#{month}: #{agreements.size} convenios </span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
+    end
+  end
+  def agreements_amount_by_moth(group, html)
+    group.sort.each_with_index do |(month, agreements), index|
+      month = I18n.t("date.month_names")[month]
+      total_amount = 0
+      agreements.each{|agreement| total_amount = total_amount + agreement.total_amount.round}
+      html << "<li><span class='key'>#{index}</span> <span class='label'>#{month}: <span class='value'>#{total_amount}</span> € en total</span></li>"
+    end
+  end
+  def percentage_of_dga_participation_by_moth(group, html)
+    group.sort.each_with_index do |(month, agreements), index|
+      month = I18n.t("date.month_names")[month]
+      acumulated_percentage = 0
+      agreements = agreements.find_all{|agreement| agreement.dga_contribution_percentage != nil}
+      agreements.each{|agreement| acumulated_percentage = acumulated_percentage + agreement.dga_contribution_percentage}
+      percentage = 0
+      if agreements.size > 0
+        percentage = (acumulated_percentage/ agreements.size * 100).round(2)
+      end
+      
+      html << "<li><span class='key'>#{index}</span> <span class='label'>#{month}: <span class='value'>#{percentage}</span> %</span></span>.</li>"
+    end
+  end
+  def number_of_entities_participating_by_moth(group, html)
+    group.sort.each_with_index do |(month, agreements), index|
+      number_of_entities = 0
+      month = I18n.t("date.month_names")[month]
+      agreements.each{|agreement| number_of_entities = number_of_entities+ agreement.number_of_signatories}
+      html << "<li><span class='key'>#{index}</span> <span class='label'>#{month}: <span class='value'>#{number_of_entities}</span> entidades</span></span>.</li>"
+    end
   end
 end
