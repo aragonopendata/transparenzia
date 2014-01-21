@@ -30,8 +30,9 @@ $(function() {
   agreements_amount_by_month();
   number_of_agreements_by_signatories();
 
-  $("#title").autocomplete({
-    source: '/convenios/buscar'
+  $("#signatories").autocomplete({
+    source: '/convenios/buscar',
+    minLength: 3
   });
 
 
