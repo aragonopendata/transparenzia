@@ -11,5 +11,6 @@
  *= require refinery/formatting
  *= require refinery/theme
  *= require_self
- *= require_tree .
+ *= require foundation
+ *= require custom
  */
