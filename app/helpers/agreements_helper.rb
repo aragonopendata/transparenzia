@@ -16,7 +16,8 @@ module AgreementsHelper
     group = group_by_month(agreements)
     html = "<ul class=\"agreements_by_month_list\">"
     group.sort.each_with_index do |(month, agreements), index|
-       html << "<li>Mes: <span class='key'>#{index}</span> <span class='label'>#{month}</span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
+      month = I18n.t("date.month_names")[month]
+      html << "<li>Mes: <span class='key'>#{index}</span> <span class='label'>#{month}: #{agreements.size} convenios </span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
     end
     html << "</ul>"
     html.html_safe
@@ -66,13 +67,14 @@ module AgreementsHelper
   end
 
   def dga_contribution_percentage(agreements)
-    agreements_with_contribution = agreements.find_all{|agreement| agreement.dga_contribution_percentage != nil}
+    agreements_with_amount = agreements.reject{|agreement| agreement.total_amount <= 0}
+    agreements_with_contribution = agreements_with_amount.find_all{|agreement| agreement.dga_contribution_percentage != nil}
     total_percentage = 0
     agreements_with_contribution.each do |agreement|
       total_percentage += agreement.dga_contribution_percentage
     end
-    if agreements.size > 0
-      percentage = total_percentage / agreements.size * 100
+    if agreements_with_amount.size > 0
+      percentage = total_percentage / agreements_with_amount.size * 100
       number_with_precision(percentage, :precision => 1)
     end
   end
@@ -84,7 +86,8 @@ module AgreementsHelper
   end
 
   def lowest_dga_contribution_percentage(agreements)
-    agreements_with_contribution = agreements.find_all{|agreement| agreement.dga_contribution_percentage != nil}
+    agreements_with_amount = agreements.reject{|agreement| agreement.total_amount <= 0}
+    agreements_with_contribution = agreements_with_amount.find_all{|agreement| agreement.dga_contribution_percentage != nil}
     agreement = agreements_with_contribution.min_by{|agreement| agreement.dga_contribution_percentage}
     number_with_precision(agreement.dga_contribution_percentage*100, :precision=>2) if agreement
   end
@@ -92,11 +95,15 @@ module AgreementsHelper
 private
   def group_by_month(agreements)
     group = agreements.group_by do |agreement| 
-      month = agreement.agreement_date.month
-      if month < 10
-        month = "0#{month}"
-      end
-      "#{agreement.agreement_date.year} - #{month}"
+      agreement.agreement_date.month
+    end
+    group.keys
+    group
+  end
+
+  def group_by_year(agreements)
+    group = agreements.group_by do |agreement| 
+      agreement.agreement_date.year
     end
     group
   end

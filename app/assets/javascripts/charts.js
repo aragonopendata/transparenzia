@@ -90,8 +90,7 @@ function line_chart(container, data) {
     // now we just position the infobox roughly where our mouse is
     infobox.style("left", (coord[0] + 100) + "px" );
     infobox.style("top", (coord[1] - 175) + "px");
-    $(info_element).html(d.label + ": " + d.value);
-    console.log(infobox)
+    $(info_element).html(d.label);
     console.log(d.label + ": " + d.value);
     $(info_element).show();
   }
