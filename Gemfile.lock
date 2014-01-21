@@ -312,6 +312,7 @@ DEPENDENCIES
   iconv
   jbuilder (~> 1.2)
   jquery-rails
+  jquery-ui-rails
   mongo
   newrelic_rpm
   pg

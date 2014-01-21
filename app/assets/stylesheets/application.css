@@ -13,4 +13,5 @@
  *= require_self
  *= require foundation
  *= require custom
+ *= require jquery.ui.autocomplete
  */
