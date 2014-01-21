@@ -29,33 +29,9 @@ $(function() {
   agreements_amount_by_month();
   number_of_agreements_by_signatories();
 
-  var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $("#title").autocomplete({
-      source: availableTags
-    });
+  $("#title").autocomplete({
+    source: '/convenios/buscar'
+  });
 
 
   geocoder = new google.maps.Geocoder();
