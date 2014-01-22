@@ -26,8 +26,9 @@ en:
         format: "%n%u"
         units:
           unit: ""
-          thousand: ""
+          thousand: K
           million: M
+          billion: B
 
   date:
     month_names: [-, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
