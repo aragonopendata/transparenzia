@@ -61,7 +61,7 @@
         <br>
         <br>
         <div class="row">
-        <%= form_tag agreements_path, {:method=>'GET'} do %>
+        <%= form_tag "", {:method=>'GET'} do %>
             Título del convenio: <%= text_field_tag(:title, params[:title], :placeholder => "escriba el título del convenio") %><br>
             Firmante: <%= text_field_tag(:signatories, params[:signatories], :placeholder => "escriba el nombre del firmante") %><br>
             Año: <%= select_tag(:year, options_for_select(2008..2013)) %><br>
