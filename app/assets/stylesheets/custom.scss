@@ -191,7 +191,7 @@ div.outer-4 {right:1em; }
 
 [data-filtros] .row > .columns:nth-child(1) {border-right:1px dotted white;}
 [data-filtros] .row > .columns:nth-child(3) {border-left:1px dotted white;}
-[data-filtros] .active {border:1px solid transparentize(white, 0); position: relative; color:transparentize(white, 0); cursor:inherit;}
+[data-filtros] .active {border:2px solid transparentize(white, 0); position: relative; color:transparentize(white, 0); cursor:inherit;}
 [data-filtros] .active:after {content:'\3e'; font-family: "icon-aragon"; position: absolute; top:0.4em; font-size: 1.3em; color:transparentize(white, 0.5);}
 [data-filtros] .active:hover {background: none;}
 [data-filtros] select {width:80%; background: none; color:white; font-size: 0.97em; line-height: 1.25em; position: relative;}
