@@ -16,6 +16,7 @@ module AgreementsHelper
     year = params[:year]
     if year== nil or year== ""
       group = group_by_year(agreements)
+      year = nil
     else
       group = group_by_month(agreements)
     end

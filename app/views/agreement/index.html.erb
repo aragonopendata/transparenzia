@@ -8,7 +8,7 @@
       <div class="row">
         <div class="large-12 columns">
           <sub class="left">Última actualización <time datetime="2013-10-25">25/10/2013</time>. Perioricidad actualización 6 meses.</sub>
-          <sub class="right">FUENTE: Departamento de personal | CONTACTO: <a href="#">transparencia@aragon.es</a></sub>
+          <sub class="right">FUENTE: Departamento de personal | CONTACTO: <a href="mailto:transparencia@aragon.es">transparencia@aragon.es</a></sub>
           <hr class="soft-divider">
           <a href="http://www.aragon.es/DepartamentosOrganismosPublicos/Departamentos/PresidenciaJusticia/AreasTematicas/Registro_Convenios/Consulta_registro/ci.Consulta_todos_convenios.detalleDepartamento?channelSelected=0" target="blank" class="buscador-avanzado">ACCEDER AL BUSCADOR AVANZADO DE LA BASE DE DATOS DE CONVENIOS DEL GOBIERNO DE ARAGÓN &gt;</a>
         </div>
@@ -16,7 +16,7 @@
           <div class="row">
             <div class="square">
               <p></p>
-              <p class="boxed-text"><span>CONVENIOS FIRMADOS EN <%=@agreements.first.year%>:</span></p>
+              <p class="boxed-text"><span>CONVENIOS FIRMADOS <%if params[:year] and params[:year]!=""%>EN <%=params[:year]%><%else%>DESDE 2008<%end%>:</span></p>
               <p class="main-text"><%=@agreements.size%><br><sub></sub></p>
               <p></p>
             </div>
@@ -54,33 +54,18 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <hr>
-      </div>
-      <div class="large-12 columns">
-        <br>
-        <br>
-        <div class="row">
-        <%= form_tag "", {:method=>'GET'} do %>
-            Título del convenio: <%= text_field_tag(:title, params[:title], :placeholder => "escriba el título del convenio") %><br>
-            Firmante: <%= text_field_tag(:signatories, params[:signatories], :placeholder => "escriba el nombre del firmante") %><br>
-            Año: <%= select_tag(:year, options_for_select(2008..2013)) %><br>
-          <%= submit_tag "Filtrar" %>
-        <% end %>
-        </div>
-      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="noticias" data-news>
     <hr class="orange">
-    <h5>CONVENIOS FIRMADOS CON AYUNTAMIENTOS</h5>
+    <h5>LISTADO DE CONVENIOS FIRMADOS</h5>
     <hr>
     <ul>
      <ul>
     <%for agreement in @paginated_agreements %>
-      <li><%= link_to agreement.title, agreement_path(agreement) %><time datetime="<%=agreement.agreement_date%>"><%=agreement.agreement_date%></time> - <%=agreement.signatories%>
+      <li><%= link_to agreement.title.html_safe, agreement_path(agreement, request.query_parameters) %><time datetime="<%=agreement.agreement_date%>"><%=agreement.agreement_date%></time> - <%=agreement.signatories.html_safe%>
       </li>
       <hr>
     <% end %>
