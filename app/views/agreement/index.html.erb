@@ -65,7 +65,7 @@
     <ul>
      <ul>
     <%for agreement in @paginated_agreements %>
-      <li><%= link_to agreement.title.html_safe, agreement_path(agreement) %><time datetime="<%=agreement.agreement_date%>"><%=agreement.agreement_date%></time> - <%=agreement.signatories.html_safe%>
+      <li><%= link_to agreement.title.html_safe, agreement_path(agreement, request.query_parameters) %><time datetime="<%=agreement.agreement_date%>"><%=agreement.agreement_date%></time> - <%=agreement.signatories.html_safe%>
       </li>
       <hr>
     <% end %>
