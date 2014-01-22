@@ -1,6 +1,6 @@
 class AgreementController < ApplicationController
   def index
-    if params[:year]
+    if params[:year] and params[:year]!=""
       years = params[:year].split("-")
       year_ini = years[0].to_i
       if years.size > 1
