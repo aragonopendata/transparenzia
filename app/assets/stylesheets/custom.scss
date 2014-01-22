@@ -234,7 +234,7 @@ div.outer-4 {right:1em; }
 [data-graph] img.dummy {margin-bottom: 1em;}
 [data-graph] a.todas {font-size: 0.8em; font-weight: 700; padding-bottom: 1.5em; display: block;}
 
-.soft-divider {position: relative;}
+.soft-divider {position: relative; z-index: 0;}
 .soft-divider:before {content:''; position: absolute; width: 0; height: 0; left:49%; bottom:-8px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $light-grey; z-index: 999;}
 .soft-divider:after {content:''; position: absolute; width: 0; height: 0; left:49%; bottom:-10px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid darken($grey, 5); z-index:10;}
 
