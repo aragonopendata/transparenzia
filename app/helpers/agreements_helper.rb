@@ -70,8 +70,7 @@ module AgreementsHelper
   end
 
   def lowest_amount_agreement(agreements)
-    agreements_with_amount = agreements.reject{|agreement| agreement.total_amount <= 0}
-    number_with_precision(agreements_with_amount.min_by{|agreement| agreement.total_amount}.total_amount, :precision => 2)
+    number_with_precision(agreements.min_by{|agreement| agreement.total_amount}.total_amount, :precision => 2)
   end
 
   def dga_contribution_percentage(agreements)
@@ -81,23 +80,24 @@ module AgreementsHelper
     agreements_with_contribution.each do |agreement|
       total_percentage += agreement.dga_contribution_percentage
     end
+    percentage = 0
     if agreements_with_amount.size > 0
       percentage = total_percentage / agreements_with_amount.size * 100
-      number_with_precision(percentage, :precision => 1)
     end
+    number_with_precision(percentage, :precision => 1)
   end
 
   def highest_dga_contribution_percentage(agreements)
     agreements_with_contribution = agreements.find_all{|agreement| agreement.dga_contribution_percentage != nil}
     agreement = agreements_with_contribution.max_by{|agreement| agreement.dga_contribution_percentage}
-    number_with_precision(agreement.dga_contribution_percentage*100, :precision=>2) if agreement
+    number_with_precision(agreement.dga_contribution_percentage*100, :precision=>2) if agreement else 0
   end
 
   def lowest_dga_contribution_percentage(agreements)
     agreements_with_amount = agreements.reject{|agreement| agreement.total_amount <= 0}
     agreements_with_contribution = agreements_with_amount.find_all{|agreement| agreement.dga_contribution_percentage != nil}
     agreement = agreements_with_contribution.min_by{|agreement| agreement.dga_contribution_percentage}
-    number_with_precision(agreement.dga_contribution_percentage*100, :precision=>2) if agreement
+    number_with_precision(agreement.dga_contribution_percentage*100, :precision=>2) if agreement else 0
   end
 
 private

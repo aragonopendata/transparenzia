@@ -34,7 +34,7 @@
               <p><%= number_to_human(highest_amount_agreement(@agreements)) %> &euro; es la mayor aportación</p>
               <p class="boxed-text"><span>CONVENIOS CON TERCEROS</span></p>
               <p class="main-text"><%= number_to_human(total_of_amount_agreements(@agreements)) %><br><sub>euros</sub></p>                
-              <p><%= lowest_amount_agreement(@agreements)%> &euro; es la menor aportación</p>
+              <p><%= number_to_human(lowest_amount_agreement(@agreements))%> &euro; es la menor aportación</p>
             </div>
             <div class="square">
               <p><%= highest_dga_contribution_percentage(@agreements)%> % es la mayor participación</p>
