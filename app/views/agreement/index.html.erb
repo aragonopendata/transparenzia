@@ -12,6 +12,8 @@
           <hr class="soft-divider">
           <a href="http://www.aragon.es/DepartamentosOrganismosPublicos/Departamentos/PresidenciaJusticia/AreasTematicas/Registro_Convenios/Consulta_registro/ci.Consulta_todos_convenios.detalleDepartamento?channelSelected=0" target="blank" class="buscador-avanzado">ACCEDER AL BUSCADOR AVANZADO DE LA BASE DE DATOS DE CONVENIOS DEL GOBIERNO DE ARAGÓN &gt;</a>
         </div>
+
+        <% if @agreements.size > 0 %>
         <div class="large-6 columns" data-grid>
           <div class="row">
             <div class="square">
@@ -53,10 +55,20 @@
             </div>
           </div>
         </div>
+        <% else %>
+        <div class="large-12 columns" data-grid>
+          <div class="row">
+            <hr class="orange">
+            <h5>No hay convenios que coincidan con esos criterios de búsqueda</h5>
+            <hr>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
   </div>
 
+  <% if @agreements.size > 0 %>
   <div class="row">
     <div class="noticias" data-news>
     <hr class="orange">
@@ -82,6 +94,7 @@
       </div>
     </div>
   </div>
+  <% end %>
 
   <%= render 'glosario' %>     
 </div>
