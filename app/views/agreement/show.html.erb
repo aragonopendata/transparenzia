@@ -1,20 +1,53 @@
-<strong><%=@agreement.title%></strong><br>
-Sección: <%=@agreement.section%><br>
-Fecha de la firma del convenio: <%=@agreement.signature_date%><br>
-Fecha del acuerdo del convenio: <%=@agreement.agreement_date%><br>
-Cantidad aportada por la DGA: <%=@agreement.dga_contribution%><br>
-Cantidades aportadas por otros contribuidores: <%=@agreement.another_contributions%><br>
-Cuantía total: <%=@agreement.amount%><br>
-Intervinientes: <%=@agreement.signatories%><br>
+<%= render 'shared/ariadna' %>
+<div class="body-bg">
+  <div class="row">
+    <div class="large-12 columns" data-stats>
+      <h3 class="text-center">Convenios del gobierno de Aragón</h3>
+      <br>
+      <div class="row">
+        <div class="large-12 columns">
+          <sub class="left">Última actualización <time datetime="2013-10-25">25/10/2013</time>. Perioricidad actualización 6 meses.</sub>
+          <sub class="right">FUENTE: Departamento de personal | CONTACTO: <a href="#">transparencia@aragon.es</a></sub>
+          <hr class="soft-divider">
+          <a href="#" class="buscador-avanzado">ACCEDER AL BUSCADOR AVANZADO DE LA BASE DE DATOS DE CONVENIOS DEL GOBIERNO DE ARAGÓN ></a>
+        </div>
+        <div class="large-12 columns">
+          <br>
+          <hr class="orange less-margin">
+        </div>
+      </div>
+    </div>
+    <div class="large-12 columns" data-visor>
+      <ul>
+        <li><span>SECTOR:</span><%=@agreement.section%></li>
+        <li><span>FECHA DE LA FIRMA DEL CONVENIO:</span><%=@agreement.signature_date%></li>
+        <li><span>FECHA DEL ACUERDO DEL CONVENIO:</span><%=@agreement.agreement_date%></li>
+        <li><span>CANTIDAD APORTADA POR LA DGA:</span><%=@agreement.dga_contribution%></li>
+      </ul>
+      <ul>
+        <li><span>CANTIDADES APORTADAS POR OTROS CONTRIBUIDORES:</span><%=@agreement.another_contributions%></li>
+        <li><span>CUANTÍA TOTAL:</span><%=@agreement.amount%></li>
+        <li><span>INTERVINIENTES:</span><%=@agreement.signatories%></li>
+      </ul>
 
 
 <%for url in @agreement.pdf_urls%>
-<iframe src="http://docs.google.com/viewer?url=<%=CGI.escape url%>&embedded=true" width="800" height="500" style="border: none;"></iframe>
-<br/>
-<a href="<%=url%>">Descargar en PDF</a>  <%=url%>
+  <div class="row iframe-cont">
+    <iframe src="http://docs.google.com/viewer?url=<%=CGI.escape url%>&embedded=true" width="800" height="500" style="border: none;"></iframe>
+    <div class="large-12 columns">
+      <a href="<%=url%>" class="left">DESCARGAR EN PDF <span class="icon icon-in"></span></a>
+      <a href="" class="right">NOTIFICAR UN ERROR EN LOS DATOS ></a>
+    </div>
+  </div>
 <% end %>
 
-<br><br><br>
+<!--
 Observaciones: <%=@agreement.observations%><br>
 Adendas: <%=@agreement.addendums%><br>
 Notas: <%=@agreement.notes%><br>
+-->
+
+  <%= render 'glosario' %>
+    </div>
+  </div>
+</div>
