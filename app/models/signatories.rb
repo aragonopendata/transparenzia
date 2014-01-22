@@ -24,7 +24,7 @@ class Signatories
   end
 
   def find(term)
-    @all.select{|key, hash| key.match(term.downcase.strip) }.values
+    @all.select{|key, hash| key.match(term.downcase.strip) }.values[0..5]
   end
 
   def serialize(file = FILE_PATH)
