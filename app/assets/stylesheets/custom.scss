@@ -286,3 +286,7 @@ footer .logo-ft {padding-top: 0.35em;}
 .sub-footer ul li a:hover, .sub-footer p:hover > a {color:$orange;}
 .sub-footer p > a {color:white;}
 .sub-footer p {font-size: 0.85em; font-family: $roboto; font-weight: 400;}
+
+
+// Hot Fixes
+a.long-name {padding: 0.8em 0.8em !important;}
