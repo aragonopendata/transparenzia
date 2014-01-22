@@ -18,14 +18,19 @@ module AgreementsHelper
     case params[:type]
     when "amount"
       agreements_amount_by_moth group, html
+      title = "Cuantía de convenios"
     when "entities"
       number_of_entities_participating_by_moth group, html
+      title = "Número de entidades"
     when "percentage"
         percentage_of_dga_participation_by_moth  group, html
+        title = "Porcentaje de participación"
     else
       number_of_agreements_by_moth group, html
+      title = "Número de convenios"
     end
     html << "</ul>"
+    html << "<div class='chart-title' style='display:none'>#{title}</div>"
     html.html_safe
   end
 
