@@ -18,6 +18,7 @@
       </div>
     </div>
     <div class="large-12 columns" data-visor>
+      <p><%= @agreement.title.html_safe %></p>
       <ul>
         <li><span>SECTOR:</span><%=@agreement.section%></li>
         <li><span>FECHA DE LA FIRMA DEL CONVENIO:</span><%=@agreement.signature_date%></li>
