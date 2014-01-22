@@ -105,19 +105,30 @@ private
     group = agreements.group_by do |agreement| 
       agreement.agreement_date.month
     end
-    group.keys
-    group
+    #populate the empty months
+    (1..12).each do |it|
+      unless group[it]
+        group[it] = []
+      end
+    end
+    group.sort
   end
 
   def group_by_year(agreements)
     group = agreements.group_by do |agreement| 
       agreement.agreement_date.year
     end
-    group
+    #populate the empty years
+    (2008..2013).each do |it|
+      unless group[it]
+        group[it] = []
+      end
+    end
+    group.sort
   end
 
   def number_of_agreements_by_interval_time(group, html, year=nil)
-    group.sort.each_with_index do |(grouped_by, agreements), index|
+    group.each_with_index do |(grouped_by, agreements), index|
       if year
         grouped_by = I18n.t("date.month_names")[grouped_by]
       else
@@ -127,7 +138,7 @@ private
     end
   end
   def agreements_amount_by_interval_time(group, html, year=nil)
-    group.sort.each_with_index do |(grouped_by, agreements), index|
+    group.each_with_index do |(grouped_by, agreements), index|
       if year
         grouped_by = I18n.t("date.month_names")[grouped_by]
       else
@@ -139,7 +150,7 @@ private
     end
   end
   def percentage_of_dga_participation_by_interval_time(group, html, year=nil)
-    group.sort.each_with_index do |(grouped_by, agreements), index|
+    group.each_with_index do |(grouped_by, agreements), index|
       if year
         grouped_by = I18n.t("date.month_names")[grouped_by]
       else
@@ -157,7 +168,7 @@ private
     end
   end
   def number_of_entities_participating_by_interval_time(group, html, year=nil)
-    group.sort.each_with_index do |(grouped_by, agreements), index|
+    group.each_with_index do |(grouped_by, agreements), index|
       number_of_entities = 0
       if year
         grouped_by = I18n.t("date.month_names")[grouped_by]
