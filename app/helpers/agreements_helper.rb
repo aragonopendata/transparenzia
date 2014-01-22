@@ -33,7 +33,7 @@ module AgreementsHelper
         percentage_of_dga_participation_by_interval_time  group, html, year
         title = "Porcentaje de participación"
     else
-      number_of_agreements_by_interval_time group, html
+      number_of_agreements_by_interval_time group, html, year
       title = "Número de convenios"
     end
     html << "</ul>"
