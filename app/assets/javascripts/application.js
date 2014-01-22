@@ -22,13 +22,11 @@
 
 var geocoder
 $(function() {  
-  by_place_graph();
+  /*by_place_graph();
   by_department_graph();
   by_tipology_graph();
-
+  */
   number_of_agreements_by_month();
-  agreements_amount_by_month();
-  number_of_agreements_by_signatories();
 
   $("#signatories").autocomplete({
     source: '/convenios/buscar',
@@ -36,9 +34,9 @@ $(function() {
   });
 
 
-  geocoder = new google.maps.Geocoder();
+  /*geocoder = new google.maps.Geocoder();
   var map = initialize_map();
-  //move_to('La Jacetania, Aragón', map);
+  move_to('La Jacetania, Aragón', map);*/
 });
 
 function initialize_map() {

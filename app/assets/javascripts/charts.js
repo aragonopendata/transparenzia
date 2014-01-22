@@ -76,9 +76,9 @@ function agreements_amount_by_month (argument) {
 function line_chart(container, data) {
   var svg_element = container + " svg";
   var info_element = container + " .infobox";
-  var margins = [20, 30, 20, 60];
-  var width = 600 - margins[1] - margins[3];
-  var height = 360 - margins[0] - margins[2];
+  var margins = [100, 30, 40, 60];
+  var width = $(container).width() - margins[1] - margins[3];
+  var height = $(container).height() - margins[0] - margins[2];
 
   var y = d3.scale.linear().domain([0, d3.max(data, function(d) { return parseInt(d.value); } )]).range([height, 0]);
   var x = d3.scale.linear().domain([0, data.length]).range([0, width]);
@@ -88,10 +88,9 @@ function line_chart(container, data) {
     var infobox = d3.select(info_element);
     
     // now we just position the infobox roughly where our mouse is
-    infobox.style("left", (coord[0] + 100) + "px" );
-    infobox.style("top", (coord[1] - 175) + "px");
+    infobox.style("left", (coord[0]) + "px" );
+    infobox.style("top", (coord[1] - 75) + "px");
     $(info_element).html(d.label);
-    console.log(d.label + ": " + d.value);
     $(info_element).show();
   }
    
@@ -100,6 +99,7 @@ function line_chart(container, data) {
   }
 
   var yAxisLeft = d3.svg.axis().scale(y).ticks(7).orient("left");
+  var xAxis = d3.svg.axis().scale(x).ticks(0);
 
   var line = d3.svg.line()
     .x(function(d, i) {return x(d.key);})
@@ -110,12 +110,19 @@ function line_chart(container, data) {
      .attr("width", width + margins[1] + margins[3])
      .append("g")
      .attr("transform", "translate(" + margins[3] + "," + margins[0] + ")");
+
+  var title = $(container).find(".chart-title").text();
+  d3.select(svg_element).append("text")
+    .attr("transform", "translate(40,40)")
+    .attr("class", "graph_title")
+    .text(title);
+  
   graph
     .selectAll("circle")
     .data(data)
     .enter().append("circle")
     .attr("fill", "steelblue")
-    .attr("r", 5)
+    .attr("r", 7)
     .attr("cx", function(e) { return x(e.key)})
     .attr("cy", function(e) { return y(e.value)})
     .on("mouseover", function(d) { showData(this, d);})
@@ -127,6 +134,10 @@ function line_chart(container, data) {
   graph.append("g")
     .attr("transform", "translate(0,0)")
     .call(yAxisLeft);
+
+  graph.append("g")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
 }
 
 function number_of_agreements_by_signatories(){

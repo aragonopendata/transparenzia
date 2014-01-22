@@ -9,7 +9,7 @@ class AgreementController < ApplicationController
         year_end = year_ini
       end
     else
-      year_ini = 2013
+      year_ini = 2008
       year_end = 2013
     end
     year_ini = Date.new(year_ini, 1, 1)
