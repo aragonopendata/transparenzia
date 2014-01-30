@@ -193,4 +193,11 @@ private
       html << "<li><span class='key'>#{index}</span> <span class='label'>#{grouped_by}: <span class='value'>#{number_of_entities}</span> entidades</span></span>.</li>"
     end
   end
+  def active(type=nil)
+    if (type == params[:type])
+      "active"
+    else 
+      ""
+    end
+  end
 end
