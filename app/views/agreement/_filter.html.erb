@@ -10,9 +10,9 @@
             <a href="<%= agreements_path(request.query_parameters.merge(:type => 'entities'))%>" class="button hollow <%=active('entities')%>">Número de entidades</a>        
           </div>
           <div class="large-4 columns">
-            <a href="#" class="button hollow">Título convenio</a>
-            <a href="#" class="button hollow">Firmante</a>
-            <a href="#" class="button hollow">Fecha de convenio</a>        
+            <a href="#" class="toggler button hollow" data-toggle-input="title">Título convenio</a>
+            <a href="#" class="toggler button hollow" data-toggle-input="signatories">Firmante</a>
+            <a href="#" class="toggler button hollow" data-toggle-input="year">Fecha de convenio</a>        
           </div>
           <div class="large-4 columns">
             <%= text_field_tag(:title, params[:title], :placeholder => "escriba el título del convenio") %>

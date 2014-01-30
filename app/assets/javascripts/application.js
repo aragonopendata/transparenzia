@@ -33,6 +33,19 @@ $(function() {
     minLength: 3
   });
 
+  $(".toggler").each(function(){
+    var id = $(this).data('toggle-input');
+    var elem = $('#'+id);
+    elem.toggle();
+    $(this).on('click', function(){
+      elem.toggle();
+      if(elem.is(":visible")){
+        $(this).addClass("active");
+      }else{
+        $(this).removeClass("active");
+      }
+    });
+  })
 
   /*geocoder = new google.maps.Geocoder();
   var map = initialize_map();
