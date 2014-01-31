@@ -36,7 +36,12 @@ $(function() {
   $(".toggler").each(function(){
     var id = $(this).data('toggle-input');
     var elem = $('#'+id);
-    elem.toggle();
+    if (elem.val()){
+      $(this).addClass("active");
+    }else{
+      elem.hide();  
+    }
+
     $(this).on('click', function(){
       elem.toggle();
       if(elem.is(":visible")){
@@ -44,8 +49,17 @@ $(function() {
       }else{
         $(this).removeClass("active");
       }
+      return false;
     });
-  })
+  });
+
+  $("#filter").on('submit', function(){
+    $(this).find('input, select').each(function(){
+      if(!$(this).is(":visible")){
+        $(this).val('');
+      }
+    });
+  });
 
   /*geocoder = new google.maps.Geocoder();
   var map = initialize_map();
