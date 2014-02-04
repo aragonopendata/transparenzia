@@ -28,12 +28,12 @@
               <p class="main-text"><%= number_of_entities(@agreements)%></p>
               <p></p>
             </div>
-          </div>        
+          </div>
           <div class="row">
             <div class="square">
               <p><%= number_to_human(highest_amount_agreement(@agreements)) %> &euro; es la mayor aportación</p>
               <p class="boxed-text"><span>CONVENIOS CON TERCEROS</span></p>
-              <p class="main-text"><%= number_to_human(total_of_amount_agreements(@agreements)) %><br><sub>euros</sub></p>                
+              <p class="main-text"><%= number_to_human(total_of_amount_agreements(@agreements)) %><br><sub>euros</sub></p>
               <p><%= number_to_human(lowest_amount_agreement(@agreements))%> &euro; es la menor aportación</p>
             </div>
             <div class="square">
@@ -42,7 +42,7 @@
               <p class="main-text"><%=dga_contribution_percentage(@agreements)%> %<br><sub>participación DGA</sub></p>
               <p><%=lowest_dga_contribution_percentage(@agreements)%> % es la menor participación</p>
             </div>
-          </div>            
+          </div>
         </div>
         <div class="large-6 columns" data-grid>
           <div class="row">
@@ -75,7 +75,6 @@
     <h5>LISTADO DE CONVENIOS FIRMADOS</h5>
     <hr>
     <ul>
-     <ul>
     <%for agreement in @paginated_agreements %>
       <li><%= link_to agreement.title.html_safe, agreement_path(agreement, request.query_parameters) %><time datetime="<%=agreement.agreement_date%>"><%=agreement.agreement_date%></time> - <%=agreement.signatories.html_safe%>
       </li>
@@ -87,14 +86,14 @@
 
   <div class="paginacion">
     <div class="row">
-      <div class="large-9 columns large-centered">
-        <div class="large-6 columns no-gap">
-        <%= will_paginate @paginated_agreements %>
+      <div class="large-11 columns large-centered">
+        <div class="large-12 columns no-gap">
+          <%= will_paginate @paginated_agreements, :next_label => "SIGUIENTE >", :previous_label => "< ANTERIOR" %>
         </div>
       </div>
     </div>
   </div>
   <% end %>
 
-  <%= render 'glosario' %>     
+  <%= render 'glosario' %>
 </div>
