@@ -1,17 +1,12 @@
 class AgreementController < ApplicationController
   def index
-    if params[:year] and params[:year]!=""
-      years = params[:year].split("-")
-      year_ini = years[0].to_i
-      if years.size > 1
-        year_end = years[1].to_i
-      else
-        year_end = year_ini
-      end
-    else
-      year_ini = 2008
-      year_end = 2013
-    end
+    
+    year_ini = params[:year_ini].to_i
+    year_end = params[:year_end].to_i
+    year_ini = 2008 if (year_ini < 2008)
+    year_end = 2013 if (year_end < 2008)
+
+    
     year_ini = Date.new(year_ini, 1, 1)
     year_end = Date.new(year_end, 12, 31)
 
