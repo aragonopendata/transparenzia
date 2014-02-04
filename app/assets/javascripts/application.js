@@ -36,7 +36,20 @@ $(function() {
   $(".toggler").each(function(){
     var id = $(this).data('toggle-input');
     var elem = $('#'+id);
-    if (elem.val()){
+    var visible = false;
+    if (elem.is( "input, select" )){
+      if (elem.val()){
+        visible = true;
+      }
+    }else{
+        $(elem).find('input, select').each(function(){
+          if ($(this).val()){
+            visible = true;
+          }
+      });
+    }
+
+    if (visible){
       $(this).addClass("active");
     }else{
       elem.hide();  
