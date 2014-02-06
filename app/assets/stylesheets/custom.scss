@@ -94,7 +94,7 @@ header .logo img:hover {top:-2.32em;}
 [data-cat] li {display: inline-block; padding:0; margin:0; float:left; width:25%; position: relative;}
 [data-cat] li:first-child {border-left:1px solid #ccc;}
 [data-cat] li {border-right:1px solid #ccc; }
-[data-cat] li a {padding:1.4em 0.8em; height:57px; margin:0 0.8em; font-size: 0.78em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
+[data-cat] li a {padding:1.4em 0.6em; height:57px; margin:0 0.8em; font-size: 0.77em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
 [data-cat] li a:hover, [data-cat] li a.active {background: transparentize($orange, 0.1); color:white;}
 
 // menu principal - sub
@@ -116,10 +116,10 @@ div.outer-4 {right:1em; }
 //.open {background: darken(transparentize($orange, 0.1), 0); color:white;}
 
 // font spacing and adjust for menu principal on firefox
-@-moz-document url-prefix() { 
-[data-cat] {padding:1.5em 0 0 0;}  
-[data-cat] li a {padding:1.9em 0.8em; margin:0 0.8em; font-size: 0.75em; letter-spacing: 0.005em;}
-}
+// @-moz-document url-prefix() { 
+// [data-cat] {padding:1.5em 0 0 0;}  
+// [data-cat] li a {padding:1.9em 0.8em; margin:0 0.8em; font-size: 0.75em; letter-spacing: 0.005em;}
+// }
 
 // index
 .titulo {padding:1em 0;}
