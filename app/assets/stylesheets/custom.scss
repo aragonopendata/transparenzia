@@ -95,7 +95,7 @@ header .logo img:hover {top:-2.32em;}
 [data-cat] li:first-child {border-left:1px solid #ccc;}
 [data-cat] li {border-right:1px solid #ccc; }
 [data-cat] li a {padding:1.4em 0.8em; height:57px; margin:0 0.8em; font-size: 0.78em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
-[data-cat] li a:hover {background: transparentize($orange, 0.1); color:white;}
+[data-cat] li a:hover, [data-cat] li a.active {background: transparentize($orange, 0.1); color:white;}
 
 // menu principal - sub
 .menu-bg {display:none; position: absolute; left:1.3em; width:919px; top:57px; height: 450px; z-index: 1; background: transparentize($orange, 0.1); padding:1em 0.6em;}
@@ -111,7 +111,7 @@ div.outer-4 {right:1em; }
 [class|="outer"] ul li a > p {font-size: 1em; text-decoration: none !important; padding:0; margin:0; font-family: $roboto, sans-serif; font-weight: 400; color:white; line-height: 1.25em;}
 [class|="outer"] ul li:hover span {text-decoration: underline;}
 
-[data-cat] nav li:hover > [class|="outer"], [data-cat]:hover > div span.menu-bg {display: block !important;}
+[data-cat] nav ul.no-js li:hover > [class|="outer"], [data-cat]:hover > div.no-js span.menu-bg, span.active {display: block !important;}
 
 //.open {background: darken(transparentize($orange, 0.1), 0); color:white;}
 
