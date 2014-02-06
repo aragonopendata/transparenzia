@@ -29,8 +29,8 @@ describe Signatories do
   describe "serialization" do
     it "to a file" do
       @signatories.populate("DGA/Ayto. de San Esteban de Litera")
-      @signatories.serialize("tmp/test.yml")
-      File.exist?("tmp/test.yml").should be_true
+      @signatories.serialize("spec/models/signatories_test.yml")
+      File.exist?("spec/models/signatories_test.yml").should be_true
     end
 
   end
