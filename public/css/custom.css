@@ -307,22 +307,40 @@ div.outer-4 {
 [data-body] figure {
   margin: 0 0 1.3em 0;
   padding: 0;
-  text-align: center; }
+  text-align: center;
+  color: #494949;
+  background: white; }
+
+[data-body] figure img {
+  position: relative;
+  top: -0.5em; }
 
 [data-body] figcaption {
   background: white;
-  padding: 0.5em;
+  padding: 0.5em 0.5em 1em 0.5em;
   line-height: 1.3em;
   min-height: 96px;
   font-size: 1.2em;
   border-bottom: 1px solid #bcbcbc;
   text-align: left; }
 
-[data-body] figure:hover > figcaption {
+[data-body] figcaption p {
+  text-align: center;
+  margin: 0 0 0.5em 0; }
+
+[data-body] figcaption sub {
+  text-align: center;
+  display: block;
+  color: #2f2f2f;
+  font-size: 0.7em;
+  font-family: "Montserrat";
+  float: none; }
+
+[data-body] figure:hover {
   color: #c34415;
   cursor: pointer; }
 
-[data-body] figure:active > figcaption {
+[data-body] figure:active {
   background: none;
   color: #6f6f6f;
   cursor: pointer; }
@@ -428,6 +446,9 @@ div.outer-4 {
 .video-inner {
   padding: 1.1em 0;
   text-align: center; }
+
+.no-video-spacer {
+  border-top: 1px solid #dad6d6; }
 
 .ariadna-cont {
   background: #f5f4f4;
