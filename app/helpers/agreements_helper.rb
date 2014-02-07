@@ -97,7 +97,7 @@ module AgreementsHelper
     agreements_with_contribution = agreements.find_all{|agreement| agreement.dga_contribution_percentage != nil}
     agreement = agreements_with_contribution.max_by{|agreement| agreement.dga_contribution_percentage}
     if agreement 
-      number_with_precision(agreement.dga_contribution_percentage*100, :precision=>2) 
+      number_with_precision(agreement.dga_contribution_percentage*100, :precision=>1) 
     else 
       0
     end
