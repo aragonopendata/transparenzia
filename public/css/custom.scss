@@ -54,6 +54,7 @@ $pink: #e5b9a6;
 .no-scale {width:auto !important;}
 .img-no-scale {width:auto !important; max-width: inherit !important;}
 .no-gap {padding-left: 0; padding-right: 0;}
+.separador {margin:1em 0; position: relative;}
 @mixin round($rad) {-webkit-border-radius: $rad; -moz-border-radius: $rad; border-radius: $rad;}
 
 /* Foundation overrides evita que colapse */
@@ -135,13 +136,24 @@ div.outer-4 {right:1em; }
 [data-body] .quest {width:300px; float: left; margin:0 0.45em 0 0; padding:0.5em inherit; font-size: 2.5em; border:1px solid $orange; background: none; color:$orange; font-family:$roboto; font-weight: 300 !important;}
 [data-body] .quest:nth-child(3) {margin:0;}
 [data-body] .quest:hover {background: $orange; color:white;}
-[data-body] figure {margin:0 0 1.3em 0; padding:0; text-align: center; color:darken($dark, 15); background: white;}
-[data-body] figure img {position: relative; top:-0.5em;}
-[data-body] figcaption {background: white; padding:0.5em 0.5em 1em 0.5em; line-height: 1.3em; min-height: 96px; font-size: 1.2em; border-bottom:1px solid lighten($dark, 30); text-align: left;}
+[data-body] figure {margin:0 0 1.3em 0; padding:0; text-align: center; color:darken($dark, 15); background: white; min-height: 250px; border-bottom:1px solid lighten($dark, 30); }
+[data-body] figure img {position: relative; top:-0.6em;}
+[data-body] figcaption {background: white; padding:0.5em 0.5em 1em 0.5em; line-height: 1.3em; min-height: 96px; font-size: 1.2em; text-align: left;}
 [data-body] figcaption p {text-align: center; margin:0 0 0.5em 0;}
 [data-body] figcaption sub {text-align: center; display: block; color:darken($dark, 25); font-size: 0.7em; font-family: $montserrat; float:none;}
 [data-body] figure:hover {color:$orange; cursor: pointer;}
 [data-body] figure:active {background:none; color:$dark; cursor: pointer;}
+[data-body] .datawall {background: white; padding:1em;}
+[data-body] .datawall h2 {font-size: 1.9em; margin: 0.2em 0;}
+[data-body] .datawall h3 {font-size: 1em; font-family: $roboto; font-weight:400; margin-bottom: 1.5em;}
+[data-body] .datawall h5 {font-family: $roboto; font-weight: 200; color:black; font-size: 1.2em; text-align: center; margin:0; padding:0;}
+[data-body] .datawall ul {margin-left: 0;}
+[data-body] .datawall ul li {list-style: none; }
+[data-body] .datawall ul li a {display:block; margin:0.3em 0 1.3em 0; font-size:0.9em; color:black;}
+[data-body] .datawall a > time {color:$dark;}
+[data-body] .datawall a:hover {color:$orange;}
+[data-body] .datawall a:hover > time {color:$dark;}
+[data-body] .datawall img {display: block; text-align: center; margin: 0 auto;}
 [data-body] .noticias > p:last-child {color:darken($black, 25);}
 [data-body] .todas {font-family:$montserrat; font-size:0.8em; font-weight: 700;}
 [data-body] .mask {display: block; overflow: hidden; height: 290px; width: 290px; position: relative; text-align: center; margin: 0 auto 1em auto; -webkit-border-radius: 180px; -moz-border-radius: 180px; border-radius: 180px;}
