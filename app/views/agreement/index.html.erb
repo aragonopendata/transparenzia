@@ -4,6 +4,10 @@
   <div class="row">
     <div class="large-12 columns" data-stats>
       <h3 class="text-center">Convenios del gobierno de Aragón</h3>
+      <%=filter_text%>
+      
+
+      
       <br>
       <div class="row">
         <div class="large-12 columns">
@@ -18,7 +22,7 @@
           <div class="row">
             <div class="square">
               <p></p>
-              <p class="boxed-text"><span>CONVENIOS FIRMADOS <%if params[:year] and params[:year]!=""%>EN <%=params[:year]%><%else%>DESDE 2008<%end%>:</span></p>
+              <p class="boxed-text"><span>CONVENIOS FIRMADOS:</span></p>
               <p class="main-text"><%=@agreements.size%><br><sub></sub></p>
               <p></p>
             </div>

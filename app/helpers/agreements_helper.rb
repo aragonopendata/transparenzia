@@ -200,4 +200,37 @@ private
       ""
     end
   end
+  def filter_text()
+    text = ""
+    if params[:validity_date]=="0"
+        text << "los vigentes "
+    end
+    if params[:validity_date]=="1"
+        text << "los no vigentes "
+    end
+    if params[:year_ini] 
+        if params[:year_ini] != ""
+          text << "desde #{params[:year_ini]} "
+        else
+          text << "desde 2008 "
+        end
+    end
+    if params[:year_end]
+        if params[:year_end] != ""
+          text << "hasta #{params[:year_end]} "
+        else
+          text << "hasta 2013 "
+        end
+    end
+    if params[:title] and params[:title]!=''
+        text << "cuyo título contenga '#{params[:title]}' "
+    end
+    if params[:signatories] and params[:signatories]!=''
+        text << "el firmante sea '#{params[:signatories]}' "
+    end
+    if params[:section] and params[:section]!=''
+        text << "de la sección '#{params[:section]}' "
+    end
+    text
+  end
 end
