@@ -28,10 +28,10 @@ $(function() {
   */
   number_of_agreements_by_month();
 
-  $("#signatories").autocomplete({
+  /*$("#signatories").autocomplete({
     source: '/convenios/buscar',
     minLength: 3
-  });
+  });*/
 
   $(".toggler").each(function(){
     var id = $(this).data('toggle-input');
