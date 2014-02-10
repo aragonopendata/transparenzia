@@ -751,6 +751,82 @@ div.outer-4 {
   border-top: 10px solid #dfdcdc;
   z-index: 10; }
 
+[data-tabs] h2 {
+  font-family: "Roboto";
+  font-size: 1.8em;
+  margin-bottom: 1.8em;
+  font-weight: 400; }
+
+[data-tabs] table {
+  width: 100%;
+  margin: 0 0 3em 0;
+  background: none;
+  border: none; }
+
+[data-tabs] table tr {
+  border-top: 1px solid #ebe9e9;
+  border-bottom: 1px solid #ebe9e9;
+  margin: 0;
+  display: inline-table; }
+
+[data-tabs] table tr img {
+  max-width: 40%;
+  display: block;
+  float: right; }
+
+[data-tabs] .table-head {
+  padding: 1em 0.5em 0 1em;
+  margin: 0 0 0.5em 0; }
+
+[data-tabs] .table-head li {
+  list-style: none;
+  display: inline-block;
+  font-family: "Roboto";
+  background: #c34415;
+  color: white;
+  font-size: 0.8em;
+  width: 110px;
+  text-align: center;
+  padding: 0.5em; }
+
+.tabs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat";
+  margin-bottom: 2em;
+  display: block;
+  width: 97%; }
+  .tabs li {
+    display: inline-block;
+    float: left;
+    width: 33%;
+    margin: 0; }
+  .tabs li a {
+    display: block;
+    color: #6f6f6f;
+    line-height: 1em;
+    text-align: center;
+    margin: 0.4em 0 0 0;
+    padding: 0.8em 0;
+    font-size: 0.9em;
+    border-bottom: 1px solid #c34415;
+    border-left: 1px solid #c7c1c1;
+    border-right: 1px solid #c7c1c1;
+    border-top: 1px solid #c7c1c1; }
+  .tabs li:last-child a:not(.active) {
+    border-left: none; }
+  .tabs li:first-child a:not(.active) {
+    border-right: none; }
+  .tabs .active {
+    color: #c34415;
+    margin: 0;
+    padding: 1em 0;
+    border-left: 1px solid #c34415;
+    border-right: 1px solid #c34415;
+    border-top: 1px solid #c34415;
+    border-bottom: 1px solid transparent; }
+
 footer {
   background: #ebe9e9;
   padding: 4em 0 0 0;

@@ -230,6 +230,22 @@ div.outer-4 {right:1em; }
 .soft-divider:before {content:''; position: absolute; width: 0; height: 0; left:49%; bottom:-8px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $light-grey; z-index: 999;}
 .soft-divider:after {content:''; position: absolute; width: 0; height: 0; left:49%; bottom:-10px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid darken($grey, 5); z-index:10;}
 
+// Tabs
+[data-tabs] h2 {font-family: $roboto; font-size:1.8em; margin-bottom: 1.8em; font-weight: 400;}
+[data-tabs] table {width:100%; margin:0 0 3em 0; background: none; border: none;}
+[data-tabs] table tr {border-top:1px solid $grey; border-bottom:1px solid $grey; margin:0; display: inline-table;}
+[data-tabs] table tr img {max-width: 40%; display: block; float: right;}
+[data-tabs] .table-head {padding:1em 0.5em 0 1em; margin:0 0 0.5em 0;}
+[data-tabs] .table-head li {list-style: none; display: inline-block; font-family:$roboto; background:$orange; color:white; font-size: 0.8em; width:110px; text-align: center; padding:0.5em;}
+
+.tabs {list-style: none; padding:0; margin:0; font-family: $montserrat; margin-bottom: 2em; display: block; width:97%;
+  li {display: inline-block; float: left; width:33%; margin:0; }
+  li a {display: block; color:$dark; line-height:1em; text-align: center; margin:0.4em 0 0 0; padding:0.8em 0; font-size: 0.9em; border-bottom: 1px solid $orange; border-left: 1px solid darken($grey, 15); border-right: 1px solid darken($grey, 15); border-top: 1px solid darken($grey, 15);}
+  li:last-child a:not(.active){border-left:none;}
+  li:first-child a:not(.active){border-right:none;}
+  .active {color:$orange; margin:0; padding:1em 0; border-left: 1px solid $orange; border-right: 1px solid $orange; border-top: 1px solid $orange; border-bottom: 1px solid transparent;}
+}
+
 // footer
 footer {background: $grey; padding:4em 0 0 0; color:lighten($dark, 10); font-family: $roboto; font-weight: 400;}
 footer ul {list-style: none; margin-bottom: 4em; text-indent: -17px;}
