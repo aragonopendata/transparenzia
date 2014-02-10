@@ -21,6 +21,7 @@ class AgreementImporter
             :code => item['Número'],
             :year => item['Año'], 
             :section => item['Sección'], 
+            :normalized_section => normalize_section(item['Sección']),
             :title => item['Título'], 
             :signatories => item['Firmantes'], 
             :number_of_signatories => item['Firmantes'].split("/").size, 
@@ -34,7 +35,7 @@ class AgreementImporter
           )
         populate_dates(agreement, item)
         total_of_amount(agreement)
-        if agreement.year >= 2008 
+        if agreement.year and agreement.year >= 2008 
           total_dga_contribution(agreement)
           dga_contribution_percentage(agreement)
         end
@@ -124,5 +125,9 @@ private
     string.gsub!('.','') #for clean thousands separation in some number formats
     string.gsub!(',','.') #for change comma decimal separation to dots
     string.strip
+  end
+
+  def normalize_section(unnormalized_section)
+
   end
 end
