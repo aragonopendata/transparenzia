@@ -133,7 +133,11 @@ private
       agreement.agreement_date.year
     end
     #populate the empty years
-    (2008..2013).each do |it|
+    year_ini = params[:year_ini].to_i
+    year_end = params[:year_end].to_i
+    year_ini = 2008 if year_ini < 2008
+    year_end = Date.today.year if year_end < 2008
+    (year_ini..year_end).each do |it|
       unless group[it]
         group[it] = []
       end
