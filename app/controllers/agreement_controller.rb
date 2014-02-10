@@ -5,6 +5,7 @@ class AgreementController < ApplicationController
       .invalid(params[:validity_date])
       .find_by_title(params[:title])
       .find_by_signatories(params[:signatories])
+      .find_by_section(params[:section])
       .order_by(params[:type])
     @paginated_agreements = @agreements.paginate(:page => params[:page], :per_page => 5)
   end

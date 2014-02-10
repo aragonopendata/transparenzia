@@ -11,13 +11,15 @@
           </div>
           <div class="large-4 columns">
             <a href="#" class="toggler button hollow" data-toggle-input="title">Título convenio</a>
-            <a href="#" class="toggler button hollow" data-toggle-input="signatories">Firmante</a>
+            <a href="#" class="toggler button hollow" data-toggle-input="signatories_finder">Firmante</a>
             <a href="#" class="toggler button hollow" data-toggle-input="year">Años de los convenios</a>
             <a href="#" class="toggler button hollow" data-toggle-input="validity_date">Convenios vigentes</a>        
           </div>
           <div class="large-4 columns">
             <%= text_field_tag(:title, params[:title], :placeholder => "escriba el título del convenio") %>
-            <%= text_field_tag(:signatories, params[:signatories], :placeholder => "escriba el nombre del firmante") %>
+            <span id="signatories_finder">
+              <%= select_tag(:section, options_for_select(Agreement::SECTIONS, params[:section]),  {prompt: 'Seleccione un tipo de convenio'}) %>
+              <%= text_field_tag(:signatories, params[:signatories], :placeholder => "escriba el nombre del firmante") %></span>
             <span id="year"><%= select_tag(:year_ini, options_for_select(2008..2013, params[:year_ini]),  {prompt: 'Desde'}) %> <%= select_tag(:year_end, options_for_select(2008..2013, params[:year_end]),  {prompt: 'Hasta'}) %></span>
             <%= select_tag(:validity_date, options_for_select({"Vigentes" => 0, "No vigentes" => 1}, params[:validity_date]),  {prompt: 'Todos'}) %>
           </div>
