@@ -231,18 +231,18 @@ div.outer-4 {right:1em; }
 .soft-divider:after {content:''; position: absolute; width: 0; height: 0; left:49%; bottom:-10px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid darken($grey, 5); z-index:10;}
 
 // Tabs
-[data-tabs] h2 {font-family: $roboto; font-size:1.8em; margin-bottom: 1.8em; font-weight: 400;}
+[data-tabs] h2, .nivel-tr h2 {font-family: $roboto; font-size:1.8em; margin-bottom: 1.8em; font-weight: 400;}
 [data-tabs] table {width:100%; margin:0 0 3em 0; background: none; border: none;}
 [data-tabs] table tr {border-top:1px solid $grey; border-bottom:1px solid $grey; margin:0; display: inline-table;}
 [data-tabs] table tr img {width: 40%; display: block; float: right; margin-right: 1em;}
 [data-tabs] .table-head {padding:1em 0.5em 0 1em; margin:0 0 0.5em 0;}
 [data-tabs] .table-head li {list-style: none; display: inline-block; font-family:$roboto; background:$orange; color:white; font-size: 0.8em; width:110px; text-align: center; padding:0.5em;}
-[data-tabs] .bottom-grid {font-family: $roboto; font-weight: 300; margin:1em 0 4em 0; display: block;}
-[data-tabs] .bottom-grid h3 {font-size: 0.95em; color:$dark; font-family: $montserrat; font-weight: 700;}
-[data-tabs] .bottom-grid li {list-style: none; display: inline-block; float: left; background: white; width:31%; margin:0.5em; padding:0;}
-[data-tabs] .bottom-grid li:first-child {background: none;}
-[data-tabs] .bottom-grid li a {display: block; color:darken($dark, 15); padding:0.5em; line-height: 1.3em; min-height: 96px; font-size: 1.2em; border-bottom:1px solid lighten($dark, 30); text-align: left;}
-[data-tabs] .bottom-grid li a:hover {color:$orange;}
+.bottom-grid {font-family: $roboto; font-weight: 300; margin:1em 0 4em 0; display: block;}
+.bottom-grid h3 {font-size: 0.95em; color:$dark; font-family: $montserrat; font-weight: 700;}
+.bottom-grid li {list-style: none; display: inline-block; float: left; background: white; width:31%; margin:0.5em; padding:0;}
+.bottom-grid li:first-child:not(.tr) {background: none;}
+.bottom-grid li a {display: block; color:darken($dark, 15); padding:0.5em; line-height: 1.3em; min-height: 96px; font-size: 1.2em; border-bottom:1px solid lighten($dark, 30); text-align: left;}
+.bottom-grid li a:hover {color:$orange;}
 
 .tabs {list-style: none; padding:0; margin:0; font-family: $montserrat; margin-bottom: 2em; display: block; width:97%;
   li {position:relative; display: inline-block; float: left; width:33%; margin:0; }
@@ -252,6 +252,11 @@ div.outer-4 {right:1em; }
   li:last-child:after {content:""; position: absolute; display: block; right:-1.5em; top:0.55em; width:25px; height:50px; background: none; border-bottom: 1px solid $orange;}  
   .active {color:$orange; margin:0; padding:1em 0; border-left: 1px solid $orange; border-right: 1px solid $orange; border-top: 1px solid $orange; border-bottom: 1px solid transparent;}
 }
+
+// Nivel transparencia
+
+.nivel-tr > img {margin-right: 4em; position: relative; top:-1em; left:1em;}
+.nivel-tr > p {font-family: $roboto; font-weight: 300; font-size: 1.1em; }
 
 // footer
 footer {background: $grey; padding:4em 0 0 0; color:lighten($dark, 10); font-family: $roboto; font-weight: 400;}

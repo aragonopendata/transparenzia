@@ -751,7 +751,7 @@ div.outer-4 {
   border-top: 10px solid #dfdcdc;
   z-index: 10; }
 
-[data-tabs] h2 {
+[data-tabs] h2, .nivel-tr h2 {
   font-family: "Roboto";
   font-size: 1.8em;
   margin-bottom: 1.8em;
@@ -790,19 +790,19 @@ div.outer-4 {
   text-align: center;
   padding: 0.5em; }
 
-[data-tabs] .bottom-grid {
+.bottom-grid {
   font-family: "Roboto";
   font-weight: 300;
   margin: 1em 0 4em 0;
   display: block; }
 
-[data-tabs] .bottom-grid h3 {
+.bottom-grid h3 {
   font-size: 0.95em;
   color: #6f6f6f;
   font-family: "Montserrat";
   font-weight: 700; }
 
-[data-tabs] .bottom-grid li {
+.bottom-grid li {
   list-style: none;
   display: inline-block;
   float: left;
@@ -811,10 +811,10 @@ div.outer-4 {
   margin: 0.5em;
   padding: 0; }
 
-[data-tabs] .bottom-grid li:first-child {
+.bottom-grid li:first-child:not(.tr) {
   background: none; }
 
-[data-tabs] .bottom-grid li a {
+.bottom-grid li a {
   display: block;
   color: #494949;
   padding: 0.5em;
@@ -824,7 +824,7 @@ div.outer-4 {
   border-bottom: 1px solid #bcbcbc;
   text-align: left; }
 
-[data-tabs] .bottom-grid li a:hover {
+.bottom-grid li a:hover {
   color: #c34415; }
 
 .tabs {
@@ -875,6 +875,17 @@ div.outer-4 {
     border-right: 1px solid #c34415;
     border-top: 1px solid #c34415;
     border-bottom: 1px solid transparent; }
+
+.nivel-tr > img {
+  margin-right: 4em;
+  position: relative;
+  top: -1em;
+  left: 1em; }
+
+.nivel-tr > p {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 1.1em; }
 
 footer {
   background: #ebe9e9;
