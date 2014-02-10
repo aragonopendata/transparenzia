@@ -13,12 +13,12 @@ module AgreementsHelper
   end
 
   def agreements_chart(agreements)
-    year = params[:year]
-    if year== nil or year== ""
-      group = group_by_year(agreements)
-      year = nil
-    else
+    year = nil
+    if params[:year_ini] == params[:year_end] and params[:year_ini] and params[:year_ini] != ""
+      year = params[:year_ini]
       group = group_by_month(agreements)
+    else
+      group = group_by_year(agreements)
     end
     
     html = "<ul class=\"agreements_by_month_list\">"
@@ -148,7 +148,7 @@ private
       else
         grouped_by = "Año #{grouped_by}"
       end
-      html << "<li><span class='key'>#{index}</span> <span class='label'>#{grouped_by}: #{agreements.size} convenios </span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
+      html << "<li><span class='key'>#{index}</span> <span class='label'>#{grouped_by}</span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
     end
   end
   def agreements_amount_by_interval_time(group, html, year=nil)
@@ -160,7 +160,7 @@ private
       end
       total_amount = 0
       agreements.each{|agreement| total_amount = total_amount + agreement.total_amount.round}
-      html << "<li><span class='key'>#{index}</span> <span class='label'>#{grouped_by}: <span class='value'>#{total_amount}</span> € en total</span></li>"
+      html << "<li><span class='key'>#{index}</span> <span class='label'>#{grouped_by}</span> <span class='value'>#{total_amount}</span></li>"
     end
   end
   def percentage_of_dga_participation_by_interval_time(group, html, year=nil)
@@ -178,7 +178,7 @@ private
         percentage = (acumulated_percentage/ agreements.size * 100).round(2)
       end
       
-      html << "<li><span class='key'>#{index}</span> <span class='label'>#{grouped_by}: <span class='value'>#{percentage}</span> %</span></span>.</li>"
+      html << "<li><span class='key'>#{index}</span> <span class='label'>#{grouped_by}</span> <span class='value'>#{percentage}</span> %</span>.</li>"
     end
   end
   def number_of_entities_participating_by_interval_time(group, html, year=nil)
@@ -190,7 +190,7 @@ private
         grouped_by = "Año #{grouped_by}"
       end
       agreements.each{|agreement| number_of_entities = number_of_entities+ agreement.number_of_signatories}
-      html << "<li><span class='key'>#{index}</span> <span class='label'>#{grouped_by}: <span class='value'>#{number_of_entities}</span> entidades</span></span>.</li>"
+      html << "<li><span class='key'>#{index}</span> <span class='label'>#{grouped_by}</span> <span class='value'>#{number_of_entities}</span></span>.</li>"
     end
   end
   def active(type=nil)

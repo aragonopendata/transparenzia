@@ -69,19 +69,34 @@ function number_of_agreements_by_month(){
   line_chart ("#agreements_by_month", get_values_for_charts($('#agreements_by_month li')));
 }
 
-function agreements_amount_by_month (argument) {
-  line_chart ("#agreements_amount_by_moth", get_values_for_charts($('#agreements_amount_by_moth li')));
+function number_of_agreements_by_month(){
+  line_chart ("#agreements_by_month", get_values_for_charts($('#agreements_by_month li')));
 }
+
+
+
+
 
 function line_chart(container, data) {
   var svg_element = container + " svg";
   var info_element = container + " .infobox";
-  var margins = [100, 30, 40, 60];
+  
+  var margins = [105, 25, 55, 75];
+  
   var width = $(container).width() - margins[1] - margins[3];
   var height = $(container).height() - margins[0] - margins[2];
+  
+  var intervalos_x = data.length;
+  var intervalos_y = 10;
+  
+  var maximo = d3.max(data, function(d) { return parseInt(d.value); } ) * 1.1;
+  if(maximo < 100000 && maximo > 80000) maximo = 100000;
+  if(maximo < 1000000 && maximo > 800000) maximo = 1000000;
+  
+  var y = d3.scale.linear().domain([0, maximo]).range([height, 0]);
+  var x = d3.scale.linear().domain([0, intervalos_x]).range([0, width]);
 
-  var y = d3.scale.linear().domain([0, d3.max(data, function(d) { return parseInt(d.value); } )]).range([height, 0]);
-  var x = d3.scale.linear().domain([0, data.length]).range([0, width]);
+
 
   function showData(obj, d) {
     var coord = d3.mouse(obj);
@@ -94,15 +109,22 @@ function line_chart(container, data) {
     $(info_element).show();
   }
    
+   
+   
+   
+   
   function hideData() {
     $(info_element).hide();
   }
+  var etiquetas = [];
+  for( var i in data ) {
+    etiquetas[i] = data[i].label;
+  }
 
-  var yAxisLeft = d3.svg.axis().scale(y).ticks(7).orient("left");
-  var xAxis = d3.svg.axis().scale(x).ticks(0);
+  var xAxis = d3.svg.axis().scale(x).tickFormat(function (d) { return etiquetas[d] });
 
   var line = d3.svg.line()
-    .x(function(d, i) {return x(d.key);})
+    .x(function(d, i) {return x(d.key)+(width/(intervalos_x*2));})
     .y(function(d) {return y(d.value);});
 
   var graph = d3.select(svg_element)
@@ -110,34 +132,72 @@ function line_chart(container, data) {
      .attr("width", width + margins[1] + margins[3])
      .append("g")
      .attr("transform", "translate(" + margins[3] + "," + margins[0] + ")");
+     
 
   var title = $(container).find(".chart-title").text();
   d3.select(svg_element).append("text")
-    .attr("transform", "translate(40,40)")
+    .attr("transform", "translate(25,40)")
     .attr("class", "graph_title")
+    .attr("fill", "#6a6a6a")
     .text(title);
   
-  graph
-    .selectAll("circle")
-    .data(data)
-    .enter().append("circle")
-    .attr("fill", "steelblue")
-    .attr("r", 7)
-    .attr("cx", function(e) { return x(e.key)})
-    .attr("cy", function(e) { return y(e.value)})
-    .on("mouseover", function(d) { showData(this, d);})
-    .on("mouseout", function(){ hideData();});
+  //units
+  var units_y = $(container).find(".units-y").text();
+  d3.select(svg_element).append("text")
+    .attr("width", 50)
+    .attr("transform", "translate(65,80)")
+    .attr("text-anchor", "end")
+    .text(units_y);
+  
+  graph.selectAll(".xTicks")
+  .data(x.ticks(intervalos_x))
+  .enter().append("svg:line")
+  .attr("class", "xTicks")
+  .attr("x1", function(d) { return x(d); })
+  .attr("y1", height)
+  .attr("x2", function(d) { return x(d); })
+  .attr("y2", height+5)
 
+  graph.selectAll(".yTicks")
+  .data(y.ticks(intervalos_y))
+  .enter().append("svg:line")
+  .attr("class", "yTicks")
+  .attr("y1", function(d) { return -1 * y(d) + height; })
+  .attr("x1", -5)
+  .attr("y2", function(d) { return -1 * y(d) + height; })
+  .attr("x2", width)
+
+  graph.selectAll(".yLabel")
+  .data(y.ticks(intervalos_y))
+  .enter().append("svg:text")
+  .attr("class", "yLabel")
+  .text(String)
+  .attr("x", -10)
+  .attr("y", function(d) { return 1 * y(d) })
+  .attr("text-anchor", "end")
+  
+  
+  graph.append("svg:line")
+  .attr("x1", 0)
+  .attr("y1", -1)
+  .attr("x2", 0)
+  .attr("y2", height)
+  
+  graph.append("svg:line")
+  .attr("x1", 0)
+  .attr("y1", height)
+  .attr("x2", width+1)
+  .attr("y2", height)
+  
+  
   graph.append("path").attr("d", line(data));
 
-  //adding y axis
   graph.append("g")
-    .attr("transform", "translate(0,0)")
-    .call(yAxisLeft);
-
-  graph.append("g")
-  .attr("transform", "translate(0," + height + ")")
+  .attr("transform", "translate(" + width/(intervalos_x*2) + "," + (height+7) + ")")
+  .attr("class", "y axis")
   .call(xAxis);
+
+  graph.selectAll('.axis line, .axis path').style({'stroke-width':'0'});
 }
 
 function number_of_agreements_by_signatories(){
