@@ -1,10 +1,19 @@
 class Agreement < ActiveRecord::Base
   VALID = "0"
   INVALID = "1"
+
+  STATE_SECTION = 1
+  AUTONOMY_SECTION = 2
+  LOCAL_SECTION = 3
+  OTHER_PUBLIC_SECTION = 4
+  OTHER_SECTION = 5
+
+  SECTIONS = {STATE_SECTION => "state", AUTONOMY_SECTION => "autonimies", LOCAL_SECTION => "local", OTHER_PUBLIC_SECTION => "other public entities", OTHER_SECTION => "other"}
+
   attr_accessible :code, :year, :section, :title, :agreement_date, :signature_date,
     :validity_date, :signatories, :number_of_signatories, :dga_contribution, :another_contributions, :amount,
     :addendums, :observations, :notes, :pdf_url, :total_amount, :total_dga_contribution,
-    :dga_contribution_percentage
+    :dga_contribution_percentage, :normalized_section
 
   scope :valid, ->(val) { where("validity_date > ?", DateTime.now.to_date) if val == VALID}
   scope :invalid, ->(val) { where("validity_date < ?", DateTime.now.to_date) if val == INVALID}

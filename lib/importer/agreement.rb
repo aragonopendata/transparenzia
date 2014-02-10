@@ -1,6 +1,24 @@
 require 'json'
 require 'iconv'
 
+def normalize_section(unnormalized_section)
+  if unnormalized_section
+    if unnormalized_section.start_with?("1 Cortes") or unnormalized_section.start_with?("2 Administración") or 
+     unnormalized_section.start_with?("3 Consejo") or unnormalized_section.start_with?("S1")
+      Agreement::STATE_SECTION
+    elsif unnormalized_section.start_with?("4 Comunidades") or unnormalized_section.start_with?("S2")
+      Agreement::AUTONOMY_SECTION
+    elsif unnormalized_section.start_with?("5 Corporaciones") or unnormalized_section.start_with?("S6")
+      Agreement::LOCAL_SECTION
+    elsif unnormalized_section.start_with?("6 Otras entidades") or unnormalized_section.start_with?("S3") or
+     unnormalized_section.start_with?("S5")
+      Agreement::OTHER_PUBLIC_SECTION
+    else
+      Agreement::OTHER_SECTION
+    end
+  end
+end
+
 class AgreementImporter
   attr_accessor :keys, :data
   @keys
@@ -125,9 +143,5 @@ private
     string.gsub!('.','') #for clean thousands separation in some number formats
     string.gsub!(',','.') #for change comma decimal separation to dots
     string.strip
-  end
-
-  def normalize_section(unnormalized_section)
-
   end
 end
