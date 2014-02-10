@@ -210,7 +210,7 @@ div.outer-4 {right:1em; }
 [data-grid] .square .main-text {font-size: 3.75em; line-height: 0.4em; text-indent: -5px; font-weight: 400; letter-spacing: -1px;}
 [data-map] > .row {text-align: right;}
 [data-map] .map-wrap {padding:0.6em 0.6em 0.6em 0;}
-[data-graph] hr {border-color:$orange; margin:2.6em 0 0 0; }
+[data-graph] hr, [data-tabs] hr {border-color:$orange; margin:2.6em 0 0 0; }
 [data-graph] hr.less-margin {margin:0 !important; border-color: lighten($dark, 40);}
 [data-graph] h4 {font-family: $montserrat; font-weight: 700; font-size: 0.95em; color:$dark; }
 
