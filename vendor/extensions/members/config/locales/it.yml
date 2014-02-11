@@ -1,0 +1,32 @@
+it:
+  refinery:
+    plugins:
+      members:
+        title: Members
+    members:
+      admin:
+        members:
+          actions:
+            create_new: Aggiungi Nuovo Member
+            reorder: Riordina Members
+            reorder_done: Termina il Riordino di Members
+          records:
+            title: Members
+            sorry_no_results: "Spiacenti! Nessun risultato trovato"
+            no_items_yet: Non ci sono ancora Members. Clicca "Aggiungi Nuovo Member" per aggiungere il tuo primo member.
+          member:
+            view_live_html: Guarda live questo member <br/><em>(apre una nuova finestra)</em>
+            edit: Modifica questo member
+            delete: Rimuovi per sempre questo member
+      members:
+        show:
+          other: Altri Members
+  activerecord:
+    attributes:
+      'refinery/members/member':
+        name: Name
+        current_position: Current Position
+        biography: Biography
+        previous_position: Previous Position
+        notes: Notes
+        photo_id: Photo
