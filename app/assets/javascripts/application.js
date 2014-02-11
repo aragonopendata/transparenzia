@@ -51,8 +51,7 @@ $(function() {
 
     if (visible){
       $(this).addClass("active");
-    }else{
-      elem.hide();  
+      elem.show();  
     }
 
     $(this).on('click', function(){
