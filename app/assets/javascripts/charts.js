@@ -81,7 +81,7 @@ function line_chart(container, data) {
   var svg_element = container + " svg";
   var info_element = container + " .infobox";
   
-  var margins = [105, 25, 55, 75];
+  var margins = [70, 25, 55, 75];
   
   var width = $(container).width() - margins[1] - margins[3];
   var height = $(container).height() - margins[0] - margins[2];
@@ -138,14 +138,14 @@ function line_chart(container, data) {
   d3.select(svg_element).append("text")
     .attr("transform", "translate(25,40)")
     .attr("class", "graph_title")
-    .attr("fill", "#6a6a6a")
+    .attr("fill", "#535353")
     .text(title);
   
   //units
   var units_y = $(container).find(".units-y").text();
   d3.select(svg_element).append("text")
-    .attr("width", 50)
-    .attr("transform", "translate(65,80)")
+    //.attr("width", 50)
+    .attr("transform", "translate(65,65)")
     .attr("text-anchor", "end")
     .text(units_y);
   

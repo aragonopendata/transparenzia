@@ -26,19 +26,19 @@ module AgreementsHelper
     when "amount"
       agreements_amount_by_interval_time group, html, year
       title = "Cuantía de convenios"
-      xtitle = "€ en total"
+      xtitle = "€"
     when "entities"
       number_of_entities_participating_by_interval_time group, html, year
       title = "Número de entidades"
-      xtitle = "Cantidad"
+      xtitle = "Nº"
     when "percentage"
         percentage_of_dga_participation_by_interval_time  group, html, year
         title = "Porcentaje de participación"
-        xtitle = "% aportado"
+        xtitle = "%"
     else
       number_of_agreements_by_interval_time group, html, year
       title = "Número de convenios"
-      xtitle = "Cantidad"
+      xtitle = "Nº"
     end
     html << "</ul>"
     html << "<div class='chart-title' style='display:none'>#{title}</div>"
