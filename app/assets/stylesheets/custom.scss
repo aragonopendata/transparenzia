@@ -258,7 +258,7 @@ div.outer-4 {right:1em; }
 
 // Visor convenios
 [data-grid] img {padding:0.6em;}
-[data-grid] svg {max-width: 100%; height:419px; stroke: $orange; stroke-width: 1; fill: none; font-size:0.7em; display: inline-block;}
+[data-grid] svg {max-width: 100%; height:419px; stroke: $black; fill: none; font-size:0.7em; display: inline-block;}
 [data-grid] .graph-cont {position: relative;}
 [data-grid] .graph-item {background: transparentize($orange, 0.8); margin-top: 0.89em;}
 [data-grid] .graph-item circle {fill: $orange;}
