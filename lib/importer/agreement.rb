@@ -20,36 +20,33 @@ def normalize_section(unnormalized_section)
 end
 
 class AgreementImporter
-  attr_accessor :keys, :data
-  @keys
+  attr_accessor :data
   @data
   def initialize(doc)
-    i = Iconv.new('UTF-8','LATIN1')
-    doc = i.iconv(doc)
-    doc = doc.gsub('`','')
-    @data = JSON.parse(doc)
-    @keys = @data.first.keys
+    #i = Iconv.new('UTF-8','LATIN1')
+    #doc = i.iconv(doc)
+    @data = Hash.from_xml(doc)["documento"]["registro"]
   end
 
   def save
-    Agreement.destroy_all(:year => @data.first['Año'])
+    Agreement.destroy_all(:year => @data.first['anno'])
     @data.each do |item|
       begin
         agreement = Agreement.new(
-            :code => item['Número'],
-            :year => item['Año'], 
-            :section => item['Sección'], 
-            :normalized_section => normalize_section(item['Sección']),
-            :title => item['Título'], 
-            :signatories => item['Firmantes'], 
-            :number_of_signatories => item['Firmantes'].split("/").size, 
-            :dga_contribution => item['AportacionDGA'], 
-            :another_contributions => item['OtrasAportaciones'],
-            :amount => item['Cuantia'],
-            :addendums => item['Addendas'],
-            :observations => item['Observaciones'],
-            :notes => item['Notasmarginales'],
-            :pdf_url => item['UrlPdf'].gsub("´", "").strip()
+            :code => item['numero'],
+            :year => item['anno'].to_i, 
+            :section => item['seccion'], 
+            :normalized_section => normalize_section(item['seccion']),
+            :title => item['titulo'], 
+            :signatories => item['firmantes'], 
+            :number_of_signatories => item['firmantes'].split("/").size, 
+            :dga_contribution => item['aportaciondga'], 
+            :another_contributions => item['otrasaportaciones'],
+            :amount => item['cuantia'],
+            :addendums => item['addendas'],
+            :observations => item['observaciones'],
+            :notes => item['notasmarginales'],
+            :pdf_url => item['urlpdf'].gsub("´", "").strip()
           )
         populate_dates(agreement, item)
         total_of_amount(agreement)
@@ -71,9 +68,9 @@ class AgreementImporter
 private
 
   def populate_dates(agreement, item)
-    agreement_date = convert_text_to_date(item['FechaAcuerdo'])
-    signature_date = convert_text_to_date(item['FechaFirma'])
-    agreement.validity_date = convert_text_to_date(item['FechaVigencia'])
+    agreement_date = convert_text_to_date(item['fechaacuerdo'])
+    signature_date = convert_text_to_date(item['fechafirma'])
+    agreement.validity_date = convert_text_to_date(item['fechavigencia'])
     unless agreement_date
       agreement_date = signature_date
     end
