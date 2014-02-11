@@ -1,60 +1,28 @@
+    <% menu_items = Refinery::Menu.new(Refinery::Page.in_menu).items.reverse %>
     <div class="row">
       <div class="large-9 columns">
         <div class="row">
           <div class="large-12 columns">
+            <% for item in menu_items.slice(0,3) %>
             <div class="large-4 columns">
-              <h5>GOBIERNO</h5>
+              <h5><%= item.title %></h5>
               <ul>
-                <li><a href="#" title="">Composición del Gobierno</a></li>
-                <li><a href="#" title="">Altos cargos - retribuciónes</a></li>
-                <li><a href="#" title="">Personal eventual - retribuciones</a></li>
-                <li><a href="#" title="">Curriculum</a></li>
-                <li><a href="#" title="">Bienes y derechos patrimoniales</a></li>
-                <li><a href="#" title="">Agendas</a></li>
-                <li><a href="#" title="">Régimen de incompatibilidades</a></li>
-                <li><a href="#" title="">Obsequios y donaciones</a></li>
+                <% item.children.each do |child| %>
+                <li><%= link_to child.title, child.url%></li>
+                <% end %>
               </ul>
             </div>
-            <div class="large-4 columns">
-              <h5>ACCIONES DE GOBIERNO</h5>
-              <ul>
-                <li><a href="#" title="">Composición del Gobierno</a></li>
-                <li><a href="#" title="">Altos cargos - retribuciónes</a></li>
-                <li><a href="#" title="">Personal eventual - retribuciones</a></li>
-                <li><a href="#" title="">Curriculum</a></li>
-                <li><a href="#" title="">Bienes y derechos patrimoniales</a></li>
-                <li><a href="#" title="">Agendas</a></li>
-                <li><a href="#" title="">Régimen de incompatibilidades</a></li>
-                <li><a href="#" title="">Obsequios y donaciones</a></li>
-              </ul>              
-            </div>
-            <div class="large-4 columns">
-              <h5>ACTIVIDAD PARLAMENTARIA</h5>
-              <ul>
-                <li><a href="#" title="">Composición del Gobierno</a></li>
-                <li><a href="#" title="">Altos cargos - retribuciónes</a></li>
-                <li><a href="#" title="">Personal eventual - retribuciones</a></li>
-                <li><a href="#" title="">Curriculum</a></li>
-                <li><a href="#" title="">Bienes y derechos patrimoniales</a></li>
-                <li><a href="#" title="">Agendas</a></li>
-                <li><a href="#" title="">Régimen de incompatibilidades</a></li>
-                <li><a href="#" title="">Obsequios y donaciones</a></li>
-              </ul>              
-            </div>
+            <% end %>
           </div>
           <div class="large-12 columns">
+            <% item = menu_items.fourth %>
             <div class="large-4 columns">
-              <h5>SECTOR PÚBLICO</h5>
+              <h5><%= item.title %></h5>
               <ul>
-                <li><a href="#" title="">Composición del Gobierno</a></li>
-                <li><a href="#" title="">Altos cargos - retribuciónes</a></li>
-                <li><a href="#" title="">Personal eventual - retribuciones</a></li>
-                <li><a href="#" title="">Curriculum</a></li>
-                <li><a href="#" title="">Bienes y derechos patrimoniales</a></li>
-                <li><a href="#" title="">Agendas</a></li>
-                <li><a href="#" title="">Régimen de incompatibilidades</a></li>
-                <li><a href="#" title="">Obsequios y donaciones</a></li>
-              </ul>              
+                <% item.children.each do |child| %>
+                <li><%= link_to child.title, child.url%></li>
+                <% end %>
+              </ul>
             </div>
             <div class="large-4 columns">
               <h5>PARTICIPACIÓN CIUDADANA</h5>
