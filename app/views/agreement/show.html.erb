@@ -31,16 +31,15 @@
         <li><span>INTERVINIENTES:</span><%=@agreement.signatories.html_safe%></li>
       </ul>
 
-
-<%for url in @agreement.pdf_urls%>
+<%for pdf_url in @agreement.pdf_urls%>
   <div class="row iframe-cont">
-    <iframe src="http://docs.google.com/viewer?url=<%=CGI.escape url%>&embedded=true" width="800" height="500" style="border: none;"></iframe>
+    <iframe src="http://docs.google.com/viewer?url=<%=CGI.escape pdf_url[:url]%>&embedded=true" width="800" height="500" style="border: none;"></iframe>
     <div class="large-12 columns">
-      <a href="<%=url%>" class="left">DESCARGAR EN PDF <span class="icon icon-in"></span></a>
-      <a href="mailto:transparencia@aragon.es" class="right">NOTIFICAR UN ERROR EN LOS DATOS ></a>
+      <span><%= pdf_url[:description]%></span> <a href="<%=pdf_url[:url]%>" class="left">DESCARGAR EN PDF <span class="icon icon-in"></span></a>
     </div>
   </div>
 <% end %>
+<a href="mailto:transparencia@aragon.es" class="right">NOTIFICAR UN ERROR EN LOS DATOS ></a>
 
 <!--
 Observaciones: <%=@agreement.observations%><br>

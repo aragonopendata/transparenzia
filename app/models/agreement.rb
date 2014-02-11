@@ -53,9 +53,12 @@ class Agreement < ActiveRecord::Base
 
   def pdf_urls
     urls = []
-    self.pdf_url.split("http://").each{ |url|
-      if url.size > 0
-        urls << "http://#{url}"
+    self.pdf_url.strip.split("<enlace>").each{ |url_elem|
+      if url_elem and url_elem != ""
+        elems = url_elem.split("<descripcion>")
+        url = elems[0].strip
+        description = elems[1].split("</descripcion>")[0].strip
+        urls << {:url => url, :description => description}
       end
     }
     urls

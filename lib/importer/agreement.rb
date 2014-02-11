@@ -47,8 +47,9 @@ class AgreementImporter
               :addendums => item['addendas'],
               :observations => item['observaciones'],
               :notes => item['notasmarginales'],
-              :pdf_url => item['urlpdf'].gsub("´", "").strip()
+              :pdf_url => item['urlpdf'].strip()
             )
+          puts "#{agreement.code} #{agreement.pdf_url}" unless agreement.pdf_url
           populate_dates(agreement, item)
           total_of_amount(agreement)
           if agreement.year and agreement.year >= 2008 
