@@ -8,7 +8,7 @@
               <h5><%= item.title %></h5>
               <ul>
                 <% item.children.each do |child| %>
-                <li><%= link_to child.title, child.url%></li>
+                <li><%= link_to child.title, "/#{child.url[:path].join('/')}"%></li>
                 <% end %>
               </ul>
             </div>
@@ -20,7 +20,7 @@
               <h5><%= item.title %></h5>
               <ul>
                 <% item.children.each do |child| %>
-                <li><%= link_to child.title, child.url%></li>
+                <li><%= link_to child.title, "/#{child.url[:path].join('/')}"%></li>
                 <% end %>
               </ul>
             </div>

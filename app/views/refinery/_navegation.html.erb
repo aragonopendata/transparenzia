@@ -1,4 +1,5 @@
 <nav>
+  
   <% menu_items = Refinery::Menu.new(Refinery::Page.in_menu).items.reverse %>
         <% menu_items.each_with_index do |item, index|%>
           <% if item.url.class.name != "String" and not item.has_parent? %>
@@ -8,14 +9,14 @@
             <ul class="large-block-grid-2 no-js">
               <% item.children.each do |child| %>
               <li>
-                <%= link_to ("<span>#{child.title}</span> <p>#{Refinery::Page.find_by_id(child.original_id).meta_description}</p>").html_safe, child.url%>
+                <%= link_to ("<span>#{child.title}</span> <p>#{Refinery::Page.find_by_id(child.original_id).meta_description}</p>").html_safe, "/#{child.url[:path].join('/')}"%>
+                
               </li>
               <% end %>
             </ul>
           </div>
           </li>
           <%end%>
-        </li>
-<% end %>
+  <% end %>
 </nav>
 <span id="no-js" class="menu-bg"></span>
