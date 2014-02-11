@@ -144,10 +144,12 @@ div.outer-4 {right:1em; }
 [data-body] figcaption {background: white; padding:0.5em 0.5em 1em 0.5em; line-height: 1.3em; min-height: 96px; font-size: 1.2em; text-align: left;}
 [data-body] figcaption p {text-align: center; margin:0 0 0.5em 0;}
 [data-body] figcaption sub {text-align: center; display: block; color:darken($dark, 25); font-size: 0.7em; font-family: $montserrat; float:none;}
-[data-body] figure:hover {color:$orange; cursor: pointer;}
-[data-body] figure:active {background:none; color:$dark; cursor: pointer;}
-[data-body] .datawall {background: white; padding:1em;}
+[data-body] figure > a:hover p, [data-body] figure > a:hover sub {color:$orange; cursor: pointer;}
+//[data-body] figure:active {background:none; color:$dark; cursor: pointer;}
+[data-body] .datawall {background: white; padding:1em; border-bottom: 1px solid #bcbcbc;}
 [data-body] .datawall h2 {font-size: 1.9em; margin: 0.2em 0;}
+[data-body] .datawall a:hover > h2, [data-body] .datawall a:hover h5 {color:$orange; cursor: pointer;}
+
 [data-body] .datawall h3 {font-size: 1em; font-family: $roboto; font-weight:400; margin-bottom: 1.5em;}
 [data-body] .datawall h5 {font-family: $roboto; font-weight: 200; color:black; font-size: 1.2em; text-align: center; margin:0; padding:0;}
 [data-body] .datawall ul {margin-left: 0;}
@@ -277,7 +279,7 @@ a.buscador-avanzado {font-size: 0.8em; font-weight: bold; margin-bottom: 0.85em;
 hr.orange {border-color: $orange !important;}
 
 .agreements_by_signatories_list, .agreements_by_month_list, .agreements_amount_by_month_list {display:none;}
-.noticias li {list-style: none;}
+.noticias li {list-style: none; }
 
 // paginacion
 .paginacion .disabled {font-size:0.84em; padding:0.1em 0.8em; font-family: $montserrat; display: inline-block; border:1px solid transparent; color:darken($grey, 25);}
@@ -292,14 +294,18 @@ hr.orange {border-color: $orange !important;}
 [data-tabs] table {width:100%; margin:0 0 3em 0; background: none; border: none;}
 [data-tabs] table tr {border-top:1px solid $grey; border-bottom:1px solid $grey; margin:0; display: inline-table;}
 [data-tabs] table tr img {width: 40%; display: block; float: right; margin-right: 1em;}
+[data-tabs] .w13 {width:13%;}
+[data-tabs] .w60 {width:60%;}
 [data-tabs] .table-head {padding:1em 0.5em 0 1em; margin:0 0 0.5em 0;}
 [data-tabs] .table-head li {list-style: none; display: inline-block; font-family:$roboto; background:$orange; color:white; font-size: 0.8em; width:110px; text-align: center; padding:0.5em;}
 .bottom-grid {font-family: $roboto; font-weight: 300; margin:1em 0 4em 0; display: block;}
 .bottom-grid h3 {font-size: 0.95em; color:$dark; font-family: $montserrat; font-weight: 700;}
 .bottom-grid li {list-style: none; display: inline-block; float: left; background: white; width:31%; margin:0.5em; padding:0;}
 .bottom-grid li:first-child:not(.tr) {background: none;}
-.bottom-grid li a {display: block; color:darken($dark, 15); padding:0.5em; line-height: 1.3em; min-height: 96px; font-size: 1.2em; border-bottom:1px solid lighten($dark, 30); text-align: left;}
+.bottom-grid li a {position:relative; display: block; color:darken($dark, 15); padding:0.5em; line-height: 1.3em; min-height: 170px; font-size: 1.2em; border-bottom:1px solid lighten($dark, 30); text-align: left;}
 .bottom-grid li a:hover {color:$orange;}
+.bottom-grid li a:hover img {-webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: grayscale(100%);}
+.bottom-grid li a img {position: absolute; display: block; margin:1em 0 0.5em 0; bottom:0; left:0.5em;}
 
 .tabs {list-style: none; padding:0; margin:0; font-family: $montserrat; margin-bottom: 2em; display: block; width:97%;
   li {position:relative; display: inline-block; float: left; width:33%; margin:0; }
