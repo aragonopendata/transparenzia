@@ -212,7 +212,9 @@ div.outer-4 {right:1em; }
 [data-filtros] .active {border:2px solid transparentize(white, 0); position: relative; color:transparentize(white, 0); cursor:inherit;}
 [data-filtros] .active:after {content:'\3e'; font-family: "icon-aragon"; position: absolute; top:0.4em; font-size: 1.3em; color:transparentize(white, 0.5);}
 [data-filtros] .active:hover {background: none;}
-[data-filtros] select {width:80%; background: none; color:white; font-size: 0.97em; line-height: 1.25em; position: relative;}
+[data-filtros] select {width:100%; background: none; color:white; font-size: 0.97em; line-height: 1.25em; position: relative; cursor:pointer;}
+[data-filtros] select option {color:$dark;}
+[data-filtros] #year select {width:48%; margin-right:1%; margin-left: 1%; float:left;}
 
 [data-filtros] .search {@include round(3px); position: relative; top:0.25em; background: $light-grey; color:black;}
 [data-filtros] ::-webkit-input-placeholder, [data-filtros] :-moz-placeholder, [data-filtros] ::-moz-placeholder, [data-filtros] :-ms-input-placeholder, [data-filtros] placeholer  { color: black !important;}
