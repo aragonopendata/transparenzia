@@ -1,191 +1,21 @@
-      <nav>
-        <li>
-          <a href="#"  class="clicker">GOBIERNO</a>
-          <div class="outer-1">
+<nav>
+  <% menu_items = Refinery::Menu.new(Refinery::Page.in_menu).items.reverse %>
+        <% menu_items.each_with_index do |item, index|%>
+          <% if item.url.class.name != "String" and not item.has_parent? %>
+          <li>
+            <a href="#"  class="clicker"><%= item.title %></a>
+            <div class="outer-<%=index+1%>">
             <ul class="large-block-grid-2 no-js">
+              <% item.children.each do |child| %>
               <li>
-                <a href="#"><span>COMPOSICIÓN DEL GOBIERNO</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
+                <%= link_to ("<span>#{child.title}</span> <p>#{Refinery::Page.find_by_id(child.original_id).meta_description}</p>").html_safe, child.url%>
               </li>
-              <li>
-                <a href="#"><span>BIENES Y DERECHOS PATRIMONIALES</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>ALTOS CARGOS - RETRIBUCIONES</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>AGENDAS</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>PERSONAL EVENTUAL - RETRIBUCIONES</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>RÉGIMEN DE INCOMPATIBILIDADES</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>CURRICULUM</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>OBSEQUIOS Y DONACIONES</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
+              <% end %>
             </ul>
           </div>
+          </li>
+          <%end%>
         </li>
-        <li>
-          <a href="#" class="clicker">INFORMACIÓN INSTITUCIONAL Y ORGANIZATIVA</a>
-          <div class="outer-2">
-            <ul class="large-block-grid-2">
-              <li>
-                <a href="#"><span>2 LOREM IPSUM</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>EST LIPSUM IASTE</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>IL LOREM</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>LOREM IPSUM EST</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>STAMINA EST GUT FOR LOREM</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>IPSO FACTO</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>QUO VADIS</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>MORITURI TE SALUTAN</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="#" class="clicker">INFORMACIÓN ECONÓMICA</a>
-          <div class="outer-3">
-            <ul class="large-block-grid-2">
-              <li>
-                <a href="#"><span>3 LOREM IPSUM</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>EST LIPSUM IASTE</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>IL LOREM</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>LOREM IPSUM EST</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>STAMINA EST GUT FOR LOREM</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>IPSO FACTO</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>QUO VADIS</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>MORITURI TE SALUTAN</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="#" class="clicker">INFORMACIÓN SOBRE ARAGÓN</a>
-          <div class="outer-4">
-            <ul class="large-block-grid-2">
-              <li>
-                <a href="#"><span>4 LOREM PSE IPSUM</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>LIPSUM IASTE</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>IAST IL EST LOREM</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>DOMINUS OST EST</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>PERNI LOREM</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>IPSO FACTO QUO ME</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>LAPSUS</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-              <li>
-                <a href="#"><span>PIRIT ROTUP</span>
-                  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </nav>
-      <span id="no-js" class="menu-bg"></span>
+<% end %>
+</nav>
+<span id="no-js" class="menu-bg"></span>
