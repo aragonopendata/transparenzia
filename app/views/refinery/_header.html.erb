@@ -2,7 +2,7 @@
    <div class="row" data-subcat>
      <div class="large-12 columns">
       <nav class="right">
-        <li><%=link_to "TRANSPARENCIA", root_path, :class => "active"%></li>
+        <li><a href="/" class="active">TRANSPARENCIA</a></li>
         <li><a href="http://opendata.aragon.es/" >OPEN DATA</a></li>
         <li><a href="http://aragonparticipa.aragon.es/" >PARTICIPACIÓN CIUDADANA</a></li>
       </nav>
@@ -13,7 +13,7 @@
       <%= image_tag("gobaragon-top.png", alt: "Gobierno de Aragón") %>
     </div>
     <div class="large-7 columns logo">
-      <%= link_to(image_tag("transparencia-aragon.png", class: "right", alt: Refinery::Core.site_name), root_path, title: Refinery::Core.site_name) %>
+      <%= link_to(image_tag("transparencia-aragon.png", class: "right", alt: Refinery::Core.site_name), '/', title: Refinery::Core.site_name) %>
     </div>
   </div>
   <div class="row" data-cat>

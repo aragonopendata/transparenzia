@@ -5,13 +5,13 @@ Transparenzia::Application.routes.draw do
   # If you would like to change where this extension is mounted, simply change the :at option to something different.
   #
   # We ask that you don't use the :as option here, as Refinery relies on it being the default of "refinery"
-  mount Refinery::Core::Engine, :at => '/'
   
   get 'personal' => 'personal#index', :as => 'personal'
   get 'convenios(/type/:type)' => 'agreement#index', :as => 'agreements'
   get 'convenios/buscar' => 'agreement#search', :as => 'agreement_search'
   get 'convenios/:id' => 'agreement#show', :as => 'agreement'
 
+  mount Refinery::Core::Engine, :at => '/'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
