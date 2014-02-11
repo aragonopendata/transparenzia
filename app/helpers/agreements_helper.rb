@@ -217,29 +217,26 @@ private
     if params[:validity_date]=="1"
         text << "no vigentes "
     end
-    if params[:year_ini] 
-        if params[:year_ini] != ""
-          text << "desde #{params[:year_ini]} "
-        else
-          text << "desde 2008 "
-        end
+    if params[:year_ini] and params[:year_ini] != ""
+        text << "desde #{params[:year_ini]} "
+    else
+      text << "desde 2008 "
     end
-    if params[:year_end]
-        if params[:year_end] != ""
-          text << "hasta #{params[:year_end]} "
-        else
-          text << "hasta 2013 "
-        end
+
+    if params[:year_end] and params[:year_end] != ""
+        text << "hasta #{params[:year_end]} "
     end
+
     if params[:title] and params[:title]!=''
         text << "cuyo título contenga '#{params[:title]}' "
     end
     if params[:signatories] and params[:signatories]!=''
         text << "el firmante sea '#{params[:signatories]}' "
     end
-    if params[:section] and params[:section]!=''
-        text << "de la sección '#{params[:section]}' "
+    section = params[:section].to_i
+    if section > 0 and section < 6
+        text << "#{Agreement::SECTIONS.invert[section]} "
     end
-    text
+    text.downcase.capitalize
   end
 end

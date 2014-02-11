@@ -51,8 +51,7 @@ $(function() {
 
     if (visible){
       $(this).addClass("active");
-    }else{
-      elem.hide();  
+      elem.show();  
     }
 
     $(this).on('click', function(){
@@ -66,7 +65,12 @@ $(function() {
     });
   });
 
+  $('#cuantitatives a').on('click', function(){
+    $('#loading').show();
+  });
+
   $("#filter").on('submit', function(){
+    $('#loading').show();
     $(this).find('input, select').each(function(){
       if(!$(this).is(":visible")){
         $(this).val('');
