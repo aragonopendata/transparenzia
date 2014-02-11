@@ -67,24 +67,24 @@
               <p></p>
             </div>
             <div class="square">
-              <p></p>
-              <p class="boxed-text"><span>NÚMERO DE FIRMANTES INVOLUCRADOS:</span></p>
-              <p class="main-text"><%= number_of_entities(@agreements)%></p>
-              <p></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="square">
               <p><%= number_to_human(highest_amount_agreement(@agreements)) %> &euro; es la mayor aportación</p>
               <p class="boxed-text"><span>CONVENIOS CON TERCEROS</span></p>
               <p class="main-text"><%= number_to_human(total_of_amount_agreements(@agreements)) %><br><sub>euros</sub></p>
               <p><%= number_to_human(lowest_amount_agreement(@agreements))%> &euro; es la menor aportación</p>
             </div>
+          </div>
+          <div class="row">
             <div class="square">
               <p><%= highest_dga_contribution_percentage(@agreements)%> % es la mayor participación</p>
               <p class="boxed-text"><span>PARTICIPACIÓN MEDIA:</span></p>
-              <p class="main-text"><%=dga_contribution_percentage(@agreements)%> %<br><sub>participación DGA</sub></p>
+              <p class="main-text"><%=dga_contribution_percentage(@agreements)%> %<br><sub>del Gobierno de Aragón</sub></p>
               <p><%=lowest_dga_contribution_percentage(@agreements)%> % es la menor participación</p>
+            </div>
+            <div class="square">
+              <p></p>
+              <p class="boxed-text">&nbsp;</p>
+              <p class="main-text"></p>
+              <p></p>
             </div>
           </div>
         </div>
