@@ -38,6 +38,10 @@
   padding-left: 0;
   padding-right: 0; }
 
+.separador {
+  margin: 1em 0;
+  position: relative; }
+
 /* Foundation overrides evita que colapse */
 @media only screen and (max-width: 60em) {
   .row {
@@ -307,25 +311,93 @@ div.outer-4 {
 [data-body] figure {
   margin: 0 0 1.3em 0;
   padding: 0;
-  text-align: center; }
+  text-align: center;
+  color: #494949;
+  background: white;
+  min-height: 250px;
+  border-bottom: 1px solid #bcbcbc; }
+
+[data-body] figure img {
+  position: relative;
+  top: -0.6em; }
 
 [data-body] figcaption {
   background: white;
-  padding: 0.5em;
+  padding: 0.5em 0.5em 1em 0.5em;
   line-height: 1.3em;
   min-height: 96px;
   font-size: 1.2em;
-  border-bottom: 1px solid #bcbcbc;
   text-align: left; }
 
-[data-body] figure:hover > figcaption {
+[data-body] figcaption p {
+  text-align: center;
+  margin: 0 0 0.5em 0; }
+
+[data-body] figcaption sub {
+  text-align: center;
+  display: block;
+  color: #2f2f2f;
+  font-size: 0.7em;
+  font-family: "Montserrat";
+  float: none; }
+
+[data-body] figure:hover {
   color: #c34415;
   cursor: pointer; }
 
-[data-body] figure:active > figcaption {
+[data-body] figure:active {
   background: none;
   color: #6f6f6f;
   cursor: pointer; }
+
+[data-body] .datawall {
+  background: white;
+  padding: 1em; }
+
+[data-body] .datawall h2 {
+  font-size: 1.9em;
+  margin: 0.2em 0; }
+
+[data-body] .datawall h3 {
+  font-size: 1em;
+  font-family: "Roboto";
+  font-weight: 400;
+  margin-bottom: 1.5em; }
+
+[data-body] .datawall h5 {
+  font-family: "Roboto";
+  font-weight: 200;
+  color: black;
+  font-size: 1.2em;
+  text-align: center;
+  margin: 0;
+  padding: 0; }
+
+[data-body] .datawall ul {
+  margin-left: 0; }
+
+[data-body] .datawall ul li {
+  list-style: none; }
+
+[data-body] .datawall ul li a {
+  display: block;
+  margin: 0.3em 0 1.3em 0;
+  font-size: 0.9em;
+  color: black; }
+
+[data-body] .datawall a > time {
+  color: #6f6f6f; }
+
+[data-body] .datawall a:hover {
+  color: #c34415; }
+
+[data-body] .datawall a:hover > time {
+  color: #6f6f6f; }
+
+[data-body] .datawall img {
+  display: block;
+  text-align: center;
+  margin: 0 auto; }
 
 [data-body] .noticias > p:last-child {
   color: #131313; }
@@ -428,6 +500,9 @@ div.outer-4 {
 .video-inner {
   padding: 1.1em 0;
   text-align: center; }
+
+.no-video-spacer {
+  border-top: 1px solid #dad6d6; }
 
 .ariadna-cont {
   background: #f5f4f4;
