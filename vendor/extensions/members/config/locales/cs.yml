@@ -1,0 +1,32 @@
+cs:
+  refinery:
+    plugins:
+      members:
+        title: Members
+    members:
+      admin:
+        members:
+          actions:
+            create_new: Přidat Member
+            reorder: Řadit Members
+            reorder_done: Konec řazení Members
+          records:
+            title: Members
+            sorry_no_results: Litujeme, ale nebyly nalezny žádné výsledky.
+            no_items_yet: Zatím nebyly vytvořeny žádné Members. Zvolte "Přidat Member" pro přidání prvního member.
+          member:
+            view_live_html: Zobrazit náhled member<br/><em>(otevře se v novém okně)</em>
+            edit: Upravit member
+            delete: Smazat member
+      members:
+        show:
+          other: Další Members
+  activerecord:
+    attributes:
+      'refinery/members/member':
+        name: Name
+        current_position: Current Position
+        biography: Biography
+        previous_position: Previous Position
+        notes: Notes
+        photo_id: Photo

@@ -1,0 +1,34 @@
+zh-CN:
+  refinery:
+    plugins:
+      members:
+        title: Members
+    members:
+      admin:
+        members:
+          actions:
+            create_new: 建立新的 Member
+            reorder: 对 Members 重新排序
+            reorder_done: 对 Members 的重新排序结束
+          records:
+            title: Members
+            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
+
+            # There are no Members yet. Click "Add New Member" to add your first member.
+            no_items_yet: 目前没有 Members . 点击 "Add New Member" 创建一个member.
+          member:
+            view_live_html: 查看 member 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 member
+            delete: 永久删除 member
+      members:
+        show:
+          other: 其他 Members
+  activerecord:
+    attributes:
+      'refinery/members/member':
+        name: Name
+        current_position: Current Position
+        biography: Biography
+        previous_position: Previous Position
+        notes: Notes
+        photo_id: Photo

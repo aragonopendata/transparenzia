@@ -35,11 +35,14 @@
   <div class="row iframe-cont">
     <iframe src="http://docs.google.com/viewer?url=<%=CGI.escape pdf_url[:url]%>&embedded=true" width="800" height="500" style="border: none;"></iframe>
     <div class="large-12 columns">
-      <span><%= pdf_url[:description]%></span> <a href="<%=pdf_url[:url]%>" class="left">DESCARGAR EN PDF <span class="icon icon-in"></span></a>
+    <div class="large-3 columns">
+      <a href="<%=pdf_url[:url]%>" class="left">DESCARGAR EN PDF <span class="icon icon-in"></span></a>
+    </div>
+    <div class="large-5 columns text-center" style="padding:0.4em 0;"><sub><%= pdf_url[:description]%></sub></div>
+    <div class="large-4 columns"><a href="mailto:transparencia@aragon.es" class="right">NOTIFICAR UN ERROR EN LOS DATOS ></a></div>
     </div>
   </div>
 <% end %>
-<a href="mailto:transparencia@aragon.es" class="right">NOTIFICAR UN ERROR EN LOS DATOS ></a>
 
 <!--
 Observaciones: <%=@agreement.observations%><br>

@@ -1,0 +1,44 @@
+<%= form_for [refinery, :members_admin, @member] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @member,
+              :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :current_position -%>
+    <%= f.text_field :current_position -%>
+  </div>
+
+  <div class='field'>
+    <%= render '/refinery/admin/wysiwyg',
+                :f => f,
+                :fields => [:biography, :previous_position, :notes],
+                :object => "members/member" -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :photo -%>
+      <%= render '/refinery/admin/image_picker',
+        :f => f,
+        :field => :photo_id,
+        :image => @member.photo_id,
+        :toggle_image_display => false %>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.members.admin.members.member'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @member.name) -%>
+<% end -%>
+
+<% content_for :javascripts do -%>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end -%>

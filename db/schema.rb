@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210175459) do
+ActiveRecord::Schema.define(version: 20140211192326) do
 
   create_table "agreements", force: true do |t|
     t.string   "code"
@@ -82,6 +82,18 @@ ActiveRecord::Schema.define(version: 20140210175459) do
     t.integer  "image_width"
     t.integer  "image_height"
     t.string   "image_uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "refinery_members", force: true do |t|
+    t.string   "name"
+    t.string   "current_position"
+    t.text     "biography"
+    t.text     "previous_position"
+    t.text     "notes"
+    t.integer  "photo_id"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

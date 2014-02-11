@@ -74,3 +74,4 @@ gem "capistrano", "~> 2.15.5", group: :development
 
 # Performance and profiling
 gem 'newrelic_rpm'
+gem 'refinerycms-members', path: 'vendor/extensions'

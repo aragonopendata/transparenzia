@@ -26,3 +26,6 @@ HUESCA_MUNICIPALITIES.each{|name| create_municipality(name, "Huesca")}
 ZARAGOZA_MUNICIPALITIES.each{|name| create_municipality(name, "Zaragoza")}
 TERUEL_MUNICIPALITIES.each{|name| create_municipality(name, "Teruel")}
 
+
+# Added by Refinery CMS Members extension
+Refinery::Members::Engine.load_seed

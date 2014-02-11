@@ -1,0 +1,53 @@
+<div class="ariadna-cont"> 
+  <div class="row">
+    <div class="large-12 columns" data-ariadna>
+      <p>ESTÁS EN:</p>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/gobierno">Gobierno</a></li>
+        <li><a href="#">Composición del gobierno</a></li>
+        <li><a href="#"><%= raw @member.current_position.downcase.capitalize %></a></li>
+      </ul>
+    </div>
+  </div>
+</div>  
+<div class="deco-cont">
+  <div class="row">
+    <div class="large-12 columns no-gap">
+      <h3>PRESIDENCIA DEL GOBIERNO</h3>
+    </div>
+  </div>
+</div>
+<div class="body-bg">
+  <div class="row" data-body>
+    <div class="large-12 columns">
+      <h4 class="sub-titulo"><%=raw @member.current_position.upcase %></h4>
+      <h2><%= @member.name %></h2>
+      <div class="large-4 columns">
+        <div class="mask">
+        <%= image_tag("ficha-sample.jpg", alt: "ficha de ejemplo", class: "img-no-scale") %>
+        </div>
+      <div class="large-12 columns" data-profile>
+      <h5>CONTENIDOS</h5>
+      <nav>
+        <ul>
+          <li><a href="#">BIOGRAFÍA</a></li>
+          <li><a href="#">CARGOS</a></li>
+          <li><a href="#">NOVEDADES</a></li>
+        </ul>
+      </nav>
+      </div>
+      </div>
+      <div class="large-8 columns" data-cont>
+       <h5>BIOGRAFÍA</h5>
+       <p><%=raw @member.biography %></p>
+       <h5>CARGOS</h5>
+       <p><%=raw @member.biography %></p>
+       <h5>NOVEDADES</h5>
+       <div class="noticias">
+         <p><%= puts @member.inspect %></p>
+         <p><%=raw @member.notes %></p>
+      </div>
+    </div>
+  </div>
+</div>
