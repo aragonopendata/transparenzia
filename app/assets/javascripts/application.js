@@ -66,7 +66,12 @@ $(function() {
     });
   });
 
+  $('#cuantitatives a').on('click', function(){
+    $('#loading').show();
+  });
+
   $("#filter").on('submit', function(){
+    $('#loading').show();
     $(this).find('input, select').each(function(){
       if(!$(this).is(":visible")){
         $(this).val('');

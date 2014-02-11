@@ -34,7 +34,19 @@
   }
   
 
-  
+  #loading {
+  display:none;
+  position: absolute; 
+  background:#3D3B3D; 
+  opacity: 0.5;
+  top: 0;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  }
+  #loading img { 
+    margin-top: 35%
+  }
   
     
     
@@ -140,3 +152,8 @@
 
   <%= render 'glosario' %>
 </div>
+
+
+<div id="loading">
+  <img src="/assets/loading.gif" alt="Be patient..." />
+</div> 
