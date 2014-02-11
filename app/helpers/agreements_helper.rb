@@ -26,18 +26,23 @@ module AgreementsHelper
     when "amount"
       agreements_amount_by_interval_time group, html, year
       title = "Cuantía de convenios"
+      xtitle = "€ en total"
     when "entities"
       number_of_entities_participating_by_interval_time group, html, year
       title = "Número de entidades"
+      xtitle = "Cantidad"
     when "percentage"
         percentage_of_dga_participation_by_interval_time  group, html, year
         title = "Porcentaje de participación"
+        xtitle = "% aportado"
     else
       number_of_agreements_by_interval_time group, html, year
       title = "Número de convenios"
+      xtitle = "Cantidad"
     end
     html << "</ul>"
     html << "<div class='chart-title' style='display:none'>#{title}</div>"
+    html << "<div class='units-y' style='display:none'>#{xtitle}</div>"
     html.html_safe
   end
 
@@ -150,7 +155,7 @@ private
       if year
         grouped_by = I18n.t("date.month_names")[grouped_by]
       else
-        grouped_by = "Año #{grouped_by}"
+        grouped_by = "#{grouped_by}"
       end
       html << "<li><span class='key'>#{index}</span> <span class='label'>#{grouped_by}</span>. Número de convenios: <span class='value'>#{agreements.size}</span>.</li>"
     end
@@ -160,7 +165,7 @@ private
       if year
         grouped_by = I18n.t("date.month_names")[grouped_by]
       else
-        grouped_by = "Año #{grouped_by}"
+        grouped_by = "#{grouped_by}"
       end
       total_amount = 0
       agreements.each{|agreement| total_amount = total_amount + agreement.total_amount.round}
@@ -172,7 +177,7 @@ private
       if year
         grouped_by = I18n.t("date.month_names")[grouped_by]
       else
-        grouped_by = "Año #{grouped_by}"
+        grouped_by = "#{grouped_by}"
       end
       acumulated_percentage = 0
       agreements = agreements.find_all{|agreement| agreement.dga_contribution_percentage != nil}
@@ -191,7 +196,7 @@ private
       if year
         grouped_by = I18n.t("date.month_names")[grouped_by]
       else
-        grouped_by = "Año #{grouped_by}"
+        grouped_by = "#{grouped_by}"
       end
       agreements.each{|agreement| number_of_entities = number_of_entities+ agreement.number_of_signatories}
       html << "<li><span class='key'>#{index}</span> <span class='label'>#{grouped_by}</span> <span class='value'>#{number_of_entities}</span></span>.</li>"
@@ -207,10 +212,10 @@ private
   def filter_text()
     text = ""
     if params[:validity_date]=="0"
-        text << "los vigentes "
+        text << "vigentes "
     end
     if params[:validity_date]=="1"
-        text << "los no vigentes "
+        text << "no vigentes "
     end
     if params[:year_ini] 
         if params[:year_ini] != ""
