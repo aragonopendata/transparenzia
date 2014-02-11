@@ -31,35 +31,37 @@ class AgreementImporter
   def save
     Agreement.destroy_all(:year => @data.first['anno'])
     @data.each do |item|
-      begin
-        agreement = Agreement.new(
-            :code => item['numero'],
-            :year => item['anno'].to_i, 
-            :section => item['seccion'], 
-            :normalized_section => normalize_section(item['seccion']),
-            :title => item['titulo'], 
-            :signatories => item['firmantes'], 
-            :number_of_signatories => item['firmantes'].split("/").size, 
-            :dga_contribution => item['aportaciondga'], 
-            :another_contributions => item['otrasaportaciones'],
-            :amount => item['cuantia'],
-            :addendums => item['addendas'],
-            :observations => item['observaciones'],
-            :notes => item['notasmarginales'],
-            :pdf_url => item['urlpdf'].gsub("´", "").strip()
-          )
-        populate_dates(agreement, item)
-        total_of_amount(agreement)
-        if agreement.year and agreement.year >= 2008 
-          total_dga_contribution(agreement)
-          dga_contribution_percentage(agreement)
-        end
-        agreement.save!
+      if item['firmantes']
+        begin
+          agreement = Agreement.new(
+              :code => item['numero'],
+              :year => item['anno'].to_i, 
+              :section => item['seccion'], 
+              :normalized_section => normalize_section(item['seccion']),
+              :title => item['titulo'], 
+              :signatories => item['firmantes'], 
+              :number_of_signatories => item['firmantes'].split("/").size, 
+              :dga_contribution => item['aportaciondga'], 
+              :another_contributions => item['otrasaportaciones'],
+              :amount => item['cuantia'],
+              :addendums => item['addendas'],
+              :observations => item['observaciones'],
+              :notes => item['notasmarginales'],
+              :pdf_url => item['urlpdf'].gsub("´", "").strip()
+            )
+          populate_dates(agreement, item)
+          total_of_amount(agreement)
+          if agreement.year and agreement.year >= 2008 
+            total_dga_contribution(agreement)
+            dga_contribution_percentage(agreement)
+          end
+          agreement.save!
 
-        Signatories.instance.populate(agreement.signatories)
-      rescue Exception => e
-        puts "Error for #{item}"
-        raise e
+          Signatories.instance.populate(agreement.signatories)
+        rescue Exception => e
+          puts "Error for #{item}"
+          raise e
+        end
       end
     end
     Signatories.instance.serialize
