@@ -8,7 +8,7 @@ class Agreement < ActiveRecord::Base
   OTHER_PUBLIC_SECTION = 4
   OTHER_SECTION = 5
 
-  SECTIONS = {"state" => STATE_SECTION, "autonimies" => AUTONOMY_SECTION, "local" => LOCAL_SECTION, "other public entities" => OTHER_PUBLIC_SECTION, "other" => OTHER_SECTION}
+  SECTIONS = {"Con el Estado" => STATE_SECTION, "Con otras Autonomías" => AUTONOMY_SECTION, "Con Ayuntamientos y Comarcas" => LOCAL_SECTION, "Con otras Entidades Públicas" => OTHER_PUBLIC_SECTION, "Con Asociaciones, Universidades, Empresas..." => OTHER_SECTION}
 
   attr_accessible :code, :year, :section, :title, :agreement_date, :signature_date,
     :validity_date, :signatories, :number_of_signatories, :dga_contribution, :another_contributions, :amount,
