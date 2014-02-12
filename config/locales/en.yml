@@ -26,9 +26,9 @@ en:
         format: "%n%u"
         units:
           unit: ""
-          thousand: K
-          million: M
-          billion: B
+          thousand: <span class="quantity">Mil</span>
+          million: <span class="quantity">Mill</span>
+          billion: 0<span class="quantity">Mill</span>
 
   date:
     month_names: [-, ENE, FEB, MAR, ABR, MAY, JUN, JUL, AGO, SEP, OCT, NOV, DIC]

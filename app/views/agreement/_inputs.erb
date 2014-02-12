@@ -2,5 +2,5 @@
 <span id="signatories_finder" style="display:<%= display%>">
 <%= select_tag(:section, options_for_select(Agreement::SECTIONS, params[:section]),  {prompt: 'Seleccione el tipo'}) %>
 <%= text_field_tag(:signatories, params[:signatories], :placeholder => "escriba el nombre del firmante") %></span>
-<span id="year" style="display:<%= display%>"><%= select_tag(:year_ini, options_for_select(2008..2013, params[:year_ini]),  {prompt: 'Desde'}) %> <%= select_tag(:year_end, options_for_select(2008..2013, params[:year_end]),  {prompt: 'Hasta'}) %></span>
+<span id="year" style="display:<%= display%>"><%= select_tag(:year_ini, options_for_select(2008..2014, params[:year_ini]),  {prompt: 'Desde'}) %> <%= select_tag(:year_end, options_for_select(2008..2014, params[:year_end]),  {prompt: 'Hasta'}) %></span>
 <%= select_tag(:validity_date, options_for_select({"Vigentes" => 0, "No vigentes" => 1}, params[:validity_date]),  {prompt: 'Todos', :style=>"display:#{display}"}) %>

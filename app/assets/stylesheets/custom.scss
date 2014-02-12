@@ -236,6 +236,7 @@ div.outer-4 {right:1em; }
 [data-grid] .square .boxed-text {width:auto; display: inline-block; min-height: inherit; margin-bottom: 1.5em; font-family: $montserrat; font-weight: 700;}
 [data-grid] .square .boxed-text span {background: $dark; padding:0 0.3em;}
 [data-grid] .square .main-text {font-size: 3.75em; line-height: 0.4em; text-indent: -5px; font-weight: 400; letter-spacing: -1px;}
+[data-grid] .square .main-text .quantity {font-size: 0.3em;}
 [data-map] > .row {text-align: right;}
 [data-map] .map-wrap {padding:0.6em 0.6em 0.6em 0;}
 [data-graph] hr, [data-tabs] hr {border-color:$orange; margin:2.6em 0 0 0; }
