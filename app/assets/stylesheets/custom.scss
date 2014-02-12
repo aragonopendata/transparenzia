@@ -169,7 +169,7 @@ div.outer-4 {right:1em; }
 [data-body] .wiki-list {margin-bottom: 1.5em; margin-right:1%;  width:48%; float: left;}
 [data-body] .wiki-list:nth-child(even) {margin-right:0; margin-left:1%; }
 [data-body] .wiki-list span {position:relative; left:-0.5em; top:0.2em; font-size: 0.8em; background: $dark; color:white; width:auto; display: inline-block; float:left; min-height: inherit; padding:0 0.3em 0 0.5em; margin-right: 0.2em; font-family: $montserrat; font-weight: 400;}
-[data-body] .wiki-list p {float: left; font-size: 0.9em; font-family: $roboto; background: none;}
+[data-body] .wiki-list p {float: left; font-size: 0.9em; font-family: $roboto; background: none; width:90%;}
 
 [data-profile] {font-family:$montserrat;}
 [data-profile] h5 {text-align: center; font-size: 0.95em; border-bottom:1px solid darken($grey, 10); margin:0; padding:0.8em 0;}
@@ -325,10 +325,10 @@ hr.orange {border-color: $orange !important;}
 
 // footer
 footer {background: $grey; padding:4em 0 0 0; color:lighten($dark, 10); font-family: $roboto; font-weight: 400;}
-footer ul {list-style: none; margin-bottom: 4em; text-indent: -17px;}
+footer ul {list-style: none; margin-bottom: 4em; margin-left: 0; text-indent: 0;}
 footer li a {color:darken($dark, 10); font-size: 0.8em; padding:1.2em 0; width:80%; }
 footer li a:hover {color:$orange;}
-footer h5 {font-size: 0.8em; margin-bottom: 0.4em; text-align: left; font-family: $montserrat; font-weight: 700; color:darken($dark, 20);}
+footer h5 {font-size: 0.8em; text-transform:uppercase; margin-bottom: 0.4em; text-align: left; font-family: $montserrat; font-weight: 700; color:darken($dark, 20);}
 footer .logo-ft {padding-top: 0.35em;}
 .sub-footer {background: $black; color:white; padding:1em inherit; font-family: $montserrat; font-weight: 700; border-bottom: 5px solid $orange;}
 .sub-footer h6 {float: left; font-weight: 700; font-size: 0.9em; margin-right: 0.5em; color:$grey; font-family: $montserrat; font-weight: 700;}
