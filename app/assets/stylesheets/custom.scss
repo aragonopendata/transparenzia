@@ -231,12 +231,13 @@ div.outer-4 {right:1em; }
 [data-stats] h4 {font-size:1.25em; margin-bottom: 1.2em;}
 [data-stats] sub {font-family: $roboto; font-weight: 300;}
 [data-grid] .square {background: $orange; color:white; margin:0.6em; padding:1em; width:46%; max-height: 200px; float: left;}
-[data-grid] .square p, [data-grid] .square p:last-child {min-height: 25px; margin-bottom: 0.8em; font-size: 0.78em; position: relative; font-family: $roboto; font-weight: 400;}
+[data-grid] .square p, [data-grid] .square p:last-child {min-height: 25px; margin-bottom: 0.2em; font-size: 0.78em; position: relative; font-family: $roboto; font-weight: 400;}
 [data-grid] .square p > sub { position: relative; left:0.2em; top:1.4em; min-height: 15px; display: block; font-size: 0.30em; font-weight: 400; line-height: 0; margin-bottom: 2em;}
 [data-grid] .square .boxed-text {width:auto; display: inline-block; min-height: inherit; margin-bottom: 1.5em; font-family: $montserrat; font-weight: 700;}
 [data-grid] .square .boxed-text span {background: $dark; padding:0 0.3em;}
 [data-grid] .square .main-text {font-size: 3.75em; line-height: 0.4em; text-indent: -5px; font-weight: 400; letter-spacing: -1px;}
 [data-grid] .square .main-text .quantity {font-size: 0.3em;}
+[data-grid] .square .quantity {padding-left: 0.1em;}
 [data-map] > .row {text-align: right;}
 [data-map] .map-wrap {padding:0.6em 0.6em 0.6em 0;}
 [data-graph] hr, [data-tabs] hr {border-color:$orange; margin:2.6em 0 0 0; }
