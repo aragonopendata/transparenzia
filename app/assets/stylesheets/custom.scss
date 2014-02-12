@@ -7,11 +7,11 @@ $montserrat: "Montserrat";
 
 @font-face {
   font-family: 'icon-aragon';
-  src:url('fonts/icon-aragon.eot');
-  src:url('fonts/icon-aragon.eot?#iefix') format('embedded-opentype'),
-    url('fonts/icon-aragon.ttf') format('truetype'),
-    url('fonts/icon-aragon.woff') format('woff'),
-    url('fonts/icon-aragon.svg#icon-aragon') format('svg');
+  src: asset-url('fonts/icon-aragon.eot');
+  src: asset-url('fonts/icon-aragon.eot?#iefix') format('embedded-opentype'),
+    asset-url('fonts/icon-aragon.ttf') format('truetype'),
+    asset-url('fonts/icon-aragon.woff') format('woff'),
+    asset-url('fonts/icon-aragon.svg#icon-aragon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -338,23 +338,3 @@ footer .logo-ft {padding-top: 0.35em;}
 .sub-footer ul li a:hover, .sub-footer p:hover > a {color:$orange;}
 .sub-footer p > a {color:white;}
 .sub-footer p {font-size: 0.85em; font-family: $roboto; font-weight: 400;}
-
-// Generica
-.generic {width:auto !important; font-family: $roboto !important; font-weight: 300 !important; color:inherit !important;}
-iframe {background: darken($grey, 15); margin:1.5em 0 0 0; min-height: 400px; width:100%; padding:1em; color:black; text-align: center;}
-.galeria {margin:0; }
-.galeria li {display: inline-block; float: left; list-style: none; max-width:47%; margin:0.5em 1em 0.5em 0;}
-.gen-table {background: none; border:none; border-top:1px solid $dark;}
-.gen-table thead td {background: none; border-bottom: 1px solid darken($grey, 15);}
-.gen-table tr:first-child td {border-top: none;}
-.gen-table td:first-child {font-weight: bold;}
-.gen-table td {background: none; border-top: 1px solid darken($grey, 15);}
-
-.gen-tabs {list-style: none; padding:0; margin:0 0 1em 0; font-family: $montserrat; margin-bottom: 2em; display: block; width:97%;
-  li {position:relative; display: inline-block; float: left; width:33%; margin:0; }
-  li a {display: block; color:$dark; line-height:1em; text-align: center; margin:0.4em 0 0 0; padding:0.8em 0; font-size: 0.9em; border-bottom: 1px solid $orange; border-left: 1px solid darken($grey, 15); border-right: 1px solid darken($grey, 15); border-top: 1px solid darken($grey, 15);}
-  li:last-child a:not(.active){border-left:none;}
-  li:first-child a:not(.active){border-right:none;}
-  li:last-child:after {content:""; position: absolute; display: block; right:-3em; top:-0.3em; width:50px; height:50px; overflow-x:hidden; background: none; border-bottom: 1px solid $orange;}  
-  .active {color:$orange; margin:0; padding:1em 0; border-left: 1px solid $orange; border-right: 1px solid $orange; border-top: 1px solid $orange; border-bottom: 1px solid transparent;}
-}
