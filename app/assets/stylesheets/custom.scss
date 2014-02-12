@@ -97,6 +97,8 @@ header .logo img:hover {top:-2.32em;}
 [data-cat] li {border-right:1px solid #ccc; }
 [data-cat] li a {padding:1.4em 0.6em; height:57px; margin:0 0.8em; font-size: 0.77em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
 [data-cat] li a:hover, [data-cat] li a.active {background: transparentize($orange, 0.1); color:white;}
+[data-cat] li a.clicker, [class|="outer"] li a span { text-transform: uppercase;}
+ 
 
 // menu principal - sub
 .menu-bg {display:none; position: absolute; left:1.3em; width:919px; top:57px; height: 450px; z-index: 1; background: transparentize($orange, 0.1); padding:1em 0.6em;}
@@ -106,8 +108,8 @@ div.outer-2 {left:-13.87em;}
 div.outer-3 {left:-28.55em; }
 div.outer-4 {right:1em; }
 [class|="outer"] ul {position: relative; z-index: 999; padding:1em 0.6em; }
-[class|="outer"] ul li, [class|="outer"] ul li:first-child {border:none; margin-left:1em; width:42.2%; padding:0 0 0.5em 1em; position: relative; display: block; }
-[class|="outer"] ul li a:hover {background: darken(transparentize($orange, 0.6), 10);}
+[class|="outer"] ul li, [class|="outer"] ul li:first-child {border:none; margin-left:1em; width:42.2%; padding:0 0 0.5em 1em; position: relative; display: block; height:100px; }
+[class|="outer"] ul li a:hover {background: darken(transparentize($orange, 0.6), 10); height: inherit;}
 [class|="outer"] ul li a {color:white; display: inline-block; text-align: left; padding:0.6em 1.2em; font-size: 0.9em; letter-spacing: 0.05em;}
 [class|="outer"] ul li a > p {font-size: 1em; text-decoration: none !important; padding:0; margin:0; font-family: $roboto, sans-serif; font-weight: 400; color:white; line-height: 1.25em;}
 [class|="outer"] ul li:hover span {text-decoration: underline;}
