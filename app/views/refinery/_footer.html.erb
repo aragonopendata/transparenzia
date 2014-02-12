@@ -1,4 +1,4 @@
-    <% menu_items = Refinery::Menu.new(Refinery::Page.in_menu).items.reverse %>
+    <% menu_items = Refinery::Menu.new(Refinery::Page.in_menu).items.reverse.find_all{|it| !it.has_parent?} %>
     <div class="row">
       <div class="large-9 columns">
         <div class="row">
