@@ -297,7 +297,7 @@ hr.orange {border-color: $orange !important;}
 .paginacion .pagination {text-align: center;}
 
 // Tabs
-[data-tabs] h2, .nivel-tr h2 {font-family: $roboto; font-size:1.8em; margin-bottom: 1.8em; font-weight: 400;}
+[data-tabs] h2, [data-tabs] h1, .nivel-tr h2 {font-family: $roboto; font-size:1.8em; margin-bottom: 1.8em; font-weight: 400;}
 [data-tabs] table {width:100%; margin:0 0 3em 0; background: none; border: none;}
 [data-tabs] table tr {border-top:1px solid $grey; border-bottom:1px solid $grey; margin:0; display: inline-table;}
 [data-tabs] table tr img {width: 40%; display: block; float: right; margin-right: 1em;}
@@ -356,9 +356,9 @@ iframe {background: darken($grey, 15); margin:1.5em 0 0 0; min-height: 400px; wi
 
 .gen-tabs {list-style: none; padding:0; margin:0 0 1em 0; font-family: $montserrat; margin-bottom: 2em; display: block; width:97%;
   li {position:relative; display: inline-block; float: left; width:33%; margin:0; }
-  li a {display: block; color:$dark; line-height:1em; text-align: center; margin:0.4em 0 0 0; padding:0.8em 0; font-size: 0.9em; border-bottom: 1px solid $orange; border-left: 1px solid darken($grey, 15); border-right: 1px solid darken($grey, 15); border-top: 1px solid darken($grey, 15);}
+  li a {display: block; color:$dark; line-height:1em; text-align: center; margin:0.4em 0 0 0; padding:0.8em 0; font-weight:400; font-size: 0.9em; border-bottom: 1px solid $orange; border-left: 1px solid darken($grey, 15); border-right: 1px solid darken($grey, 15); border-top: 1px solid darken($grey, 15);}
   li:last-child a:not(.active){border-left:none;}
   li:first-child a:not(.active){border-right:none;}
   li:last-child:after {content:""; position: absolute; display: block; right:-3em; top:-0.3em; width:50px; height:50px; overflow-x:hidden; background: none; border-bottom: 1px solid $orange;}  
-  .active {color:$orange; margin:0; padding:1em 0; border-left: 1px solid $orange; border-right: 1px solid $orange; border-top: 1px solid $orange; border-bottom: 1px solid transparent;}
+  .active {font-weight:700; color:$orange; margin:0; padding:1em 0; border-left: 1px solid $orange; border-right: 1px solid $orange; border-top: 1px solid $orange; border-bottom: 1px solid transparent;}
 }
