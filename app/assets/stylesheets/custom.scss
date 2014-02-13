@@ -95,17 +95,17 @@ header .logo img:hover {top:-2.32em;}
 [data-cat] li {display: inline-block; padding:0; margin:0; float:left; width:25%; position: relative;}
 [data-cat] li:first-child {border-left:1px solid #ccc;}
 [data-cat] li {border-right:1px solid #ccc; }
-[data-cat] li a {padding:1.4em 0.6em; height:57px; margin:0 0.8em; font-size: 0.77em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
+[data-cat] li a {padding:1.8em 0.6em; height:57px; margin:0 0.8em; font-size: 0.77em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
 [data-cat] li a:hover, [data-cat] li a.active {background: transparentize($orange, 0.1); color:white;}
 [data-cat] li a.clicker, [class|="outer"] li a span { text-transform: uppercase;}
  
 
 // menu principal - sub
-.menu-bg {display:none; position: absolute; left:1.3em; width:919px; top:57px; height: 450px; z-index: 1; background: transparentize($orange, 0.1); padding:1em 0.6em;}
-[class|="outer"] {display:none; position: absolute; top:3.6em; left:inherit; width:895px; margin:0 3.25%;}
-div.outer-1 {left:0.8em; }
-div.outer-2 {left:-13.87em;}
-div.outer-3 {left:-28.55em; }
+.menu-bg {display:none; position: absolute; left:1.3em; width:919px; top:57px; height: auto; z-index: 1;  padding:1em 0.6em;}
+[class|="outer"] {display:none; z-index: 999;  position: absolute; top:3.6em; left:inherit; width:919px; margin:0 -2.6%; background: transparentize($orange, 0.1);}
+div.outer-1 {left:1em; }
+div.outer-2 {left:-13.67em;}
+div.outer-3 {left:-28.35em; }
 div.outer-4 {right:1em; }
 [class|="outer"] ul {position: relative; z-index: 999; padding:1em 0.6em; }
 [class|="outer"] ul li, [class|="outer"] ul li:first-child {border:none; margin-left:1em; width:42.2%; padding:0 0 0.5em 1em; position: relative; display: block; height:100px; }
