@@ -224,7 +224,7 @@ div.outer-4 {right:1em; }
 
 
 .inner-deco {background:$pink; position: relative;}
-.inner-deco input[type="submit"] {position: relative; @include round(3px); margin:1.5em 0; padding:0.9em 0.5em; width:100%; background: $orange; font-family: $montserrat; font-weight: 700; font-size: 0.8em;}
+.inner-deco input[type="submit"] {position: relative; @include round(3px); margin:1.5em 0; padding:0.9em 0.5em; width:100%; background: $orange; font-family: $montserrat; font-weight: 700; font-size: 0.8em; border-bottom: 2px solid darken($orange, 15);}
 .submit-deco:after {content:''; position: absolute; width: 0; height: 0; left:47%; top:0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $orange;}
 .submit-deco:before {content:''; position: absolute; width: 0; height: 0; left:47%; bottom:-10px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $pink;}
 
