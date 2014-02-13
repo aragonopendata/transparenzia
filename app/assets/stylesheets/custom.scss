@@ -193,9 +193,10 @@ div.outer-4 {right:1em; }
 [data-ariadna] ul {position: relative; left:0.2em; top:0.1em; float: left; padding:0; margin:0;  }
 [data-ariadna] li {display: inline-block; font-size: 0.8em; margin:0 0.2em; position: relative;}
 [data-ariadna] li:after {content:'\3e'; font-family: "icon-aragon"; position: absolute; right:-0.8em; color:darken($grey, 15); top:0.1em; font-size: 1.3em;}
-[data-ariadna] li:last-child a {color:darken($grey, 25); cursor: default;}
+[data-ariadna] li:last-child a, [data-ariadna] li:last-child a:hover {color:darken($grey, 25); cursor: default; text-decoration: none;}
 [data-ariadna] li:last-child:after {content:'';}
 [data-ariadna] li a {padding:0.3em; display: block; color:$dark; }
+[data-ariadna] li a:hover {color:$orange; text-decoration: underline;}
 
 // fichas
 
