@@ -82,7 +82,7 @@ header .logo img:hover {top:-2.32em;}
 [data-subcat] li a , [data-cat] li a {display: block; text-align: center; }
 // submenu superior
 [data-subcat] {padding-bottom:1.5em; letter-spacing: 0.0025em; font-family: $montserrat, sans-serif; font-weight: 400;}
-[data-subcat] li a {font-size: 0.6em; line-height: 1.2em; padding-bottom: 0.25em; margin-left:1.3em; color:lighten($dark, 40);}
+[data-subcat] li a {font-size: 0.6em; line-height: 1.2em; padding-bottom: 0.25em; margin-left:1.3em; color:lighten($dark, 40); position: relative;}
 [data-subcat] li a:hover {color:white;}
 [data-subcat] li:first-child a.active, [data-subcat] li:first-child a:hover {border-bottom:3px solid; border-color: $orange; color:white; cursor:pointer;}
 [data-subcat] li a.active, [data-subcat] li a:hover {border-bottom:3px solid; border-color: $blue; color:white; cursor:pointer;}
@@ -96,6 +96,7 @@ header .logo img:hover {top:-2.32em;}
 [data-cat] li:first-child {border-left:1px solid #ccc;}
 [data-cat] li {border-right:1px solid #ccc; }
 [data-cat] li a {padding:1.8em 0.6em; height:57px; margin:0 0.8em; font-size: 0.77em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
+[data-cat] li a:after {content:"\3e"; top:60%; left:48%; position: absolute; width:10px; height:10px; color:$orange; -ms-transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); transform:rotate(90deg); font-family:"icon-aragon"; z-index: 100;}
 [data-cat] li a:hover, [data-cat] li a.active {background: transparentize($orange, 0.1); color:white;}
 [data-cat] li a.clicker, [class|="outer"] li a span { text-transform: uppercase;}
  
