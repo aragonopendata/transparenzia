@@ -95,16 +95,18 @@ header .logo img:hover {top:-2.32em;}
 [data-cat] {padding:1.55em 0 0 0; font-family: $montserrat, sans-serif; font-weight: 700;}
 [data-cat] li {display: inline-block; padding:0; margin:0; float:left; width:25%; position: relative;}
 [data-cat] li:first-child {border-left:1px solid #ccc;}
-[data-cat] li {border-right:1px solid #ccc; }
-[data-cat] li a {padding:1.8em 0.6em; height:57px; margin:0 0.8em; font-size: 0.77em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
-[data-cat] li a:after {content:"\3e"; top:60%; left:48%; position: absolute; width:10px; height:10px; color:$orange; -ms-transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); transform:rotate(90deg); font-family:"icon-aragon"; z-index: 100;}
+[data-cat] li {border-right:1px solid #ccc; height:57px;}
+[data-cat] li a {padding:1.8em 0.6em 0 0.6em; height:57px; margin:0 0.8em; font-size: 0.77em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
+[data-cat] li a:after {content:"\3e"; top:80%; left:48%; position: absolute; width:10px; height:10px; color:$orange; -ms-transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); transform:rotate(90deg); font-family:"icon-aragon"; z-index: 100;}
 [data-cat] li a:hover, [data-cat] li a.active {background: transparentize($orange, 0.1); color:white;}
-[data-cat] li a.clicker, [class|="outer"] li a span { text-transform: uppercase;}
- 
+[data-cat] li a.clicker, [class|="outer"] li a span { text-transform: uppercase; }
+[data-cat] li:nth-child(2) a {padding:1.4em 0.6em 0 0.6em;}
+[data-cat] li a.active {height:67px;}
+
 
 // menu principal - sub
 .menu-bg {display:none; position: absolute; left:1.3em; width:919px; top:57px; height: auto; z-index: 1;  padding:1em 0.6em;}
-[class|="outer"] {display:none; z-index: 999;  position: absolute; top:3.6em; left:inherit; width:919px; margin:0 -2.6%; background: transparentize($orange, 0.1);}
+[class|="outer"] {display:none; z-index: 999;  position: absolute; top:4.2em; left:inherit; width:919px; margin:0 -2.6%; background: transparentize($orange, 0.1);}
 div.outer-1 {left:1em; }
 div.outer-2 {left:-13.67em;}
 div.outer-3 {left:-28.35em; }
