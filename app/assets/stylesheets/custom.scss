@@ -138,6 +138,7 @@ div.outer-4 {right:1em; }
 [data-body] h4.sub-titulo {text-align: inherit; width: auto; font-size: 0.95em; padding-top:1.4em; float: none; letter-spacing: 0.05em; text-transform: uppercase;}
 [data-body] h5 {font-family:$montserrat; font-weight: 700; color:$dark; padding-bottom: 0.5em; font-size: 0.9em;}
 [data-body] p {font-family: $roboto; font-weight: 300; color:darken($black, 15); font-size: 1em;}
+[data-body] a {display:block;}
 [data-body] a, [data-body] a > p {color:$orange;}
 [data-body] a:hover {color:lighten($orange,15);}
 [data-body] .linea {padding:1em 0 0.5em 0; width:39%; float: left;}
@@ -150,7 +151,7 @@ div.outer-4 {right:1em; }
 [data-body] figcaption {background: white; padding:0.5em 0.5em 1em 0.5em; line-height: 1.3em; min-height: 96px; font-size: 1.2em; text-align: left;}
 [data-body] figcaption p {text-align: center; margin:0 0 0.5em 0;}
 [data-body] figcaption sub {text-align: center; display: block; color:darken($dark, 25); font-size: 0.8em; font-family: $roboto; float:none;}
-[data-body] figure > a:hover p, [data-body] figure > a:hover sub {color:$orange; cursor: pointer;}
+[data-body] a:hover p, [data-body] a:hover sub {color:$orange; cursor: pointer;}
 //[data-body] figure:active {background:none; color:$dark; cursor: pointer;}
 [data-body] .datawall {background: white; padding:1em; border-bottom: 1px solid #bcbcbc;}
 [data-body] .datawall h2 {font-size: 1.9em; margin: 0.2em 0;}
