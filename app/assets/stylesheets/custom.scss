@@ -95,16 +95,18 @@ header .logo img:hover {top:-2.32em;}
 [data-cat] {padding:1.55em 0 0 0; font-family: $montserrat, sans-serif; font-weight: 700;}
 [data-cat] li {display: inline-block; padding:0; margin:0; float:left; width:25%; position: relative;}
 [data-cat] li:first-child {border-left:1px solid #ccc;}
-[data-cat] li {border-right:1px solid #ccc; }
-[data-cat] li a {padding:1.8em 0.6em; height:57px; margin:0 0.8em; font-size: 0.77em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
-[data-cat] li a:after {content:"\3e"; top:60%; left:48%; position: absolute; width:10px; height:10px; color:$orange; -ms-transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); transform:rotate(90deg); font-family:"icon-aragon"; z-index: 100;}
+[data-cat] li {border-right:1px solid #ccc; height:57px;}
+[data-cat] li a {padding:1.8em 0.6em 0 0.6em; height:57px; margin:0 0.8em; font-size: 0.77em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
+[data-cat] li a:after {content:"\3e"; top:80%; left:48%; position: absolute; width:10px; height:10px; color:$orange; -ms-transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); transform:rotate(90deg); font-family:"icon-aragon"; z-index: 100;}
 [data-cat] li a:hover, [data-cat] li a.active {background: transparentize($orange, 0.1); color:white;}
-[data-cat] li a.clicker, [class|="outer"] li a span { text-transform: uppercase;}
- 
+[data-cat] li a.clicker, [class|="outer"] li a span { text-transform: uppercase; }
+[data-cat] li:nth-child(2) a {padding:1.4em 0.6em 0 0.6em;}
+[data-cat] li a.active {height:67px;}
+
 
 // menu principal - sub
 .menu-bg {display:none; position: absolute; left:1.3em; width:919px; top:57px; height: auto; z-index: 1;  padding:1em 0.6em;}
-[class|="outer"] {display:none; z-index: 999;  position: absolute; top:3.6em; left:inherit; width:919px; margin:0 -2.6%; background: transparentize($orange, 0.1);}
+[class|="outer"] {display:none; z-index: 999;  position: absolute; top:4.2em; left:inherit; width:919px; margin:0 -2.6%; background: transparentize($orange, 0.1);}
 div.outer-1 {left:1em; }
 div.outer-2 {left:-13.67em;}
 div.outer-3 {left:-28.35em; }
@@ -147,7 +149,7 @@ div.outer-4 {right:1em; }
 [data-body] figure img {position: relative; top:-0.6em;}
 [data-body] figcaption {background: white; padding:0.5em 0.5em 1em 0.5em; line-height: 1.3em; min-height: 96px; font-size: 1.2em; text-align: left;}
 [data-body] figcaption p {text-align: center; margin:0 0 0.5em 0;}
-[data-body] figcaption sub {text-align: center; display: block; color:darken($dark, 25); font-size: 0.7em; font-family: $montserrat; float:none;}
+[data-body] figcaption sub {text-align: center; display: block; color:darken($dark, 25); font-size: 0.8em; font-family: $roboto; float:none;}
 [data-body] figure > a:hover p, [data-body] figure > a:hover sub {color:$orange; cursor: pointer;}
 //[data-body] figure:active {background:none; color:$dark; cursor: pointer;}
 [data-body] .datawall {background: white; padding:1em; border-bottom: 1px solid #bcbcbc;}
@@ -353,17 +355,17 @@ footer .logo-ft {padding-top: 0.35em;}
 iframe {background: darken($grey, 15); margin:1.5em 0 0 0; min-height: 400px; width:100%; padding:1em; color:black; text-align: center;}
 .galeria {margin:0; }
 .galeria li {display: inline-block; float: left; list-style: none; max-width:47%; margin:0.5em 1em 0.5em 0;}
-.gen-table {background: none; border:none; border-top:1px solid $dark;}
+.gen-table {background: none; border:none; min-width:70%;}
 .gen-table thead td {background: none; border-bottom: 1px solid darken($grey, 15);}
 .gen-table tr:first-child td {border-top: none;}
 .gen-table td:first-child {font-weight: bold;}
 .gen-table td {background: none; border-top: 1px solid darken($grey, 15);}
 
 .gen-tabs {list-style: none; padding:0; margin:0 0 1em 0; font-family: $montserrat; margin-bottom: 2em; display: block; width:97%;
-  li {position:relative; display: inline-block; float: left; width:33%; margin:0; }
-  li a {display: block; color:$dark; line-height:1em; text-align: center; margin:0.4em 0 0 0; padding:0.8em 0; font-weight:400; font-size: 0.9em; border-bottom: 1px solid $orange; border-left: 1px solid darken($grey, 15); border-right: 1px solid darken($grey, 15); border-top: 1px solid darken($grey, 15);}
+  li {position:relative; display: inline-block; float: left; width:25%; margin:0; }
+  li a {display: block; color:$dark; line-height:1em; text-align: center; margin:0.4em 0 0 0; height: 57px; padding:1em 0 0.6em 0; font-weight:400; font-size: 0.9em; border-bottom: 1px solid $dark; border-left: 1px solid darken($grey, 15); border-right: 1px solid darken($grey, 15); border-top: 1px solid darken($grey, 15);}
   li:last-child a:not(.active){border-left:none;}
   li:first-child a:not(.active){border-right:none;}
-  li:last-child:after {content:""; position: absolute; display: block; right:-3em; top:-0.3em; width:50px; height:50px; overflow-x:hidden; background: none; border-bottom: 1px solid $orange;}  
-  .active {font-weight:700; color:$orange; margin:0; padding:1em 0; border-left: 1px solid $orange; border-right: 1px solid $orange; border-top: 1px solid $orange; border-bottom: 1px solid transparent;}
+  li:last-child:after {content:""; position: absolute; display: block; right:-3em; top:0.8em; width:50px; height:50px; overflow-x:hidden; background: none; border-bottom: 1px solid $dark;}  
+  .active {font-weight:700; color:$orange; margin:0; height:64px; padding:1em 0; border-left: 1px solid $orange; border-right: 1px solid $orange; border-top: 1px solid $orange; border-bottom: 1px solid transparent;}
 }
