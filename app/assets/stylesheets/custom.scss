@@ -96,7 +96,7 @@ header .logo img:hover {top:-2.32em;}
 [data-cat] li {display: inline-block; padding:0; margin:0; float:left; width:25%; position: relative;}
 [data-cat] li:first-child {border-left:1px solid #ccc;}
 [data-cat] li {border-right:1px solid #ccc; height:57px;}
-[data-cat] li a {padding:1.8em 0.6em 0 0.6em; height:57px; margin:0 0.8em; font-size: 0.77em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
+[data-cat] li a {padding:1.8em 0.6em 0 0.6em; height:57px; margin:0 0.8em; font-size: 0.74em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
 [data-cat] li a:after {content:"\3e"; top:80%; left:48%; position: absolute; width:10px; height:10px; color:$orange; -ms-transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); transform:rotate(90deg); font-family:"icon-aragon"; z-index: 100;}
 [data-cat] li a:hover, [data-cat] li a.active {background: transparentize($orange, 0.1); color:white;}
 [data-cat] li a.clicker, [class|="outer"] li a span { text-transform: uppercase; }
@@ -138,6 +138,7 @@ div.outer-4 {right:1em; }
 [data-body] h4.sub-titulo {text-align: inherit; width: auto; font-size: 0.95em; padding-top:1.4em; float: none; letter-spacing: 0.05em; text-transform: uppercase;}
 [data-body] h5 {font-family:$montserrat; font-weight: 700; color:$dark; padding-bottom: 0.5em; font-size: 0.9em;}
 [data-body] p {font-family: $roboto; font-weight: 300; color:darken($black, 15); font-size: 1em;}
+[data-body] a {display:block;}
 [data-body] a, [data-body] a > p {color:$orange;}
 [data-body] a:hover {color:lighten($orange,15);}
 [data-body] .linea {padding:1em 0 0.5em 0; width:39%; float: left;}
@@ -146,15 +147,17 @@ div.outer-4 {right:1em; }
 [data-body] .quest:nth-child(3) {margin:0;}
 [data-body] .quest:hover {background: $orange; color:white;}
 [data-body] figure {margin:0 0 1.3em 0; padding:0; text-align: center; color:darken($dark, 15); background: white; min-height: 250px; border-bottom:1px solid lighten($dark, 30); }
+[data-body] figure:hover {border-color:$orange;}
 [data-body] figure img {position: relative; top:-0.6em;}
 [data-body] figcaption {background: white; padding:0.5em 0.5em 1em 0.5em; line-height: 1.3em; min-height: 96px; font-size: 1.2em; text-align: left;}
 [data-body] figcaption p {text-align: center; margin:0 0 0.5em 0;}
-[data-body] figcaption sub {text-align: center; display: block; color:darken($dark, 25); font-size: 0.8em; font-family: $roboto; float:none;}
-[data-body] figure > a:hover p, [data-body] figure > a:hover sub {color:$orange; cursor: pointer;}
+[data-body] figcaption sub {text-align: center; display: block; color:darken($dark, 25); font-size: 0.8em; font-family: $montserrat; float:none;}
+[data-body] a:hover p, [data-body] a:hover sub {color:$orange; cursor: pointer;}
 //[data-body] figure:active {background:none; color:$dark; cursor: pointer;}
 [data-body] .datawall {background: white; padding:1em; border-bottom: 1px solid #bcbcbc;}
 [data-body] .datawall h2 {font-size: 1.9em; margin: 0.2em 0;}
 [data-body] .datawall a:hover > h2, [data-body] .datawall a:hover h5 {color:$orange; cursor: pointer;}
+[data-body] .datawall:hover {border-color:$orange;}
 
 [data-body] .datawall h3 {font-size: 1em; font-family: $roboto; font-weight:400; margin-bottom: 1.5em;}
 [data-body] .datawall h5 {font-family: $roboto; font-weight: 200; color:black; font-size: 1.2em; text-align: center; margin:0; padding:0;}
@@ -169,13 +172,16 @@ div.outer-4 {right:1em; }
 [data-body] .todas {font-family:$montserrat; font-size:0.8em; font-weight: 700;}
 [data-body] .mask {display: block; overflow: hidden; height: 290px; width: 290px; position: relative; text-align: center; margin: 0 auto 1em auto; -webkit-border-radius: 180px; -moz-border-radius: 180px; border-radius: 180px;}
 [data-body] .mask img {position: relative; left:-1.5em;}
-[data-body] .wiki {margin:1.5em 0;}
+[data-body] .wiki {margin:1.5em 0 0 0;}
 [data-body] .wiki h4 {width:33%; margin-bottom: 1.5em;}
 [data-body] .wiki > .linea {padding:0.8em 0 0.2em 0; width:33%; float: left;}
-[data-body] .wiki-list {margin-bottom: 1.5em; margin-right:1%;  width:48%; float: left;}
+[data-body] .wiki-list {list-style:none;}
 [data-body] .wiki-list:nth-child(even) {margin-right:0; margin-left:1%; }
-[data-body] .wiki-list span {position:relative; left:-0.5em; top:0.2em; font-size: 0.8em; background: $dark; color:white; width:auto; display: inline-block; float:left; min-height: inherit; padding:0 0.3em 0 0.5em; margin-right: 0.2em; font-family: $montserrat; font-weight: 400;}
+[data-body] .wiki-list span {position:relative; left:-0.5em; top:0.2em; font-size: 0.8em; background: $dark; color:white; width:auto; display: inline-block; float:left; min-height: inherit; padding:0 0.3em 0.05em 0.5em; margin-right: 0.2em; font-family: $montserrat; font-weight: 400;}
 [data-body] .wiki-list p {float: left; font-size: 0.9em; font-family: $roboto; background: none; width:90%;}
+.two-cols {height: 1800px; -webkit-column-count: 2; -moz-column-count: 2; column-count: 2;}
+.two-cols li {display: inline-block;}
+
 
 [data-profile] {font-family:$montserrat;}
 [data-profile] h5 {text-align: center; font-size: 0.95em; border-bottom:1px solid darken($grey, 10); margin:0; padding:0.8em 0;}
@@ -240,6 +246,7 @@ div.outer-4 {right:1em; }
 [data-stats] h3 {font-size:2.2em; line-height: 1em; font-family: $roboto; font-weight: 300;}
 [data-stats] h4 {font-size:1.25em; margin-bottom: 1.2em;}
 [data-stats] sub {font-family: $roboto; font-weight: 300;}
+[data-stats] sub.right {padding-right: 1em;}
 [data-grid] .square {background: $orange; color:white; margin:0.6em; padding:1em; width:46%; max-height: 200px; float: left;}
 [data-grid] .square p, [data-grid] .square p:last-child {min-height: 25px; margin-bottom: 0.2em; font-size: 0.78em; position: relative; font-family: $roboto; font-weight: 400;}
 [data-grid] .square p > sub { position: relative; left:0.2em; top:1.4em; min-height: 15px; display: block; font-size: 0.30em; font-weight: 400; line-height: 0; margin-bottom: 2em;}
@@ -253,7 +260,6 @@ div.outer-4 {right:1em; }
 [data-graph] hr, [data-tabs] hr {border-color:$orange; margin:2.6em 0 0 0; }
 [data-graph] hr.less-margin {margin:0 !important; border-color: lighten($dark, 40);}
 [data-graph] h4 {font-family: $montserrat; font-weight: 700; font-size: 0.95em; color:$dark; }
-
 [data-graph] .subtitle {font-size: 1em; font-weight: 300; font-family: $roboto; margin-top: 1em;}
 [data-graph] .subtitle span {font-size: 2.7em; padding-right: 0.2em; position: relative; top:0.1em;}
 [data-graph] .subtitle span.icon-female {color:lighten($orange, 15);}
@@ -262,7 +268,6 @@ div.outer-4 {right:1em; }
 [data-graph] ul li span {display: inline-block;}
 [data-graph] ul li span.icon-male, [data-graph] .subtitle span.icon-male {color:$orange;}
 [data-graph] ul li span.icon-female, [data-graph] .subtitle span.icon-female {color:lighten($orange, 15);}
-
 [data-graph] img.dummy {margin-bottom: 1em;}
 [data-graph] a.todas {font-size: 0.8em; font-weight: 700; padding-bottom: 1.5em; display: block;}
 
@@ -271,11 +276,12 @@ div.outer-4 {right:1em; }
 .soft-divider:after {content:''; position: absolute; width: 0; height: 0; left:49%; bottom:-10px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid darken($grey, 5); z-index:10;}
 
 // Visor convenios
-[data-grid] img {padding:0.6em 1em;}
+[data-grid] img {padding:0.6em 1em 0 1.4em;}
 [data-grid] svg {max-width: 460px; height:420px; stroke: $black; fill: none; font-size:0.7em; display: inline-block;}
 [data-grid] .graph-cont {position: relative;}
 [data-grid] .graph-item {background: transparentize($orange, 0.8); margin-top: 0.89em;}
 [data-grid] .graph-item circle {fill: $orange;}
+.chart-title *, .graph-item > * {font-family: $montserrat !important; font-weight: normal !important;}
 [data-grid] .infobox {font-size:0.8em; font-weight:700; color:$dark; margin:200px auto; border:2px solid $orange; @include round(5px); box-shadow:$dark 0px 0px 10px; padding:0.4em 0.5em; background:transparentize(white, 0.6); position:absolute; left:0; top:0; display: none;}
 [data-visor] p {font-size: 1.2em; font-weight: 300; font-family: $roboto;}
 [data-visor] ul {width:48%; min-height: 130px; float:left; padding:0 0 0 2%; margin:0; border-left:1px dotted $orange;}
