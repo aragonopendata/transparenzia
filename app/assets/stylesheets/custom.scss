@@ -72,6 +72,7 @@ $pink: #e5b9a6;
     *zoom: 1; }
 }
 form {margin:0;}
+
 /* */
 
 header {background:url('../img/header-bg.png') repeat-x;}
@@ -82,7 +83,7 @@ header .logo img:hover {top:-2.32em;}
 [data-subcat] li a , [data-cat] li a {display: block; text-align: center; }
 // submenu superior
 [data-subcat] {padding-bottom:1.5em; letter-spacing: 0.0025em; font-family: $montserrat, sans-serif; font-weight: 400;}
-[data-subcat] li a {font-size: 0.6em; line-height: 1.2em; padding-bottom: 0.25em; margin-left:1.3em; color:lighten($dark, 40);}
+[data-subcat] li a {font-size: 0.6em; line-height: 1.2em; padding-bottom: 0.25em; margin-left:1.3em; color:lighten($dark, 40); position: relative;}
 [data-subcat] li a:hover {color:white;}
 [data-subcat] li:first-child a.active, [data-subcat] li:first-child a:hover {border-bottom:3px solid; border-color: $orange; color:white; cursor:pointer;}
 [data-subcat] li a.active, [data-subcat] li a:hover {border-bottom:3px solid; border-color: $blue; color:white; cursor:pointer;}
@@ -94,18 +95,21 @@ header .logo img:hover {top:-2.32em;}
 [data-cat] {padding:1.55em 0 0 0; font-family: $montserrat, sans-serif; font-weight: 700;}
 [data-cat] li {display: inline-block; padding:0; margin:0; float:left; width:25%; position: relative;}
 [data-cat] li:first-child {border-left:1px solid #ccc;}
-[data-cat] li {border-right:1px solid #ccc; }
-[data-cat] li a {padding:1.4em 0.6em; height:57px; margin:0 0.8em; font-size: 0.77em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
+[data-cat] li {border-right:1px solid #ccc; height:57px;}
+[data-cat] li a {padding:1.8em 0.6em 0 0.6em; height:57px; margin:0 0.8em; font-size: 0.74em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
+[data-cat] li a:after {content:"\3e"; top:80%; left:48%; position: absolute; width:10px; height:10px; color:$orange; -ms-transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); transform:rotate(90deg); font-family:"icon-aragon"; z-index: 100;}
 [data-cat] li a:hover, [data-cat] li a.active {background: transparentize($orange, 0.1); color:white;}
-[data-cat] li a.clicker, [class|="outer"] li a span { text-transform: uppercase;}
- 
+[data-cat] li a.clicker, [class|="outer"] li a span { text-transform: uppercase; }
+[data-cat] li:nth-child(2) a {padding:1.4em 0.6em 0 0.6em;}
+[data-cat] li a.active {height:67px;}
+
 
 // menu principal - sub
-.menu-bg {display:none; position: absolute; left:1.3em; width:919px; top:57px; height: 450px; z-index: 1; background: transparentize($orange, 0.1); padding:1em 0.6em;}
-[class|="outer"] {display:none; position: absolute; top:3.6em; left:inherit; width:895px; margin:0 3.25%;}
-div.outer-1 {left:0.8em; }
-div.outer-2 {left:-13.87em;}
-div.outer-3 {left:-28.55em; }
+.menu-bg {display:none; position: absolute; left:1.3em; width:919px; top:57px; height: auto; z-index: 1;  padding:1em 0.6em;}
+[class|="outer"] {display:none; z-index: 999;  position: absolute; top:4.2em; left:inherit; width:919px; margin:0 -2.6%; background: transparentize($orange, 0.1);}
+div.outer-1 {left:1em; }
+div.outer-2 {left:-13.67em;}
+div.outer-3 {left:-28.35em; }
 div.outer-4 {right:1em; }
 [class|="outer"] ul {position: relative; z-index: 999; padding:1em 0.6em; }
 [class|="outer"] ul li, [class|="outer"] ul li:first-child {border:none; margin-left:1em; width:42.2%; padding:0 0 0.5em 1em; position: relative; display: block; height:100px; }
@@ -134,6 +138,7 @@ div.outer-4 {right:1em; }
 [data-body] h4.sub-titulo {text-align: inherit; width: auto; font-size: 0.95em; padding-top:1.4em; float: none; letter-spacing: 0.05em; text-transform: uppercase;}
 [data-body] h5 {font-family:$montserrat; font-weight: 700; color:$dark; padding-bottom: 0.5em; font-size: 0.9em;}
 [data-body] p {font-family: $roboto; font-weight: 300; color:darken($black, 15); font-size: 1em;}
+[data-body] a {display:block;}
 [data-body] a, [data-body] a > p {color:$orange;}
 [data-body] a:hover {color:lighten($orange,15);}
 [data-body] .linea {padding:1em 0 0.5em 0; width:39%; float: left;}
@@ -142,15 +147,17 @@ div.outer-4 {right:1em; }
 [data-body] .quest:nth-child(3) {margin:0;}
 [data-body] .quest:hover {background: $orange; color:white;}
 [data-body] figure {margin:0 0 1.3em 0; padding:0; text-align: center; color:darken($dark, 15); background: white; min-height: 250px; border-bottom:1px solid lighten($dark, 30); }
+[data-body] figure:hover {border-color:$orange;}
 [data-body] figure img {position: relative; top:-0.6em;}
 [data-body] figcaption {background: white; padding:0.5em 0.5em 1em 0.5em; line-height: 1.3em; min-height: 96px; font-size: 1.2em; text-align: left;}
 [data-body] figcaption p {text-align: center; margin:0 0 0.5em 0;}
-[data-body] figcaption sub {text-align: center; display: block; color:darken($dark, 25); font-size: 0.7em; font-family: $montserrat; float:none;}
-[data-body] figure > a:hover p, [data-body] figure > a:hover sub {color:$orange; cursor: pointer;}
+[data-body] figcaption sub {text-align: center; display: block; color:darken($dark, 25); font-size: 0.8em; font-family: $montserrat; float:none;}
+[data-body] a:hover p, [data-body] a:hover sub {color:$orange; cursor: pointer;}
 //[data-body] figure:active {background:none; color:$dark; cursor: pointer;}
 [data-body] .datawall {background: white; padding:1em; border-bottom: 1px solid #bcbcbc;}
 [data-body] .datawall h2 {font-size: 1.9em; margin: 0.2em 0;}
 [data-body] .datawall a:hover > h2, [data-body] .datawall a:hover h5 {color:$orange; cursor: pointer;}
+[data-body] .datawall:hover {border-color:$orange;}
 
 [data-body] .datawall h3 {font-size: 1em; font-family: $roboto; font-weight:400; margin-bottom: 1.5em;}
 [data-body] .datawall h5 {font-family: $roboto; font-weight: 200; color:black; font-size: 1.2em; text-align: center; margin:0; padding:0;}
@@ -165,13 +172,16 @@ div.outer-4 {right:1em; }
 [data-body] .todas {font-family:$montserrat; font-size:0.8em; font-weight: 700;}
 [data-body] .mask {display: block; overflow: hidden; height: 290px; width: 290px; position: relative; text-align: center; margin: 0 auto 1em auto; -webkit-border-radius: 180px; -moz-border-radius: 180px; border-radius: 180px;}
 [data-body] .mask img {position: relative; left:-1.5em;}
-[data-body] .wiki {margin:1.5em 0;}
+[data-body] .wiki {margin:1.5em 0 0 0;}
 [data-body] .wiki h4 {width:33%; margin-bottom: 1.5em;}
 [data-body] .wiki > .linea {padding:0.8em 0 0.2em 0; width:33%; float: left;}
-[data-body] .wiki-list {margin-bottom: 1.5em; margin-right:1%;  width:48%; float: left;}
+[data-body] .wiki-list {list-style:none;}
 [data-body] .wiki-list:nth-child(even) {margin-right:0; margin-left:1%; }
-[data-body] .wiki-list span {position:relative; left:-0.5em; top:0.2em; font-size: 0.8em; background: $dark; color:white; width:auto; display: inline-block; float:left; min-height: inherit; padding:0 0.3em 0 0.5em; margin-right: 0.2em; font-family: $montserrat; font-weight: 400;}
+[data-body] .wiki-list span {position:relative; left:-0.5em; top:0.2em; font-size: 0.8em; background: $dark; color:white; width:auto; display: inline-block; float:left; min-height: inherit; padding:0 0.3em 0.05em 0.5em; margin-right: 0.2em; font-family: $montserrat; font-weight: 400;}
 [data-body] .wiki-list p {float: left; font-size: 0.9em; font-family: $roboto; background: none; width:90%;}
+.two-cols {height: 1800px; -webkit-column-count: 2; -moz-column-count: 2; column-count: 2;}
+.two-cols li {display: inline-block;}
+
 
 [data-profile] {font-family:$montserrat;}
 [data-profile] h5 {text-align: center; font-size: 0.95em; border-bottom:1px solid darken($grey, 10); margin:0; padding:0.8em 0;}
@@ -192,9 +202,10 @@ div.outer-4 {right:1em; }
 [data-ariadna] ul {position: relative; left:0.2em; top:0.1em; float: left; padding:0; margin:0;  }
 [data-ariadna] li {display: inline-block; font-size: 0.8em; margin:0 0.2em; position: relative;}
 [data-ariadna] li:after {content:'\3e'; font-family: "icon-aragon"; position: absolute; right:-0.8em; color:darken($grey, 15); top:0.1em; font-size: 1.3em;}
-[data-ariadna] li:last-child a {color:darken($grey, 25); cursor: default;}
+[data-ariadna] li:last-child a, [data-ariadna] li:last-child a:hover {color:darken($grey, 25); cursor: default; text-decoration: none;}
 [data-ariadna] li:last-child:after {content:'';}
 [data-ariadna] li a {padding:0.3em; display: block; color:$dark; }
+[data-ariadna] li a:hover {color:$orange; text-decoration: underline;}
 
 // fichas
 
@@ -209,12 +220,15 @@ div.outer-4 {right:1em; }
 [data-filtros] .hollow:hover {background: darken($orange, 7);}
 [data-filtros] .hollow:hover:after {content:'\3e'; font-family: "icon-aragon"; position: absolute; top:0.4em; font-size: 1.3em; color:transparentize(white, 0.5);}
 
-[data-filtros] .row > .columns:nth-child(1) {border-right:1px dotted white;}
-[data-filtros] .row > .columns:nth-child(3) {border-left:1px dotted white;}
+[data-filtros] .row > .columns:nth-child(2) {border-left:1px dotted white; border-right:1px dotted white;}
+
 [data-filtros] .active {border:2px solid transparentize(white, 0); position: relative; color:transparentize(white, 0); cursor:inherit;}
 [data-filtros] .active:after {content:'\3e'; font-family: "icon-aragon"; position: absolute; top:0.4em; font-size: 1.3em; color:transparentize(white, 0.5);}
 [data-filtros] .active:hover {background: none;}
-[data-filtros] select {width:100%; background: none; color:white; font-size: 0.97em; line-height: 1.25em; position: relative; cursor:pointer;}
+[data-filtros] input[type="text"]:first-child {margin-top: 0.25em;}
+[data-filtros] input[type="text"] {margin-bottom: 0.5em; @include round(3px); }
+
+[data-filtros] select {width:100%;  @include round(3px); margin-bottom: 0.5em; background:none; color:white; font-size: 0.97em; line-height: 1.25em; position: relative; cursor:pointer;}
 [data-filtros] select option {color:$dark;}
 [data-filtros] #year select {width:48%; margin-right:1%; margin-left: 1%; float:left;}
 
@@ -223,7 +237,7 @@ div.outer-4 {right:1em; }
 
 
 .inner-deco {background:$pink; position: relative;}
-.inner-deco input[type="submit"] {position: relative; @include round(3px); margin:1.5em 0; padding:0.9em 0.5em; width:100%; background: $orange; font-family: $montserrat; font-weight: 700; font-size: 0.8em;}
+.inner-deco input[type="submit"] {position: relative; @include round(3px); margin:1.5em 0; padding:0.9em 0.5em; width:100%; background: $orange; font-family: $montserrat; font-weight: 700; font-size: 0.8em; border-bottom: 2px solid darken($orange, 15);}
 .submit-deco:after {content:''; position: absolute; width: 0; height: 0; left:47%; top:0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $orange;}
 .submit-deco:before {content:''; position: absolute; width: 0; height: 0; left:47%; bottom:-10px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid $pink;}
 
@@ -232,20 +246,20 @@ div.outer-4 {right:1em; }
 [data-stats] h3 {font-size:2.2em; line-height: 1em; font-family: $roboto; font-weight: 300;}
 [data-stats] h4 {font-size:1.25em; margin-bottom: 1.2em;}
 [data-stats] sub {font-family: $roboto; font-weight: 300;}
+[data-stats] sub.right {padding-right: 1em;}
 [data-grid] .square {background: $orange; color:white; margin:0.6em; padding:1em; width:46%; max-height: 200px; float: left;}
 [data-grid] .square p, [data-grid] .square p:last-child {min-height: 25px; margin-bottom: 0.2em; font-size: 0.78em; position: relative; font-family: $roboto; font-weight: 400;}
 [data-grid] .square p > sub { position: relative; left:0.2em; top:1.4em; min-height: 15px; display: block; font-size: 0.30em; font-weight: 400; line-height: 0; margin-bottom: 2em;}
 [data-grid] .square .boxed-text {width:auto; display: inline-block; min-height: inherit; margin-bottom: 1.5em; font-family: $montserrat; font-weight: 700;}
 [data-grid] .square .boxed-text span {background: $dark; padding:0 0.3em;}
 [data-grid] .square .main-text {font-size: 3.75em; line-height: 0.4em; text-indent: -5px; font-weight: 400; letter-spacing: -1px;}
-[data-grid] .square .main-text .quantity {font-size: 0.3em;}
+[data-grid] .square .main-text .quantity {font-size: 0.3em; position: absolute; top: 0.8em; right: 1em;}
 [data-grid] .square .quantity {padding-left: 0.1em;}
 [data-map] > .row {text-align: right;}
 [data-map] .map-wrap {padding:0.6em 0.6em 0.6em 0;}
 [data-graph] hr, [data-tabs] hr {border-color:$orange; margin:2.6em 0 0 0; }
 [data-graph] hr.less-margin {margin:0 !important; border-color: lighten($dark, 40);}
 [data-graph] h4 {font-family: $montserrat; font-weight: 700; font-size: 0.95em; color:$dark; }
-
 [data-graph] .subtitle {font-size: 1em; font-weight: 300; font-family: $roboto; margin-top: 1em;}
 [data-graph] .subtitle span {font-size: 2.7em; padding-right: 0.2em; position: relative; top:0.1em;}
 [data-graph] .subtitle span.icon-female {color:lighten($orange, 15);}
@@ -254,7 +268,6 @@ div.outer-4 {right:1em; }
 [data-graph] ul li span {display: inline-block;}
 [data-graph] ul li span.icon-male, [data-graph] .subtitle span.icon-male {color:$orange;}
 [data-graph] ul li span.icon-female, [data-graph] .subtitle span.icon-female {color:lighten($orange, 15);}
-
 [data-graph] img.dummy {margin-bottom: 1em;}
 [data-graph] a.todas {font-size: 0.8em; font-weight: 700; padding-bottom: 1.5em; display: block;}
 
@@ -263,11 +276,12 @@ div.outer-4 {right:1em; }
 .soft-divider:after {content:''; position: absolute; width: 0; height: 0; left:49%; bottom:-10px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid darken($grey, 5); z-index:10;}
 
 // Visor convenios
-[data-grid] img {padding:0.6em;}
+[data-grid] img {padding:0.6em 1em 0 1.4em;}
 [data-grid] svg {max-width: 460px; height:420px; stroke: $black; fill: none; font-size:0.7em; display: inline-block;}
 [data-grid] .graph-cont {position: relative;}
 [data-grid] .graph-item {background: transparentize($orange, 0.8); margin-top: 0.89em;}
 [data-grid] .graph-item circle {fill: $orange;}
+.chart-title *, .graph-item > * {font-family: $montserrat !important; font-weight: normal !important;}
 [data-grid] .infobox {font-size:0.8em; font-weight:700; color:$dark; margin:200px auto; border:2px solid $orange; @include round(5px); box-shadow:$dark 0px 0px 10px; padding:0.4em 0.5em; background:transparentize(white, 0.6); position:absolute; left:0; top:0; display: none;}
 [data-visor] p {font-size: 1.2em; font-weight: 300; font-family: $roboto;}
 [data-visor] ul {width:48%; min-height: 130px; float:left; padding:0 0 0 2%; margin:0; border-left:1px dotted $orange;}
@@ -296,7 +310,7 @@ hr.orange {border-color: $orange !important;}
 .paginacion .pagination {text-align: center;}
 
 // Tabs
-[data-tabs] h2, .nivel-tr h2 {font-family: $roboto; font-size:1.8em; margin-bottom: 1.8em; font-weight: 400;}
+[data-tabs] h2, [data-tabs] h1, .nivel-tr h2 {font-family: $roboto; font-size:1.8em; margin-bottom: 1.8em; font-weight: 400;}
 [data-tabs] table {width:100%; margin:0 0 3em 0; background: none; border: none;}
 [data-tabs] table tr {border-top:1px solid $grey; border-bottom:1px solid $grey; margin:0; display: inline-table;}
 [data-tabs] table tr img {width: 40%; display: block; float: right; margin-right: 1em;}
@@ -347,17 +361,17 @@ footer .logo-ft {padding-top: 0.35em;}
 iframe {background: darken($grey, 15); margin:1.5em 0 0 0; min-height: 400px; width:100%; padding:1em; color:black; text-align: center;}
 .galeria {margin:0; }
 .galeria li {display: inline-block; float: left; list-style: none; max-width:47%; margin:0.5em 1em 0.5em 0;}
-.gen-table {background: none; border:none; border-top:1px solid $dark;}
+.gen-table {background: none; border:none; min-width:70%;}
 .gen-table thead td {background: none; border-bottom: 1px solid darken($grey, 15);}
 .gen-table tr:first-child td {border-top: none;}
 .gen-table td:first-child {font-weight: bold;}
 .gen-table td {background: none; border-top: 1px solid darken($grey, 15);}
 
 .gen-tabs {list-style: none; padding:0; margin:0 0 1em 0; font-family: $montserrat; margin-bottom: 2em; display: block; width:97%;
-  li {position:relative; display: inline-block; float: left; width:33%; margin:0; }
-  li a {display: block; color:$dark; line-height:1em; text-align: center; margin:0.4em 0 0 0; padding:0.8em 0; font-size: 0.9em; border-bottom: 1px solid $orange; border-left: 1px solid darken($grey, 15); border-right: 1px solid darken($grey, 15); border-top: 1px solid darken($grey, 15);}
+  li {position:relative; display: inline-block; float: left; width:25%; margin:0; }
+  li a {display: block; color:$dark; line-height:1em; text-align: center; margin:0.4em 0 0 0; height: 57px; padding:1em 0 0.6em 0; font-weight:400; font-size: 0.9em; border-bottom: 1px solid $dark; border-left: 1px solid darken($grey, 15); border-right: 1px solid darken($grey, 15); border-top: 1px solid darken($grey, 15);}
   li:last-child a:not(.active){border-left:none;}
   li:first-child a:not(.active){border-right:none;}
-  li:last-child:after {content:""; position: absolute; display: block; right:-3em; top:-0.3em; width:50px; height:50px; overflow-x:hidden; background: none; border-bottom: 1px solid $orange;}  
-  .active {color:$orange; margin:0; padding:1em 0; border-left: 1px solid $orange; border-right: 1px solid $orange; border-top: 1px solid $orange; border-bottom: 1px solid transparent;}
+  li:last-child:after {content:""; position: absolute; display: block; right:-3em; top:0.8em; width:50px; height:50px; overflow-x:hidden; background: none; border-bottom: 1px solid $dark;}  
+  .active {font-weight:700; color:$orange; margin:0; height:64px; padding:1em 0; border-left: 1px solid $orange; border-right: 1px solid $orange; border-top: 1px solid $orange; border-bottom: 1px solid transparent;}
 }
