@@ -31,19 +31,19 @@
       <h5>CONTENIDOS</h5>
       <nav>
         <ul>
-          <li><a href="#">BIOGRAFÍA</a></li>
-          <li><a href="#">CARGOS</a></li>
-          <li><a href="#">NOVEDADES</a></li>
+          <li><a href="#p1">BIOGRAFÍA</a></li>
+          <li><a href="#p2">CARGOS</a></li>
+          <li><a href="#p3">NOVEDADES</a></li>
         </ul>
       </nav>
       </div>
       </div>
       <div class="large-8 columns" data-cont>
-       <h5>BIOGRAFÍA</h5>
+       <h5 id="p1">BIOGRAFÍA</h5>
        <p><%=raw @member.biography %></p>
-       <h5>CARGOS</h5>
+       <h5 id="p2">CARGOS</h5>
        <p><%=raw @member.biography %></p>
-       <h5>NOVEDADES</h5>
+       <h5 id="p3">NOVEDADES</h5>
        <div class="noticias">
          <p><%= puts @member.inspect %></p>
          <p><%=raw @member.notes %></p>
