@@ -1,5 +1,5 @@
 <nav>
-  <% menu_items = Refinery::Menu.new(Refinery::Page.in_menu).items.reverse %>
+  <% menu_items = navigation_menu %>
   <%index = 0%>
     <% menu_items.each do |item|%>
       <% if item.url.class.name != "String" and not item.has_parent? %>
