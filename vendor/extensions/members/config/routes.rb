@@ -1,8 +1,8 @@
 Refinery::Core::Engine.routes.draw do
 
   # Frontend routes
-  namespace :members do
-    resources :members, :path => '', :only => [:index, :show]
+  namespace :members, :path => '' do
+    get 'perfil/:slug' => 'members#show', :as => 'member'
   end
 
   # Admin routes
