@@ -2,7 +2,6 @@
   <% menu_items = navigation_menu %>
   <%index = 0%>
     <% menu_items.each do |item|%>
-      <% if item.url.class.name != "String" and not item.has_parent? %>
       <%index += 1%>
       <li>
         <a href="#"  class="clicker"><%= item.title %></a>
@@ -10,13 +9,13 @@
         <ul class="large-block-grid-2 no-js">
           <% item.children.each do |child| %>
           <li>
-            <%= link_to ("<span>#{child.title}</span> <p>#{Refinery::Page.find_by_id(child.original_id).meta_description}</p>").html_safe, "/#{child.url[:path].join('/')}"%>
+            <%= link_to ("<span>#{child.title}</span> <p>#{child.meta_description}</p>").html_safe, "/#{child.url[:path].join('/')}"%>
           </li>
           <% end %>
         </ul>
       </div>
       </li>
-      <%end%>
+      
   <% end %>
 </nav>
 <span id="no-js" class="menu-bg"></span>

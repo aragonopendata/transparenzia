@@ -65,8 +65,7 @@ module ApplicationHelper
 
   def navigation_menu
     unless @menu
-      @menu = Refinery::Menu.new(Refinery::Page.in_menu).items.reverse
-      puts "putilla1"
+      @menu = Refinery::Page.in_menu.where(:parent_id => nil).reverse
     end
     @menu
   end
