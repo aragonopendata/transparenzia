@@ -8,7 +8,9 @@
               <h5><%= item.title %></h5>
               <ul>
                 <% item.children.each do |child| %>
+                <%if child.deletable?%>
                 <li><%= link_to child.title, "/#{child.url[:path].join('/')}"%></li>
+                <% end %>
                 <% end %>
               </ul>
             </div>
@@ -20,7 +22,9 @@
               <h5><%= item.title %></h5>
               <ul>
                 <% item.children.each do |child| %>
+                <%if child.deletable?%>
                 <li><%= link_to child.title, "/#{child.url[:path].join('/')}"%></li>
+                <% end %>
                 <% end %>
               </ul>
             </div>

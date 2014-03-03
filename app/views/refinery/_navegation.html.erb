@@ -8,9 +8,11 @@
         <div class="outer-<%=index%>">
         <ul class="large-block-grid-2 no-js">
           <% item.children.each do |child| %>
+          <%if child.deletable?%>
           <li>
             <%= link_to ("<span>#{child.title}</span> <p>#{child.meta_description}</p>").html_safe, "/#{child.url[:path].join('/')}"%>
           </li>
+          <%end%>
           <% end %>
         </ul>
       </div>
