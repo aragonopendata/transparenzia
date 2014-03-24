@@ -16,7 +16,6 @@
 //= require jquery.ui.autocomplete
 //= require turbolinks
 //= require jquery.smooth-scroll
-//= require jquery.ba-bbq
 //= require d3.v3
 //= require charts
 //= require_tree .
