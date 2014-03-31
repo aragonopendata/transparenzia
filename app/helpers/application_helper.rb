@@ -65,7 +65,7 @@ module ApplicationHelper
 
   def navigation_menu
     unless @menu
-      @menu = Refinery::Page.in_menu.where(:parent_id => nil).reverse
+      @menu = Refinery::Page.in_menu.where(:parent_id => nil).order(:lft)
     end
     @menu
   end
