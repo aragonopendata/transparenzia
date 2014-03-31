@@ -21,4 +21,18 @@
       <%= render(partial: "refinery/navegation") %>
     </div>
   </div>
+  <%if @page%>
+  <div class="ariadna-cont"> 
+  <div class="row">
+    <div class="large-12 columns" data-ariadna>
+      
+      <p>ESTÁS EN:</p>
+      <ul>
+        <%= breadcrumb_path(@page) %>
+      </ul>
+      
+    </div>
+  </div>
+  </div>
+  <% end %>
 </header>

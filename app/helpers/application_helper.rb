@@ -69,4 +69,15 @@ module ApplicationHelper
     end
     @menu
   end
+
+  def breadcrumb_path(page)
+    html = "<li><a href='#'>#{page.title}</a></li>"
+    parent = page.parent
+    while parent != nil
+      html = "<li><a href='#{parent.nested_path}'>#{parent.title}</a></li>" + html
+      parent = parent.parent
+    end
+    html = "<li><a href='/'>Inicio</a></li>" + html
+    html.html_safe
+  end
 end
