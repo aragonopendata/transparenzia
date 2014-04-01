@@ -21,7 +21,7 @@
       <%= render(partial: "refinery/navegation") %>
     </div>
   </div>
-  <%if @page%>
+  <%if @page and not request.original_url==root_url%>
   <div class="ariadna-cont"> 
   <div class="row">
     <div class="large-12 columns" data-ariadna>
