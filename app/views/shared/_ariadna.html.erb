@@ -3,10 +3,13 @@
     <div class="large-12 columns" data-ariadna>
       <p>ESTÁS EN:</p>
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Organización</a></li>
-        <li><a href="<%= agreements_path(request.query_parameters) %>">Convenios</a></li>
-        <li><a href="#">Visor de convenios</a></li>
+        <li><a href="/">Inicio</a></li>
+        <% if @agreement %>
+          <li><a href="<%= agreements_path(request.query_parameters) %>">Convenios</a></li>
+          <li><a href="#">Visor de convenios</a></li>
+        <% else %>
+          <li><a href="#">Convenios</a></li>
+        <% end %>
       </ul>
     </div>
   </div>
