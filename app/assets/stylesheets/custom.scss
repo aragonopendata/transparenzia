@@ -96,11 +96,11 @@ header .logo img:hover {top:-2.32em;}
 [data-cat] li {display: inline-block; padding:0; margin:0; float:left; width:25%; position: relative;}
 [data-cat] li:first-child {border-left:1px solid #ccc;}
 [data-cat] li {border-right:1px solid #ccc; height:57px;}
-[data-cat] li a {padding:1.8em 0.6em 0 0.6em; height:57px; margin:0 0.8em; font-size: 0.74em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
-[data-cat] li a:after {content:"\3e"; top:80%; left:48%; position: absolute; width:10px; height:10px; color:$orange; -ms-transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); transform:rotate(90deg); font-family:"icon-aragon"; z-index: 100;}
+[data-cat] li a {padding:1.7em 0.6em 0 0.6em; height:57px; margin:0 0.8em; font-size: 0.74em; letter-spacing: 0.01em; line-height: 1.2em; color:$orange;}
+[data-cat] li a:after {content:"\3e"; top:70%; left:48%; position: absolute; width:10px; height:10px; color:$orange; -ms-transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); transform:rotate(90deg); font-family:"icon-aragon"; z-index: 100;}
 [data-cat] li a:hover, [data-cat] li a.active {background: transparentize($orange, 0.1); color:white;}
 [data-cat] li a.clicker, [class|="outer"] li a span { text-transform: uppercase; }
-[data-cat] li:nth-child(2) a {padding:1.4em 0.6em 0 0.6em;}
+[data-cat] li:nth-child(2) a {padding:1.2em 0.6em 0 0.6em;}
 [data-cat] li a.active {height:67px;}
 
 
