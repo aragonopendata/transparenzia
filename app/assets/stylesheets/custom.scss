@@ -133,6 +133,7 @@ div.outer-4 {right:1em; }
 .body-bg {background: $light-grey;}
 
 [data-body] {font-family: $roboto; font-weight: 300; padding-bottom: 4em;}
+[data-body] h1 {font-family: $roboto;}
 [data-body] h2 {font-size: 2.7em; letter-spacing: -1px; padding-bottom: 0.3em; font-family: $roboto;}
 [data-body] h4 {text-align: center; width:22%; float: left; padding-top:0.8em; font-size: 1.3em; color:lighten($dark, 10); font-family: $montserrat, sans-serif !important; font-weight: 400;}
 [data-body] h4.h2 {font-size: 2.7em !important; color:black; padding-top:0; letter-spacing: -1px; padding-bottom: 0.3em; font-family: $roboto !important; font-weight: 300; text-align: inherit; float: none; width:auto !important;}
