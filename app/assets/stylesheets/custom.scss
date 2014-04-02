@@ -289,7 +289,7 @@ div.outer-4 {right:1em; }
 .chart-title *, .graph-item > * {font-family: $montserrat !important; font-weight: normal !important;}
 [data-grid] .infobox {font-size:0.8em; font-weight:700; color:$dark; margin:200px auto; border:2px solid $orange; @include round(5px); box-shadow:$dark 0px 0px 10px; padding:0.4em 0.5em; background:transparentize(white, 0.6); position:absolute; left:0; top:0; display: none;}
 [data-visor] p {font-size: 1.2em; font-weight: 300; font-family: $roboto;}
-[data-visor] ul {width:48%; min-height: 130px; float:left; padding:0 0 0 2%; margin:0; border-left:1px dotted $orange;}
+[data-visor] ul {/*width:48%;*/ min-height: 130px; float:left; padding:0 0 0 2%; margin:0; /*border-left:1px dotted $orange;*/}
 [data-visor] ul li {list-style: none; font-size: 1em; font-weight: 300; font-family: $roboto; color:black;}
 [data-visor] ul li span {padding-right: 0.3em; font-family: $montserrat; font-weight: 700; font-size: 0.9em; color:$dark;}
 [data-visor] ul:last-child li:first-child {font-family: $montserrat; font-weight: 700; font-size: 0.9em; color:$dark;}
