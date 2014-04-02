@@ -158,6 +158,8 @@ div.outer-4 {right:1em; }
 [data-body] .datawall h2 {font-size: 1.9em; margin: 0.2em 0;}
 [data-body] .datawall a:hover > h2, [data-body] .datawall a:hover h5 {color:$orange; cursor: pointer;}
 [data-body] .datawall:hover {border-color:$orange;}
+[data-body] .datawall .h2 {font-size: 1.9em; margin: 0.2em 0; font-family: $roboto !important; width: auto !important; text-align: inherit; padding-top: 0; color:black; font-weight: 300;}
+[data-body] .datawall .h2:hover {color:$orange;}
 
 [data-body] .datawall h3 {font-size: 1em; font-family: $roboto; font-weight:400; margin-bottom: 1.5em;}
 [data-body] .datawall h5 {font-family: $roboto; font-weight: 200; color:black; font-size: 1.2em; text-align: center; margin:0; padding:0;}
