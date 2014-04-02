@@ -361,7 +361,7 @@ footer .logo-ft {padding-top: 0.35em;}
 
 // Generica
 .generic {width:auto !important; font-family: $roboto !important; font-weight: 300 !important; color:inherit !important;}
-h5.h2 {font-size: 2.8em; letter-spacing: -1px;}
+h5.h2, h4.h2 {font-size: 2.8em; letter-spacing: -1px;}
 iframe {background: darken($grey, 15); margin:1.5em 0 0 0; min-height: 400px; width:100%; padding:1em; color:black; text-align: center;}
 .galeria {margin:0; }
 .galeria li {display: inline-block; float: left; list-style: none; max-width:47%; margin:0.5em 1em 0.5em 0;}
