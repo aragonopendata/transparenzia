@@ -136,6 +136,7 @@ div.outer-4 {right:1em; }
 [data-body] h1 {font-family: $roboto;}
 [data-body] h2 {font-size: 2.7em; letter-spacing: -1px; padding-bottom: 0.3em; font-family: $roboto;}
 [data-body] h4 {text-align: center; width:22%; float: left; padding-top:0.8em; font-size: 1.3em; color:lighten($dark, 10); font-family: $montserrat, sans-serif !important; font-weight: 400;}
+[data-body] h4.generic-sub {text-align:left; float:none; width:inherit; padding-top:0.8em; font-size: 1.3em; color:lighten($dark, 10); font-family: $montserrat, sans-serif !important; font-weight: 400;}
 [data-body] h4.h2 {font-size: 2.7em !important; color:black; padding-top:0; letter-spacing: -1px; padding-bottom: 0.3em; font-family: $roboto !important; font-weight: 300; text-align: inherit; float: none; width:auto !important;}
 [data-body] p.sub-titulo {text-align: inherit; width: auto; font-size: 0.95em; padding-top:1.4em; margin-bottom: 0; float: none; letter-spacing: 0.05em; text-transform: uppercase; font-family: $montserrat; font-weight: 400; color:lighten($dark, 10);}
 [data-body] h5 {font-family:$montserrat; font-weight: 700; color:$dark; padding-bottom: 0.5em; font-size: 0.9em;}
