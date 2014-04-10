@@ -196,7 +196,7 @@ div.outer-4 {right:1em; }
 [data-profile] li a:hover {color:lighten($orange, 15);}
 
 // video container
-.video-cont {background: url('../img/bg-video.jpg') repeat-x;}
+.video-cont {background: url('../img/bg-video.jpg') repeat-x; background-size: auto 100%;}
 .video-inner {padding:1.1em 0; text-align: center;}
 .video-cont iframe {margin:0;}
 .no-video-spacer {border-top:1px solid darken($grey, 7);}
