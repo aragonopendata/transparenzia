@@ -55,12 +55,6 @@ GIT
       dragonfly (~> 0.9.12)
       refinerycms-core (= 3.0.0.dev)
 
-PATH
-  remote: vendor/extensions
-  specs:
-    refinerycms-members (1.0)
-      refinerycms-core (~> 3.0.0.dev)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -328,7 +322,6 @@ DEPENDENCIES
   rails (= 4.0.0)
   refinerycms!
   refinerycms-i18n!
-  refinerycms-members!
   rspec-mocks
   rspec-rails (~> 2.0)
   sass-rails (~> 4.0.0)
