@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require foundation.tab
 //= require jquery.ui.autocomplete
 //= require turbolinks
 //= require jquery.smooth-scroll
