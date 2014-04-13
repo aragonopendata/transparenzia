@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require foundation.tab
 //= require jquery.ui.autocomplete
 //= require turbolinks
 //= require jquery.smooth-scroll
@@ -22,7 +23,7 @@
 
 
 var geocoder
-$(function() {  
+$(function() {
   /*by_place_graph();
   by_department_graph();
   by_tipology_graph();
