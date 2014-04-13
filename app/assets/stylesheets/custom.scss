@@ -77,8 +77,9 @@ form {margin:0;}
 
 header {background:url('../img/header-bg.png') repeat-x;}
 header .logo {height:33px; overflow: hidden; position: relative;}
-header .logo img {width:inherit !important; position: relative; top:0;}
-header .logo img:hover {top:-2.32em;}
+header .logo h1 {padding:0; margin:0;}
+header .logo h1 img {width:inherit !important; position: relative; top:0;}
+header .logo h1:hover img {top:-0.84em;}
 // comunes menus
 [data-subcat] li a , [data-cat] li a {display: block; text-align: center; }
 // submenu superior
