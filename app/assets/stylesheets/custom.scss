@@ -150,6 +150,7 @@ div.outer-4 {right:1em; }
 [data-body] .quest {width:300px; float: left; margin:0 0.45em 0 0; padding:0.5em inherit; font-size: 2.5em; border:1px solid $orange; background: none; color:$orange; font-family:$roboto; font-weight: 300 !important;}
 [data-body] .quest:nth-child(3) {margin:0;}
 [data-body] .quest:hover {background: $orange; color:white;}
+[data-body] .quest a:hover {color:white;}
 [data-body] figure {margin:0 0 1.3em 0; padding:0; text-align: center; color:darken($dark, 15); background: white; min-height: 250px; border-bottom:1px solid lighten($dark, 30); }
 [data-body] figure:hover {border-color:$orange;}
 [data-body] figure img {position: relative; top:-0.6em;}
