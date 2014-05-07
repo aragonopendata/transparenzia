@@ -47,8 +47,8 @@ test:
   adapter: postgresql
   encoding: unicode
   database: transparenzia_test
-  username: sonicbyte
-  password: sonicbyte
+  username: 
+  password: 
   pool: 5
 
 
