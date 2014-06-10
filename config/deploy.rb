@@ -11,7 +11,7 @@ load "config/recipes/rbenv"
 load "config/recipes/sake"
 load "config/recipes/check"
 
-server "141.0.169.86", :web, :app, :db, primary: true
+server "192.81.221.169", :web, :app, :db, primary: true
 
 set :user, "deployer"
 set :application, "transparenzia"
