@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.5'
 
 gem "refinerycms", github: "refinery/refinerycms", branch: "master"
 gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
