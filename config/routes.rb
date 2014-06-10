@@ -6,10 +6,10 @@ Transparenzia::Application.routes.draw do
   #
   # We ask that you don't use the :as option here, as Refinery relies on it being the default of "refinery"
   
-  get 'personal' => 'personal#index', :as => 'personal'
-  get 'convenios(/type/:type)' => 'agreement#index', :as => 'agreements'
-  get 'convenios/buscar' => 'agreement#search', :as => 'agreement_search'
-  get 'convenios/:id' => 'agreement#show', :as => 'agreement'
+  # get 'personal' => 'personal#index', :as => 'personal'
+  # get 'convenios(/type/:type)' => 'agreement#index', :as => 'agreements'
+  # get 'convenios/buscar' => 'agreement#search', :as => 'agreement_search'
+  # get 'convenios/:id' => 'agreement#show', :as => 'agreement'
 
   mount Refinery::Core::Engine, :at => '/'
   # The priority is based upon order of creation: first created -> highest priority.
