@@ -732,7 +732,7 @@ COPY refinery_page_translations (id, refinery_page_id, locale, created_at, updat
 109	109	en	2014-02-11 23:19:28.44762	2014-02-11 23:19:28.44762	generica		generica
 93	93	en	2014-02-11 16:23:21.425874	2014-02-12 00:21:27.696909	Home		home
 110	110	es	2014-02-12 00:21:29.63837	2014-02-12 00:21:29.63837	Members	\N	members
-112	112	en	2014-02-13 12:27:18.897576	2014-02-13 12:27:53.034376	Comprueba tu nivel de transparencia		\N
+112	112	en	2014-02-13 12:27:18.897576	2014-02-13 12:27:53.034376	Comprueba tu nivel de transparencia		comprueba-tu-nivel-de-transparencia
 113	113	en	2014-02-13 13:13:26.698268	2014-02-13 13:13:26.698268	Relaciones con el ciudadano y la Sociedad		relaciones-con-el-ciudadano-y-la-sociedad
 114	114	en	2014-02-13 13:14:19.056323	2014-02-13 13:14:19.056323	Transparencia económico financiera		transparencia-economico-financiera
 115	115	en	2014-02-13 13:15:09.151244	2014-02-13 13:15:09.151244	Transparencia en las contrataciones de servicios, obras y suministros		transparencia-en-las-contrataciones-de-servicios-obras-y-suministros
