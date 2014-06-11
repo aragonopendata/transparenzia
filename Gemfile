@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.5'
 
-gem "refinerycms", github: "refinery/refinerycms", branch: "master"
-gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
-gem 'protected_attributes'
+gem "refinerycms", github: "refinery/refinerycms", ref: "b090142aab1dd85a04b1202bdd677741126ef3e9"
+gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', ref: "be2aa8b2afe6156a187f0f28250db59f3d685259"
+gem "protected_attributes"
 
 # Use postgresql as the database for Active Record
 gem 'pg'
