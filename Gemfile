@@ -10,8 +10,6 @@ gem 'protected_attributes'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-gem 'bson_ext'
-gem 'mongo'
 gem 'iconv'
 gem 'activerecord-import', '>= 0.4.0'
 
@@ -71,6 +69,3 @@ gem "capistrano", "~> 2.15.5", group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-# Performance and profiling
-gem 'newrelic_rpm'
