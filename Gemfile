@@ -66,6 +66,4 @@ gem 'unicorn'
 
 # Use Capistrano for deployment
 gem "capistrano", "~> 2.15.5", group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+gem "net-ssh", '~> 2.7.0'
