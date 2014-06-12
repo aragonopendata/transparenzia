@@ -1,4 +1,4 @@
-set_default :ruby_version, "2.0.0-p451"
+set_default :ruby_version, "2.0.0-p481"
 
 namespace :rbenv do
   desc "Install rbenv, Ruby, and the Bundler gem"
