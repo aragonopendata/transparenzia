@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226084941) do
+ActiveRecord::Schema.define(version: 20141014221014) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "agreements", force: true do |t|
     t.string   "code"
@@ -84,6 +87,8 @@ ActiveRecord::Schema.define(version: 20140226084941) do
     t.string   "image_uid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_title"
+    t.string   "image_alt"
   end
 
   create_table "refinery_members", force: true do |t|
@@ -132,6 +137,7 @@ ActiveRecord::Schema.define(version: 20140226084941) do
     t.string   "title"
     t.string   "menu_title"
     t.string   "slug"
+    t.string   "custom_slug"
   end
 
   add_index "refinery_page_translations", ["locale"], name: "index_refinery_page_translations_on_locale", using: :btree
@@ -154,6 +160,7 @@ ActiveRecord::Schema.define(version: 20140226084941) do
     t.string   "layout_template"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "custom_slug"
   end
 
   add_index "refinery_pages", ["depth"], name: "index_refinery_pages_on_depth", using: :btree

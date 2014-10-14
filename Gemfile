@@ -1,17 +1,16 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.5'
+gem 'rails', '~> 4.1.0'
 
-gem "refinerycms", github: "refinery/refinerycms", ref: "b090142aab1dd85a04b1202bdd677741126ef3e9"
-gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', ref: "be2aa8b2afe6156a187f0f28250db59f3d685259"
-gem "protected_attributes"
+gem 'refinerycms', github: 'refinery/refinerycms', branch: 'master'
+gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
 
 gem 'iconv'
-gem 'activerecord-import', '>= 0.4.0'
+#gem 'activerecord-import', '>= 0.4.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -28,7 +27,7 @@ gem 'will_paginate-foundation'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.3.0'
 gem 'jquery-ui-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
