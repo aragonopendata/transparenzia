@@ -10,11 +10,6 @@ class Agreement < ActiveRecord::Base
 
   SECTIONS = {"Con el Estado" => STATE_SECTION, "Con otras Autonomías" => AUTONOMY_SECTION, "Con Ayuntamientos y Comarcas" => LOCAL_SECTION, "Con otras Entidades Públicas" => OTHER_PUBLIC_SECTION, "Con Asociaciones, Universidades, Empresas..." => OTHER_SECTION}
 
-  attr_accessible :code, :year, :section, :title, :agreement_date, :signature_date,
-    :validity_date, :signatories, :number_of_signatories, :dga_contribution, :another_contributions, :amount,
-    :addendums, :observations, :notes, :pdf_url, :total_amount, :total_dga_contribution,
-    :dga_contribution_percentage, :normalized_section
-
   scope :valid, ->(val) { where("validity_date > ?", DateTime.now.to_date) if val == VALID}
   scope :invalid, ->(val) { where("validity_date < ?", DateTime.now.to_date) if val == INVALID}
   scope :between_dates, -> (year_ini, year_end) {
