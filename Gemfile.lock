@@ -133,7 +133,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    dragonfly (1.0.7)
+    dragonfly (1.0.6)
       addressable (~> 2.3)
       multi_json (~> 1.0)
       rack
@@ -142,7 +142,7 @@ GEM
       fog
     erubis (2.7.0)
     excon (0.40.0)
-    execjs (2.2.1)
+    execjs (2.2.2)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.2.1)
@@ -349,6 +349,7 @@ DEPENDENCIES
   capistrano (~> 2.15.5)
   capybara (~> 2.1.0)
   coffee-rails (~> 4.0.0)
+  dragonfly (= 1.0.6)
   factory_girl_rails (~> 4.2.1)
   guard-rspec (~> 3.1.0)
   iconv

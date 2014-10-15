@@ -5,6 +5,7 @@ gem 'rails', '~> 4.1.0'
 
 gem 'refinerycms', github: 'refinery/refinerycms', branch: 'master'
 gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
+gem 'dragonfly', '1.0.6'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
