@@ -271,6 +271,8 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.2)
       json (~> 1.4)
+    refinerycms-wymeditor (1.0.1)
+      refinerycms-core (~> 3.0, >= 3.0.0)
     responders (1.1.1)
       railties (>= 3.2, < 4.2)
     routing-filter (0.4.0.pre)
@@ -361,6 +363,7 @@ DEPENDENCIES
   rails (~> 4.1.0)
   refinerycms!
   refinerycms-i18n!
+  refinerycms-wymeditor (~> 1.0.1)
   rspec-mocks
   rspec-rails (~> 2.0)
   sass-rails (~> 4.0.0)
